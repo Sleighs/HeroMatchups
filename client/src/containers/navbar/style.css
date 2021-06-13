@@ -1,0 +1,63 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 24px;
+  background-color: white;
+  box-shadow: 0px 1px 1px lightgrey;
+}
+
+.navbar__container {
+  width: 100%;
+  max-width: 925px;
+  margin: auto;
+}
+
+.navbar__img {
+  height: 25px;
+  border-radius: 8px;
+}
+
+.homepage__navTitle {
+  text-decoration: none;
+  color: rgb(61, 7, 7);
+  text-shadow: 1px 1px 1px rgb(124, 0, 0);
+  line-height: 2;
+  font-size: 20px;
+}
+.homepage__navTitle::after {
+  color: rgb(61, 7, 7);
+}
+
+.navbar__loginContainer {
+  float: right;
+}
+
+.navbar__login,
+.navbar__register {
+  text-decoration: none;
+  color:black;
+  font-size: .8em;
+}
+
+.navbar__login:hover,
+.navbar__register:hover {
+  color: darkred;
+}
+
+.navbar__navRight {
+  display: block;
+  height: 25px;
+  float: right;
+  margin-top: 6px;
+}
+
+.navbar__icon {
+  margin: auto 6px;
+  color: black;
+}
+.navbar__icon::before {
+  color: black;
+}
+.navbar__icon :hover {
+  color: darkred;
+}
