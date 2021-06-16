@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { HeroMatchup } from "..";
 import heroData from "../../js/heroData";
+import './style.css';
 
 export default function HeroProfile() {
   const [currentHero, setCurrentHero] = useState(null);
@@ -15,14 +16,14 @@ export default function HeroProfile() {
 
   return (
     <div className="hero-profile">
-        <div id="hero-pics-container"><hr/></div>
+        <div id="hero-pics-container"></div>
 
         {!currentHero ? 
-          <br/> :
-          <HeroMatchup heroName={currentHero.name} matchups={currentHero.matchups}/>
+          <></> :
+          <HeroMatchup heroName={currentHero.name} matchups={currentHero.matchups} id={"-profile"}/>
         }
 
-        <label for="hero-select" id="choose-hero-text">Choose a hero:</label>
+        <label for="hero-select" id="choose-hero-text">Choose a hero: </label>
         <select name="hero-selection" id="hero-selection" onChange={(event)=>{
           getHeroData(event.target.value);
         }}>
@@ -59,8 +60,6 @@ export default function HeroProfile() {
             <option value="Zarya">Zarya</option>
             <option value="Zenyatta">Zenyatta</option>
         </select>
-        
-        
     </div>
   );
 }

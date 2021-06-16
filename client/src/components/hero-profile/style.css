@@ -1,0 +1,11 @@
+.hero-profile {
+    max-width: 980px;
+    background-color: white;
+    padding: 15px 15px;
+    margin: 15px auto;
+    border-radius: 3px;
+}
+
+.hero-profile  td {
+    font-size: 12pt;
+}

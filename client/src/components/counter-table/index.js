@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
 import heroData from "../../js/heroData";
+import './style.css';
 
 export default function CounterTable() {
   const [heroes, setHeroData] = useState(Object.entries(heroData).sort());
 
   useEffect(() => {
-    // Create table
-    var tableBody = document.getElementById("counter-table__table");
-
-    tableBody.innerHTML = '';
-
     // Create a table element and a tbody element
-    var tbl = document.createElement("table");
+    var tableBody = document.getElementById("counter-table__table");
     var tblBody = document.createElement("tbody");
+    
+    tableBody.innerHTML = '';
 
     // Create row one
     var row1 = document.createElement("tr");
@@ -31,8 +29,21 @@ export default function CounterTable() {
     // Create table rows
     for (var b = 0; b < (heroes.length ); b++){
         var row = document.createElement("tr");
+        row.className = 'counter-table__row' + b;
+        row.onClick = (event) => {
+            console.log('hello'); //event.target.value);
+
+            // Remove highlight from all rows
+            var allRows = tableBody.children;
+            /*allRows.forEach((node)=>{
+                node.classList.remove('counter-table__row-highlight')
+            });*/
+
+            // Add highlight
+            row.classList.add('counter-table__row-highlight');
+        };
+
         var rowMatchups = Object.entries(heroes[b][1]['counters']);
-        //console.log("rowMatchups", rowMatchups);
 
         for (var c = -1; c < heroes.length; c++){
             var cell = document.createElement("td");
@@ -41,6 +52,7 @@ export default function CounterTable() {
             // Add hero name before matchup values
             if (c > -1){
                 hero = heroes[c][0];
+                cell.className = 'counter-table__row-head';
             }
 
             // Create array of matchups for row
@@ -59,6 +71,7 @@ export default function CounterTable() {
                 if (matchupNames.includes(hero)){ 
                     cell.innerHTML = rowMatchups[matchupNames.indexOf(hero)][1];
                 }
+                cell.className = 'counter-table__value';
                 row.appendChild(cell);
             }
         }
@@ -69,13 +82,7 @@ export default function CounterTable() {
   return (
     <div className="counter-table">
         <h2 id="counter-table__title">OVERWATCH COUNTERS</h2>
-        <div 
-        id="counter-table__table" 
-        style={{
-            fontSize: '9pt'
-        }}>
-            
-        </div>
+        <table id="counter-table__table" ></table>
     </div>
   );
 }

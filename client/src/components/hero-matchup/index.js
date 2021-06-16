@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import heroData from "../../js/heroData";
+import './style.css';
 
-export default function HeroMatchup({ heroName , matchups }) {
+export default function HeroMatchup({ heroName , matchups, id }) {
   const [heroes, setHeroData] = useState(heroData);
 
   function heroMatchupTable() {
-    var body = document.getElementById("hero-matchup__container");
+    var body = document.getElementById("hero-matchup__container" + id);
 
     body.innerHTML = '';
 
@@ -60,7 +61,7 @@ export default function HeroMatchup({ heroName , matchups }) {
   });
 
   return (
-    <div className="" id="hero-matchup__container">
+    <div className="" id={"hero-matchup__container" + id}>
       
     </div>
   );

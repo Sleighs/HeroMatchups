@@ -6,14 +6,8 @@ import { CounterTable, HeroProfile, RandomHero } from "../../components";
 export default function Home() {
   const [alert, setAlert] = useState(true);
 
-  useEffect(
-    ()=>{
-
-    }
-  )
-
   return (
-    <div className="home" style={{width:'800px', margin: 'auto'}}>
+    <div className="home">
         <RandomHero />
         <HeroProfile />
         <CounterTable />

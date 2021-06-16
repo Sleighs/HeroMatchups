@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { HeroMatchup } from "..";
 import heroData from "../../js/heroData";
+import './style.css';
 
 export default function RandomHero() {
     const [currentHero, setCurrentHero] = useState(null);
     const [heroes, setHeroData] = useState(heroData);
     const [randomNum, setRandomNum] = useState(null);
-
-    
   
     function getNumber(max, type) {
       // Generate random number
@@ -54,9 +53,8 @@ export default function RandomHero() {
     });
 
   return (
-    <div className="">
+    <div className="random-hero__container">
       <div class="alert-container">
-        
         
       </div>
 
@@ -67,24 +65,25 @@ export default function RandomHero() {
         </h2>
   
         <div id="random-btns">
-            <button class="btn" onClick={()=>{getNumber(17, 'dps')}}>
+            <button class="random-hero__btn" onClick={()=>{getNumber(17, 'dps')}}>
             DPS
             </button>
-            <button class="btn" onClick={()=>{getNumber(8, 'tank')}}>
+            <button class="random-hero__btn" onClick={()=>{getNumber(8, 'tank')}}>
             Tank
             </button>
-            <button class="btn" onClick={()=>{getNumber(7, 'healer')}}>
+            <button class="random-hero__btn" onClick={()=>{getNumber(7, 'healer')}}>
             Healer
             </button>
-            <button class="btn hero-btn" onClick={()=>{getNumber(32, 'all')}}>
+            <button class="random-hero__btn hero-btn" onClick={()=>{getNumber(32, 'all')}}>
             All Heroes
             </button>
         </div>
       </div>
-      
-      {!currentHero ? '' :
-      <HeroMatchup heroName={currentHero.name} matchups={currentHero.matchups}/>
-      }
+      <div>
+        {!currentHero ? 
+          '' : 
+          <HeroMatchup heroName={currentHero.name} matchups={currentHero.matchups} id={"-random"}/>}
+      </div>
     </div>
   );
 }
