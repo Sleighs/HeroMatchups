@@ -90,7 +90,7 @@ var heroData = {
         Zenyatta: "++"
       }
     },
-    Wreckingball: {
+    WreckingBall: {
       type: "tank",
       counters: {
         Ana: "-",
