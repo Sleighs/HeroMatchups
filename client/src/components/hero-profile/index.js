@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import { HeroMatchup } from "..";
+import heroData from "../../js/heroData";
 
-export default function HeroProfile({ username, caption }) {
+export default function HeroProfile() {
+  const [currentHero, setCurrentHero] = useState(null);
+
+  function getHeroData(name){
+    setCurrentHero({
+      name: name,
+      matchups: Object.entries(heroData[name].counters)
+    });
+  }
+  
+
   return (
     <div className="hero-profile">
-        <div id="hero-pics-container">pics</div>
+        <div id="hero-pics-container"><hr/></div>
+
+        {!currentHero ? 
+          <br/> :
+          <HeroMatchup heroName={currentHero.name} matchups={currentHero.matchups}/>
+        }
 
         <label for="hero-select" id="choose-hero-text">Choose a hero:</label>
-        <select name="hero-selection" id="hero-selection" onChange=''>
+        <select name="hero-selection" id="hero-selection" onChange={(event)=>{
+          getHeroData(event.target.value);
+        }}>
             <option value="Ana">Ana</option>
             <option value="Ashe">Ashe</option>
             <option value="Baptiste">Baptiste</option>
@@ -40,6 +59,8 @@ export default function HeroProfile({ username, caption }) {
             <option value="Zarya">Zarya</option>
             <option value="Zenyatta">Zenyatta</option>
         </select>
+        
+        
     </div>
   );
 }
