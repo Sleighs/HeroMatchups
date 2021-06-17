@@ -1,3 +1,15 @@
 .hero-matchup  td {
     font-size: 12pt;
 }
+.hero-matchup__td-doubleplus {
+    background-color: hsl(199, 100%, 48%);
+}
+.hero-matchup__td-plus {
+    background-color: hsl(197, 94%, 87%);
+}
+.hero-matchup__td-doubleminus {
+    background-color: rgb(240, 1, 1);
+}
+.hero-matchup__td-minus {
+    background-color: rgb(255, 180, 180);
+}

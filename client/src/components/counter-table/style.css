@@ -4,6 +4,7 @@
     padding: 2px 15px;
     margin: 15px auto;
     border-radius: 3px;
+    user-select: none;
 }
 
 #counter-table__table {
@@ -12,22 +13,39 @@
     font-size: 9pt;
 }
 
-.counter-table__row-highlight {
-    background-color:aquamarine;
+.counter-table__row-highlight{
+
 }
-
-.counter-table td {
-
-    max-width: 65px;
-    min-width: 65px;
+.counter-table__table-head {
     text-align: center;
-    overflow: hidden;
+}
+.cell-highlight {
+    background-color: rgb(35, 243, 174);
 }
 
 .counter-table__row-head {
-    color: red;
+    max-width: 70px;
+    min-width: 70px;
+    text-align: right;
+
+}
+.counter-table__value {
+    max-width: 50px;
+    min-width: 50px;
+    text-align: center;
+    font-size: 10pt;
+    border: solid .5pt rgb(228, 228, 228, .3);
 }
 
-.counter-table__value {
-    
+.counter-table__td-doubleplus {
+    background-color: rgb(1, 182, 228);
+}
+.counter-table__td-plus {
+    background-color: rgb(189, 247, 255);
+}
+.counter-table__td-doubleminus {
+    background-color: rgb(240, 1, 53);
+}
+.counter-table__td-minus {
+    background-color: rgb(255, 180, 193);
 }

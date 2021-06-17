@@ -16,6 +16,7 @@ export default function CounterTable() {
     var row1 = document.createElement("tr");
     var emptyCell = document.createElement("td");
     row1.appendChild(emptyCell);
+    row1.classList.add('counter-table__table-head');
 
     // Add hero names to row 1
     for (var a = 0; a < heroes.length; a++){
@@ -30,18 +31,6 @@ export default function CounterTable() {
     for (var b = 0; b < (heroes.length ); b++){
         var row = document.createElement("tr");
         row.className = 'counter-table__row' + b;
-        row.onClick = (event) => {
-            console.log('hello'); //event.target.value);
-
-            // Remove highlight from all rows
-            var allRows = tableBody.children;
-            /*allRows.forEach((node)=>{
-                node.classList.remove('counter-table__row-highlight')
-            });*/
-
-            // Add highlight
-            row.classList.add('counter-table__row-highlight');
-        };
 
         var rowMatchups = Object.entries(heroes[b][1]['counters']);
 
@@ -52,7 +41,6 @@ export default function CounterTable() {
             // Add hero name before matchup values
             if (c > -1){
                 hero = heroes[c][0];
-                cell.className = 'counter-table__row-head';
             }
 
             // Create array of matchups for row
@@ -65,19 +53,39 @@ export default function CounterTable() {
             // Create first cell
             if (c === -1){
                cell.innerHTML = heroes[b][0]; 
+               cell.classList.add('counter-table__row-head');
                row.appendChild(cell);
             } else {
                 // Check if cell has a matchup and if so add value to cell
                 if (matchupNames.includes(hero)){ 
-                    cell.innerHTML = rowMatchups[matchupNames.indexOf(hero)][1];
+                    var eleVal = rowMatchups[matchupNames.indexOf(hero)][1]
+                    
+                    cell.innerHTML = eleVal;
+
+                    switch(eleVal){
+                        case '++':
+                            cell.classList.add('counter-table__td-doubleplus');
+                            break;
+                        case '--':
+                            cell.classList.add('counter-table__td-doubleminus');
+                            break;
+                        case '+':
+                            cell.classList.add('counter-table__td-plus');
+                            break;
+                        case '-':
+                            cell.classList.add('counter-table__td-minus');
+                           break;
+                    }
                 }
-                cell.className = 'counter-table__value';
+                cell.classList.add('counter-table__value');
+                
                 row.appendChild(cell);
             }
         }
+
         tableBody.appendChild(row);
     }
-  })
+  });
 
   return (
     <div className="counter-table">

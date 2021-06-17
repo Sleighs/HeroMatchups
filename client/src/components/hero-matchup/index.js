@@ -16,30 +16,47 @@ export default function HeroMatchup({ heroName , matchups, id }) {
     tableTitle.innerHTML = heroName + "'s Matchups";
     var tbl = document.createElement("table");
     var tblBody = document.createElement("tbody");
-
-    //get hero counters
-    
-  
    
     // Create rows and cells
     for (var i = 0; i < 2; i++) {
       var row = document.createElement("tr");
   
       for (var j = 0; j < matchups.length; j++) {
-        // Create a <td> element and a text node, make the text
-        // node the contents of the <td>, and put the <td> at
-        // the end of the table row
+        // Create a <td> element
         var cell = document.createElement("td");
         if (i === 0) {
           cell.className = "counter-hero-td";
         }
         if (i === 1) {
           cell.className = "counter-type-td";
+        
         }
   
         var cellText = document.createTextNode(matchups[j][i]);
+        /*
+        console.log(cellText);
+
+        switch(cellText){
+          case '++':
+              cell.classList.add('hero-matchup__td-doubleplus');
+              break;
+          case '--':
+              cell.classList.add('hero-matchup__td-doubleminus');
+              break;
+          case '+':
+              cell.classList.add('hero-matchup__td-plus');
+              break;
+          case '-':
+              cell.classList.add('hero-matchup-minus');
+             break;
+      }
+      */
         cell.appendChild(cellText);
         row.appendChild(cell);
+
+
+
+
       }
   
       // add the row to the end of the table body

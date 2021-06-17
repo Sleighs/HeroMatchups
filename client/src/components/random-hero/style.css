@@ -9,16 +9,23 @@
 }
 
 .random-hero__btn {
-    height: 50px;
-    width: 102px;
+    height: 40px;
+    width: 94px;
     outline: none;
-    font-size: 18px;
-    color: darkslategray;
+    font-size: 16px;
+    color: rgb(36, 46, 46);
+    background-color: rgb(190, 214, 214, .25);
     border: solid 1pt silver;
     display: inline-block;
+    border-radius: 3px;
+    margin: 0 3px;
+    box-shadow: 1px 1px 1px rgb(177, 177, 177, .2);
   }
 
   .hero-btn {
-    background-color: darkslategray;
-    color: lightgray;
+    height: 42px;
+    width: 104px;
+    background-color: rgb(42, 99, 99, .75);
+    color: white;
+    box-shadow: 1px 1px 1px rgb(177, 177, 177, .2);
   }

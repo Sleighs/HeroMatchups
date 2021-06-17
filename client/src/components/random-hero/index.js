@@ -74,7 +74,7 @@ export default function RandomHero() {
             <button class="random-hero__btn" onClick={()=>{getNumber(7, 'healer')}}>
             Healer
             </button>
-            <button class="random-hero__btn hero-btn" onClick={()=>{getNumber(32, 'all')}}>
+            <button class={'random-hero__btn hero-btn'} onClick={()=>{getNumber(32, 'all')}}>
             All Heroes
             </button>
         </div>
