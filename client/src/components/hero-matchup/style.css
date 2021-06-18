@@ -6,6 +6,9 @@
     max-width: 1080px;
     overflow: scroll;
 }
+.hero-matchup__tbody::-webkit-scrollbar {
+    display: none;
+}
 .hero-matchup td {
     font-size: 12pt;
 }

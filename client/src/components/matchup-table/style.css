@@ -12,9 +12,11 @@
 }
 #counter-table__table {
     display: block;
-    overflow: scroll; 
     font-size: 8pt;
     overflow: scroll;
+}
+#counter-table__table::-webkit-scrollbar {
+    /*display: none;*/
 }
 .counter-table__summary {
     padding: 5px 15px 0 15px;

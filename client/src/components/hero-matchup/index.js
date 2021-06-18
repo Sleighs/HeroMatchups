@@ -71,7 +71,6 @@ export default function HeroMatchup({ heroName , matchups, id, type }) {
   
   useEffect(() => {
     heroMatchupTable();
-    console.log(heroName)
   });
 
   return (

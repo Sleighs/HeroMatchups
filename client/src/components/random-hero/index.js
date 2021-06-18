@@ -52,11 +52,7 @@ export default function RandomHero() {
       setCurrentHero({
           name: name,
           matchups: Object.entries(heroes[name].counters)
-      })
-    
-      // Set counters
-      console.log(currentHero);
-  
+      });
     }
 
     useEffect(()=>{
