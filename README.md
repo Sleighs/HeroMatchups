@@ -1,4 +1,4 @@
-# Hero Pick
+# HeroPick
 
 A hero matchup companion for Overwatch.
 
