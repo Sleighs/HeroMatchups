@@ -1,6 +1,11 @@
-.hero-matchup {
-    
+.hero-matchup__container-random tbody {
+
 } 
+.hero-matchup__tbody {
+    display: block;
+    max-width: 1080px;
+    overflow: scroll;
+}
 .hero-matchup td {
     font-size: 12pt;
 }
@@ -19,18 +24,26 @@
 
 
 .counter-hero__td-random {
-    font-size: 11pt;
+    min-width: 30px;
+    font-size: 10pt;
     text-align: center;
 }
 .counter-type__td-random {
-    font-size: 11pt;
+
+    font-size: 12pt;
     text-align: center;
+    border: solid .5pt rgb(228, 228, 228, .3);
 }
 .counter-hero__td-profile {
-    font-size: 11pt;
+    min-width: 30px;
+    font-size: 10pt;
     text-align: center;
+    overflow: hidden
 }
 .counter-type__td-profile {
-    font-size: 11pt;
+    min-width: 30px;
+    max-width: 60px;
+    font-size: 12pt;
     text-align: center;
+    border: solid .5pt rgb(228, 228, 228, .3);
 }

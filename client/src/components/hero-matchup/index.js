@@ -16,6 +16,7 @@ export default function HeroMatchup({ heroName , matchups, id, type }) {
     tableTitle.innerHTML = heroName + "'s Matchups";
     var tbl = document.createElement("table");
     var tblBody = document.createElement("tbody");
+    tbl.classList.add('hero-matchup__tbody');
    
     // Create rows and cells
     for (var i = 0; i < 2; i++) {

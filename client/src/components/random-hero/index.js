@@ -3,12 +3,23 @@ import { HeroMatchup } from "..";
 import heroData from "../../js/heroData";
 import './style.css';
 
+import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
+
+const useStyles = makeStyles((theme) => ({
+      root: {
+        '& > *': {
+          margin: theme.spacing(1),
+        },
+      },
+    }));
 
 export default function RandomHero() {
     const [currentHero, setCurrentHero] = useState(null);
     const [heroes, setHeroData] = useState(heroData);
     const [randomNum, setRandomNum] = useState(null);
+
+    
   
     function getNumber(max, type) {
       // Generate random number
@@ -58,6 +69,8 @@ export default function RandomHero() {
 
     });
 
+    const btnClasses = useStyles();
+
   return (
     <div className="random-hero__container">
       <div class="alert-container">
@@ -65,28 +78,35 @@ export default function RandomHero() {
       </div>
 
       <div id="btns-container">
+        <div style={{
+          height:'50px'
+        }}>
         <h3 style={{
-          fontSize: '12pt'
-        }}>{'Get Random Hero'}</h3>
-        <h2 id="alert" style={{
-          fontSize: '14pt'
-        }}>{
-          !currentHero ? '' : currentHero.name + ' '}
-          <span id="num" style={{display: 'inline-block'}}>{/*!randomNum ? '' : '(' + randomNum + ')'*/}</span>
-        </h2>
-        
+          fontSize: '14pt',
+          display: 'inline-block'
+        }}>{'Random Hero'}</h3>
+        {
+          !currentHero ? '':
+            <h2 id="alert" style={{
+          fontSize: '16pt',
+          display: 'inline-block',
+          opacity: '.8'
+        }}>{ ': ' + currentHero.name + ' '}
+          </h2>
+        }
+        </div>
   
-        <div id="random-btns">
-            <Button class="random-hero__btn" onClick={()=>{getNumber(17, 'dps')}}>
+        <div id="random-btns" className={btnClasses.root}>
+            <Button className="random-hero__btn" onClick={()=>{getNumber(17, 'dps')}}>
             Damage
             </Button>
-            <Button class="random-hero__btn" onClick={()=>{getNumber(8, 'tank')}}>
+            <Button className="random-hero__btn" onClick={()=>{getNumber(8, 'tank')}}>
             Tank
             </Button>
-            <Button class="random-hero__btn" onClick={()=>{getNumber(7, 'healer')}}>
+            <Button className="random-hero__btn" onClick={()=>{getNumber(7, 'healer')}}>
             Healer
             </Button>
-            <Button class={'random-hero__btn hero-btn'} onClick={()=>{getNumber(32, 'all')}}>
+            <Button className={'random-hero__btn hero-btn'} onClick={()=>{getNumber(32, 'all')}}>
             All Heroes
             </Button>
         </div>

@@ -324,7 +324,7 @@ var heroData = {
         Symmetra: "+",
         Tracer: "++",
         WreckingBall: "++",
-        Zenyattle: "+"
+        Zenyatta: "+"
       }
     },
     Symmetra: {
