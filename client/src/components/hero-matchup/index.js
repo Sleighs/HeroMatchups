@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import heroData from "../../js/heroData";
 import './style.css';
 
-export default function HeroMatchup({ heroName , matchups, id }) {
+export default function HeroMatchup({ heroName , matchups, id, type }) {
   const [heroes, setHeroData] = useState(heroData);
 
   function heroMatchupTable() {
@@ -25,15 +25,17 @@ export default function HeroMatchup({ heroName , matchups, id }) {
         // Create a <td> element
         var cell = document.createElement("td");
         if (i === 0) {
-          cell.className = "counter-hero-td";
+          cell.className = "counter-hero__td" + type;
         }
         if (i === 1) {
-          cell.className = "counter-type-td";
+          cell.className = "counter-type__td" + type;
         
         }
   
         var cellText = document.createTextNode(matchups[j][i]);
         /*
+
+        // Color cells
         console.log(cellText);
 
         switch(cellText){
@@ -53,13 +55,9 @@ export default function HeroMatchup({ heroName , matchups, id }) {
       */
         cell.appendChild(cellText);
         row.appendChild(cell);
-
-
-
-
       }
   
-      // add the row to the end of the table body
+      // add the row to the table body
       tblBody.appendChild(row);
     }
   
@@ -68,9 +66,7 @@ export default function HeroMatchup({ heroName , matchups, id }) {
     // appends <table> into <body>
     body.appendChild(tableTitle);
     body.appendChild(tbl);
-    /* */
   }
-  
   
   useEffect(() => {
     heroMatchupTable();

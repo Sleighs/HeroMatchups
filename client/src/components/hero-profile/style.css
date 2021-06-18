@@ -1,11 +1,12 @@
 .hero-profile {
-    max-width: 980px;
+    max-width: 1080px;
     background-color: white;
-    padding: 15px 15px;
-    margin: 15px auto;
+    padding: 0 15px;
+    margin: 5px auto;
     border-radius: 3px;
+    /*box-shadow: 0px 0px 4px 1px rgba(153, 153, 153, 0.4);*/
 }
-
-.hero-profile  td {
-    font-size: 12pt;
+#hero-profile__hero-select {
+    padding: 10px 0;
+    height: 25px;
 }

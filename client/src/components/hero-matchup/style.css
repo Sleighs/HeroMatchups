@@ -1,4 +1,7 @@
-.hero-matchup  td {
+.hero-matchup {
+    
+} 
+.hero-matchup td {
     font-size: 12pt;
 }
 .hero-matchup__td-doubleplus {
@@ -12,4 +15,22 @@
 }
 .hero-matchup__td-minus {
     background-color: rgb(255, 180, 180);
+}
+
+
+.counter-hero__td-random {
+    font-size: 11pt;
+    text-align: center;
+}
+.counter-type__td-random {
+    font-size: 11pt;
+    text-align: center;
+}
+.counter-hero__td-profile {
+    font-size: 11pt;
+    text-align: center;
+}
+.counter-type__td-profile {
+    font-size: 11pt;
+    text-align: center;
 }

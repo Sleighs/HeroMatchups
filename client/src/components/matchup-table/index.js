@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import heroData from "../../js/heroData";
 import './style.css';
 
-export default function CounterTable() {
+export default function MatchupTable() {
   const [heroes, setHeroData] = useState(Object.entries(heroData).sort());
 
   useEffect(() => {
@@ -22,6 +22,7 @@ export default function CounterTable() {
     for (var a = 0; a < heroes.length; a++){
         var heroNameCell = document.createElement("td");
         heroNameCell.innerHTML = heroes[a][0];
+        heroNameCell.classList.add('create-table__column-head');
         row1.appendChild(heroNameCell);
     }
     
@@ -64,15 +65,19 @@ export default function CounterTable() {
 
                     switch(eleVal){
                         case '++':
+                        case '++*':
                             cell.classList.add('counter-table__td-doubleplus');
                             break;
                         case '--':
+                        case '--*':
                             cell.classList.add('counter-table__td-doubleminus');
                             break;
                         case '+':
+                        case '+*':    
                             cell.classList.add('counter-table__td-plus');
                             break;
                         case '-':
+                        case '-*':
                             cell.classList.add('counter-table__td-minus');
                            break;
                     }
@@ -89,8 +94,28 @@ export default function CounterTable() {
 
   return (
     <div className="counter-table">
-        <h2 id="counter-table__title">OVERWATCH COUNTERS</h2>
+        <hr id="matchup-hr"/>
+        <p className="counter-table__summary">This page shows an updated list of Overwatch counters for each hero. Below is a chart that shows all of the heroes and how they matchup against other heroes.</p>
+        <div id="matchup-table__title">
+            <h2>{/*OVERWATCH */} MATCHUPS</h2>
+        </div>
         <table id="counter-table__table" ></table>
+        <div className="counter-table__legend">
+            <div>
+                <div className="counter-table__legend-td">
+                    {'++ very strong'}
+                </div>
+                <div className="counter-table__legend-td">
+                    {'-- very weak'}
+                </div>
+                <div className="counter-table__legend-td">
+                    {'+ strong'}
+                </div>
+                <div className="counter-table__legend-td">
+                    {'- weak'}
+                </div>
+            </div>
+        </div>
     </div>
   );
 }

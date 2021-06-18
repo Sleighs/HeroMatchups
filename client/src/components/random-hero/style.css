@@ -1,31 +1,38 @@
 .random-hero__container {
-    width: 980px;
+    max-width: 1080px;
     background-color: white;
     border-radius: 3px;
     margin: 5px auto;
     font-size: '8pt';
     background-color: white;
-    padding: 15px 15px;
+    overflow: visible;
+    padding: 5px 15px;
+    /*box-shadow: 0px 0px 4px 1px rgba(153, 153, 153, 0.4);*/
+
 }
 
 .random-hero__btn {
-    height: 40px;
+    height: 30px;
     width: 94px;
     outline: none;
     font-size: 16px;
-    color: rgb(36, 46, 46);
-    background-color: rgb(190, 214, 214, .25);
-    border: solid 1pt silver;
+    
     display: inline-block;
-    border-radius: 3px;
+    border-radius: 5px;
     margin: 0 3px;
-    box-shadow: 1px 1px 1px rgb(177, 177, 177, .2);
+    box-shadow: 0px 0px 3px rgb(177, 177, 177, .2);
+    
+    border: solid 1pt rgb(204, 199, 158);
+    color: rgb(36, 46, 46, .7);
+    background-color: white;/* rgba(179, 247, 219, 0.1);*/
   }
 
   .hero-btn {
-    height: 42px;
+    height: 30px;
     width: 104px;
-    background-color: rgb(42, 99, 99, .75);
+    background-color: rgb(42, 99, 99, .8);
     color: white;
-    box-shadow: 1px 1px 1px rgb(177, 177, 177, .2);
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px rgb(177, 177, 177, .2);
+    border: solid 1pt rgb(204, 199, 158);
   }

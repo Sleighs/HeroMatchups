@@ -54,6 +54,7 @@ var heroData = {
       counters: {
         Baptiste: "+",
         Bastion: "+",
+        Echo: "+",
         Lucio: "+",
         McCree: "+",
         Mei: "--",
@@ -142,6 +143,7 @@ var heroData = {
       counters: {
         Ana: "-",
         Dva: "-",
+        Echo: "+",
         Genji: "-",
         Hanzo: "-",
         Junkrat: "-",
@@ -298,6 +300,7 @@ var heroData = {
       counters: {
         Bastion: "+",
         Doomfist: "+",
+        Echo: "+",
         Pharah: "+",
         Reinhardt: "-",
         Torbjorn: "++"
@@ -310,6 +313,7 @@ var heroData = {
         Brigitte: "+",
         Dva: "+",
         Doomfist: "++",
+        Echo: "+",
         Hanzo: "-",
         Junkrat: "-",
         Lucio: "+",
@@ -384,6 +388,7 @@ var heroData = {
         Baptiste: "+*",
         Bastion: "+",
         Dva: "-",
+        Echo: "+",
         Lucio: "+",
         Moira: "+",
         Pharah: "+",
@@ -402,6 +407,7 @@ var heroData = {
         Baptiste: "+",
         Doomfist: "+",
         Dva: "+*",
+        Echo: "+",
         Roadhog: "+",
         Sombra: "-",
         Soldier: "-*"
