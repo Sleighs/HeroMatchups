@@ -1,7 +1,35 @@
 .header {
     text-align: center;
     width: 100%;
+    height: 26px;
     color: #C6BABD;
-    margin-top: -15px;
+    margin-top: -6px;
     letter-spacing: 1.5px;
+    
+    user-select: none;
+    
 }
+.header a {
+  width: 125px;
+}
+.header a:link {
+    color: rgb(110, 110, 110);;
+    text-decoration: none;
+  }
+  
+  /* visited link */
+.header a:visited {
+    color: rgb(110, 110, 110);
+    text-decoration: none;
+  }
+  
+  /* mouse over link */
+.header a:hover {
+    text-decoration: none;
+  }
+  
+  /* selected link */
+.header a:active {
+    color: rgba(189, 247, 255, 0.952);
+    text-decoration: none;
+  }

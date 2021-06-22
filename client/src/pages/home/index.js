@@ -18,7 +18,7 @@ export default function Home() {
           width: '90%',
           maxWidth: '1080px',
           backgroundColor: 'white',
-          boxShadow: '0px 0px 5px 1px rgba(153, 153, 153, 0.4)',
+          boxShadow: '0px 0px 5px .5px rgba(153, 153, 153, 0.4)',
           padding: '10px 15px',
           margin: 'auto'
         }}>

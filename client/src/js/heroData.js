@@ -404,7 +404,6 @@ var heroData = {
       type: "healer",
       counters: {
         Ana: "-*",
-        Baptiste: "+",
         Doomfist: "+",
         Dva: "+*",
         Echo: "+",

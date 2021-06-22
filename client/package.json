@@ -1,7 +1,7 @@
 {
   "name": "heromatchups",
   "version": "0.2.0",
-  "homepage": "https://github.com/ded/script.js",
+  "homepage": "https://heromatchups.com",
   "author": "Samuel Wright <wsright987@gmail.com> (http://samwright.space)",
   "private": true,
   "dependencies": {

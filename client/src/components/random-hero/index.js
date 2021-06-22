@@ -69,26 +69,24 @@ export default function RandomHero() {
 
   return (
     <div className="random-hero__container">
-      <div class="alert-container">
-        
-      </div>
-
       <div id="btns-container">
         <div style={{
           height:'50px'
         }}>
         <h3 style={{
           fontSize: '14pt',
-          display: 'inline-block'
-        }}>{'Random Hero'}</h3>
+          display: 'inline-block',
+          opacity: '1',
+          color: 'darkslategray'
+        }}>Random Hero</h3>
         {
           !currentHero ? '':
-            <h2 id="alert" style={{
-          fontSize: '16pt',
+            <h3 id="alert" style={{
+          fontSize: '14pt',
           display: 'inline-block',
-          opacity: '.8'
+          opacity: '1'
         }}>{ ': ' + currentHero.name + ' '}
-          </h2>
+          </h3>
         }
         </div>
   

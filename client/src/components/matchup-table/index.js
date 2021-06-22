@@ -88,7 +88,6 @@ export default function MatchupTable() {
                     }
                 }
                 cell.classList.add('counter-table__value');
-                
                 row.appendChild(cell);
             }
         }
@@ -105,7 +104,9 @@ export default function MatchupTable() {
         </p>
         <div id="matchup-table__title">
             <h2 style={{
-                textTransform: 'uppercase'
+                textTransform: 'uppercase',
+                opacity: '1',
+                color: 'darkslategray'
             }}>{ stateManager.game + ' Matchups'}</h2>
         </div>
         <table id="counter-table__table" ></table>
