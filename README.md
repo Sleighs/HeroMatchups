@@ -1,14 +1,12 @@
-# HeroPick
+# HeroMatchups
 
-A hero matchup companion for Overwatch.
+HeroMatchups is a hero counter & matchup resource for Overwatch
 
-Hero matchup table
+### Features
+* Hero matchup chart - Including all strong and weak matchups for each hero based on hero kits, the latest competitive season and win rates 
+* Random hero picker - Receive a random hero. Choose between tank, damage or support 
+* Hero profile lookup - Check out individual hero counters and weak or strong matchups
 
-Dynamically made using character data. The result is an application that isn't game dependent and allows players to choose a game and a table will be generated from the data.
+Check it out at https://heromatchups.com/
 
-The application is made to receive a dataset of a characters and will generate a matchup table.
-
-Check it out at https://hero-pick-app.web.app/
-
-
-![](client/public/heropick-screenshot1.png)
+![](client/public/heromatchups-screenshot02.png)
