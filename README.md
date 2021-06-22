@@ -1,6 +1,6 @@
 # HeroMatchups
 
-A hero matchup companion for character based competitive games.
+A hero matchup companion for competitive video games.
 
 Check it out at https://hero-pick-app.web.app/
 
