@@ -4,7 +4,10 @@ import './style.css';
 export default function Footer() {
     return (
         <div className='footer'>
-            <p style={{fontSize: '.75em', textTransform: 'capitalize'}}>
+            <p style={{
+                fontSize: '.7em',
+                letterSpacing: '1px'
+            }}>
                 HeroMatchups &#169; 2021
                                        
                 {/*
