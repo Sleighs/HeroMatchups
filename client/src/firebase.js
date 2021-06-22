@@ -1,7 +1,8 @@
 import firebase from "firebase";
+import firebaseKey from "./firebaseKey";
 
 var firebaseConfig = {
-  apiKey: "AIzaSyCken4XuptBDHpoSey26G-fS4OI4_7TcMM",
+  apiKey: firebaseKey,
   authDomain: "hero-pick-app.firebaseapp.com",
   projectId: "hero-pick-app",
   storageBucket: "hero-pick-app.appspot.com",
