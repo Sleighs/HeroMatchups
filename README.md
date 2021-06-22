@@ -1,6 +1,6 @@
 # HeroMatchups
 
-A hero matchup companion for Overwatch.
+HeroMatchups is a hero counter & matchup resource for Overwatch
 
 ### Features
 * Hero matchup chart - Including all strong and weak matchups for each hero based on hero kits, the latest competitive season and win rates 
