@@ -9,4 +9,4 @@ A hero matchup companion for Overwatch.
 
 Check it out at https://heromatchups.com/
 
-![](client/public/heropick-screenshot1.png)
+![](client/public/heromatchups-screenshot02.png)
