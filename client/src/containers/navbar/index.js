@@ -19,13 +19,13 @@ export default function Navbar() {
       <div className="navbar__container">
         <Link to="/" className="homepage__navTitle">HeroPick</Link>
 
-        {/*<div className="navbar__navRight">
+        <div className="navbar__navRight">
           <a href="/" title="Home"><HomeOutlinedIcon className="navbar__icon"/></a>
           <a to="/inbox" title="Messages"><SendOutlinedIcon className="navbar__icon"/></a>
           <a href="/movies" title="Explore"><ExploreOutlinedIcon className="navbar__icon"/></a>
           <a href="/favorites" title="Favorites"><FavoriteBorderOutlinedIcon className="navbar__icon"/></a>
           <AccountCircleOutlinedIcon className="navbar__icon"/>
-  </div>*/}
+        </div>
       </div>
     </div>
   );

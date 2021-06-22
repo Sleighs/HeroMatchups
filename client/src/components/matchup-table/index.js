@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import heroData from "../../js/heroData";
+import stateManager from "../../js/stateManager";
 import './style.css';
 
 export default function MatchupTable() {
   const [heroes, setHeroData] = useState(Object.entries(heroData).sort());
 
   useEffect(() => {
+    // Hero matchup table
+        // Dynamically made using character data. The result is an application that isn't game dependent and allows players to choose a game and a table will be generated from the data.
+        
+
     // Create a table element and a tbody element
     var tableBody = document.getElementById("counter-table__table");
     var tblBody = document.createElement("tbody");
@@ -95,9 +100,13 @@ export default function MatchupTable() {
   return (
     <div className="counter-table">
         <hr id="matchup-hr"/>
-        <p className="counter-table__summary">This page shows an updated list of Overwatch counters for each hero. Below is a chart that shows all of the heroes and how they matchup against other heroes.</p>
+        <p className="counter-table__summary">
+            {'This page shows an updated list of counters for each hero in ' + stateManager.game + ' for the ' + stateManager.version + ' patch. The chart below shows all of the heroes and how they matchup against other heroes.'}
+        </p>
         <div id="matchup-table__title">
-            <h2>{/*OVERWATCH */} MATCHUPS</h2>
+            <h2 style={{
+                textTransform: 'uppercase'
+            }}>{ stateManager.game + ' Matchups'}</h2>
         </div>
         <table id="counter-table__table" ></table>
         <div className="counter-table__legend">

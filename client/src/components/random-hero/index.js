@@ -100,7 +100,7 @@ export default function RandomHero() {
             Tank
             </Button>
             <Button className="random-hero__btn" onClick={()=>{getNumber(7, 'healer')}}>
-            Healer
+            Support
             </Button>
             <Button className={'random-hero__btn hero-btn'} onClick={()=>{getNumber(32, 'all')}}>
             All Heroes

@@ -1,13 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
-import { Navbar } from "../../containers";
+import { Footer, Header, Navbar } from "../../containers";
 import { MatchupTable, HeroProfile, RandomHero } from "../../components";
+import stateManager from "../../js/stateManager";
 
 export default function Home() {
   const [alert, setAlert] = useState(true);
+  
+  useEffect(()=>{
+    //console.log(stateManager.game);
+  })
 
   return (
     <div className="home">
+        <Header />
         <div style={{
           width: '90%',
           maxWidth: '1080px',
@@ -21,7 +27,7 @@ export default function Home() {
           <HeroProfile />
           <MatchupTable />
         </div>
-        
+        <Footer />
     </div>
   );
 }
