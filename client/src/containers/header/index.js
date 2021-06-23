@@ -6,7 +6,7 @@ export default function Header() {
         // Get random color for link hover
         
         var randomColor = (max) => {
-            var colorVal = 'rgb(1, 182, 228)';
+            var colorVal = 'rgb(1, 182, 228, .6)';
             var randomInt = Math.floor(Math.random() * max);
 
             switch(randomInt) {
@@ -14,7 +14,7 @@ export default function Header() {
 
                     break;
                 case 1:
-                    colorVal = 'rgb(226, 13, 59, .85)';//'rgb(255, 180, 193)';
+                    colorVal = 'rgb(226, 13, 59, .6)';//'rgb(255, 180, 193)';
                     break;
             }
 
@@ -31,7 +31,6 @@ export default function Header() {
         }
 
         document.getElementsByClassName('header')[0].appendChild(style);
-        
     });
 
     return (

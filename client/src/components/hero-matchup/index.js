@@ -21,39 +21,40 @@ export default function HeroMatchup({ heroName , matchups, id, type }) {
     // Create rows and cells
     for (var i = 0; i < 2; i++) {
       var row = document.createElement("tr");
-  
+      
       for (var j = 0; j < matchups.length; j++) {
         // Create a <td> element
         var cell = document.createElement("td");
-        if (i === 0) {
-          cell.className = "counter-hero__td" + type;
-        }
-        if (i === 1) {
-          cell.className = "counter-type__td" + type;
-        
-        }
-  
         var cellText = document.createTextNode(matchups[j][i]);
-        /*
 
-        // Color cells
-        console.log(cellText);
-
-        switch(cellText){
-          case '++':
-              cell.classList.add('hero-matchup__td-doubleplus');
-              break;
-          case '--':
-              cell.classList.add('hero-matchup__td-doubleminus');
-              break;
-          case '+':
-              cell.classList.add('hero-matchup__td-plus');
-              break;
-          case '-':
-              cell.classList.add('hero-matchup-minus');
-             break;
-      }
-      */
+        if (i === 0) {
+          cell.classList.add("counter-hero__td" + type);
+        }
+ 
+        if (i === 1) {
+          cell.classList.add("counter-type__td" + type);
+            
+          // Color cells
+          switch(matchups[j][i]){
+            case '++':
+            case '++*':
+                cell.classList.add('hero-matchup__td-doubleplus');
+                break;
+            case '--':
+            case '--*':
+                cell.classList.add('hero-matchup__td-doubleminus');
+                break;
+            case '+':
+            case '+*':
+                cell.classList.add('hero-matchup__td-plus');
+                break;
+            case '-':
+            case '-*':
+                cell.classList.add('hero-matchup__td-minus');
+                break;
+          }
+        }
+      
         cell.appendChild(cellText);
         row.appendChild(cell);
       }

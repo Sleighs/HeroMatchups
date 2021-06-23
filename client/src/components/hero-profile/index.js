@@ -19,7 +19,7 @@ export default function HeroProfile() {
       <h2
         className='home-title' 
         style={{
-          fontSize: '14pt',
+          fontSize: '16pt',
           opacity: '1',
           color: 'darkslategray'
         }}

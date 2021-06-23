@@ -9,8 +9,7 @@ export default function MatchupTable() {
   useEffect(() => {
     // Hero matchup table
         // Dynamically made using character data. The result is an application that isn't game dependent and allows players to choose a game and a table will be generated from the data.
-        
-
+    
     // Create a table element and a tbody element
     var tableBody = document.getElementById("counter-table__table");
     var tblBody = document.createElement("tbody");
@@ -20,6 +19,7 @@ export default function MatchupTable() {
     // Create row one
     var row1 = document.createElement("tr");
     var emptyCell = document.createElement("td");
+    var emptyCell2 = document.createElement("td");
     row1.appendChild(emptyCell);
     row1.classList.add('counter-table__table-head');
 
@@ -30,22 +30,29 @@ export default function MatchupTable() {
         heroNameCell.classList.add('create-table__column-head');
         row1.appendChild(heroNameCell);
     }
+
+    row1.appendChild(emptyCell2);
     
     tableBody.appendChild(row1);
 
     // Create table rows
-    for (var b = 0; b < (heroes.length ); b++){
+    for (var b = 0; b < heroes.length; b++){
         var row = document.createElement("tr");
-        row.className = 'counter-table__row' + b;
+        var rowClass = 'counter-table__row' + b;
 
+        row.classList.add(rowClass);
+        
         var rowMatchups = Object.entries(heroes[b][1]['counters']);
 
-        for (var c = -1; c < heroes.length; c++){
+        for (var c = -1; c <= heroes.length; c++){
             var cell = document.createElement("td");
+            var colClass = 'counter-table__col' + c;
             var hero; 
 
+            cell.classList.add(colClass);
+
             // Add hero name before matchup values
-            if (c > -1){
+            if (c > -1 && c < heroes.length){
                 hero = heroes[c][0];
             }
 
@@ -56,11 +63,16 @@ export default function MatchupTable() {
                 matchupNames.push(rowMatchups[d][0]);
             }
 
-            // Create first cell
-            if (c === -1){
+            // Create first and last cell
+            if ((c === -1) || (c === heroes.length)){
                cell.innerHTML = heroes[b][0]; 
                cell.classList.add('counter-table__row-head');
+               
+               if (c === heroes.length){
+                   cell.classList.add('counter-table__row-head2')
+               }
                row.appendChild(cell);
+
             } else {
                 // Check if cell has a matchup and if so add value to cell
                 if (matchupNames.includes(hero)){ 
@@ -87,24 +99,70 @@ export default function MatchupTable() {
                            break;
                     }
                 }
+
                 cell.classList.add('counter-table__value');
+
+                /*
+                // Add hover effect to each column
+                var colCss = '.' + colClass + ':hover{ background-color:' + 'gray' +' }';
+                var colStyle = document.createElement('style');
+
+                if (colStyle.styleSheet) {
+                    colStyle.styleSheet.cssText = colCss;
+                } else {
+                    colStyle.appendChild(document.createTextNode(colCss));
+                }
+                */
+
                 row.appendChild(cell);
+
+                //document.getElementsByClassName(colClass)[0].appendChild(colStyle);
+
+                
             }
         }
 
         tableBody.appendChild(row);
+
+        // Add hover effect to each row
+        var rowCss = '.' + rowClass + ':hover{ background-color: rgb(208, 208, 208, 1) }';
+        var rowStyle = document.createElement('style');
+
+        if (rowStyle.styleSheet) {
+            rowStyle.styleSheet.cssText = rowCss;
+        } else {
+            rowStyle.appendChild(document.createTextNode(rowCss));
+        }
+
+        document.getElementsByClassName(rowClass)[0].appendChild(rowStyle);
     }
+
+    // Add a row of names as last row
+    var lastRow = document.createElement("tr");
+    var emptyCell3 = document.createElement("td");
+    lastRow.appendChild(emptyCell3);
+    lastRow.classList.add('counter-table__table-foot');
+
+    for (var e = 0; e < heroes.length; e++){
+        var heroNameCell = document.createElement("td");
+        heroNameCell.innerHTML = heroes[e][0];
+        heroNameCell.classList.add('create-table__column-head');
+        lastRow.appendChild(heroNameCell);
+    }
+
+    tableBody.appendChild(lastRow);
   });
 
   return (
     <div className="counter-table">
         <hr id="matchup-hr"/>
         <p className="counter-table__summary">
-            {'This page shows an updated list of counters for each hero in ' + stateManager.game + ' for the ' + stateManager.version + ' patch. The chart below shows all of the heroes and how they matchup against other heroes.'}
+            {'This page shows an updated list of counters for each hero in ' + stateManager.game + ' for the ' + stateManager.date + ' patch. The chart below shows all of the heroes and how they matchup against other heroes.'}
         </p>
         <div id="matchup-table__title">
             <h2 style={{
                 textTransform: 'uppercase',
+                fontSize: '26px',
                 opacity: '1',
                 color: 'darkslategray'
             }}>{ stateManager.game + ' Matchups'}</h2>

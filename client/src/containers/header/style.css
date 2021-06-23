@@ -30,6 +30,6 @@
   
   /* selected link */
 .header a:active {
-    color: rgba(189, 247, 255, 0.952);
+    color: rgba(189, 247, 255, 0.95);
     text-decoration: none;
   }

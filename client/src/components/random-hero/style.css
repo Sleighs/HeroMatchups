@@ -2,7 +2,7 @@
     max-width: 1080px;
     background-color: white;
     border-radius: 3px;
-    margin: 5px auto;
+    margin: 0 auto 5px auto;
     font-size: '8pt';
     background-color: white;
     overflow: visible;
@@ -27,6 +27,11 @@
     box-shadow: 0px 0px 3px rgb(177, 177, 177, .2);
     border: solid 1pt rgb(204, 199, 158);
     /* rgba(179, 247, 219, 0.1);*/
+  }
+
+  #random-btns {
+    margin: auto;
+    margin-left: -5px;
   }
 
   .hero-btn {

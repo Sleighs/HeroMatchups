@@ -74,7 +74,7 @@ export default function RandomHero() {
           height:'50px'
         }}>
         <h3 style={{
-          fontSize: '14pt',
+          fontSize: '16pt',
           display: 'inline-block',
           opacity: '1',
           color: 'darkslategray'
@@ -82,7 +82,7 @@ export default function RandomHero() {
         {
           !currentHero ? '':
             <h3 id="alert" style={{
-          fontSize: '14pt',
+          fontSize: '16pt',
           display: 'inline-block',
           opacity: '1'
         }}>{ ': ' + currentHero.name + ' '}

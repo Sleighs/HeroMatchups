@@ -8,6 +8,7 @@ export default function Home() {
     <div className="home">
         <Header />
         <div className='home__body'>
+          <div className='home__header-image'></div>
           <RandomHero />
           <hr class="home-hr"/>
           <HeroProfile />

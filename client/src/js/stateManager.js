@@ -1,6 +1,7 @@
 var stateManager = {
     game: 'Overwatch',
-    version: 'June 9th 2021'
+    date: 'June 22nd 2021',
+    version: '3.13'
 }
 
 export default stateManager;
