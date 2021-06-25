@@ -25,21 +25,26 @@
     background-color: rgb(255, 180, 193, .5);
 }
 
+.hero-matchup__table-title {
+    height: 20px;
+    margin: 20px 2px 15px 2px;
+    text-shadow: 1px 1px 1px rgb(199, 197, 197);
+    color: rgb(1, 51, 80);
+}
 
 .counter-hero__td-random {
     min-width: 30px;
-    font-size: 10pt;
+    font-size: 11pt;
     text-align: center;
 }
 .counter-type__td-random {
-
     font-size: 12pt;
     text-align: center;
     border: solid .5pt rgb(228, 228, 228, .3);
 }
 .counter-hero__td-profile {
     min-width: 30px;
-    font-size: 10pt;
+    font-size: 11pt;
     text-align: center;
     overflow: hidden
 }
@@ -50,3 +55,4 @@
     text-align: center;
     border: solid .5pt rgb(228, 228, 228, .3);
 }
+

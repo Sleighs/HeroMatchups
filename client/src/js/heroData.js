@@ -178,9 +178,12 @@ var heroData = {
         Bastion: "-",
         Baptiste: "-",
         Dva: "-",
+        McCree: "-",
         Roadhog: "-",
         Soldier76: "-",
-        Sombra: "-"
+        Sombra: "-",
+        Tracer: "+*",
+        Widowmaker: "-*"
       }
     },
     Genji: {

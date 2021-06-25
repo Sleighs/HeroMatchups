@@ -19,8 +19,6 @@ export default function RandomHero() {
     const [heroes, setHeroData] = useState(heroData);
     const [randomNum, setRandomNum] = useState(null);
 
-    
-  
     function getNumber(max, type) {
       // Generate random number
       var num = Math.floor(Math.random() * Math.floor(max)) + 1;
@@ -55,40 +53,20 @@ export default function RandomHero() {
       });
     }
 
-    useEffect(()=>{
-      
-      const getFirstHero = async (number, heroType) => {
-        getNumber(number, heroType);
-      }
-
-      //getFirstHero(32, 'all');
-
-    });
 
     const btnClasses = useStyles();
 
   return (
     <div className="random-hero__container">
       <div id="btns-container">
-        <div style={{
-          height:'50px'
-        }}>
-        <h3 style={{
-          fontSize: '16pt',
-          display: 'inline-block',
-          opacity: '1',
-          color: 'darkslategray'
-        }}>Random Hero</h3>
-        {
-          !currentHero ? '':
-            <h3 id="alert" style={{
-          fontSize: '16pt',
-          display: 'inline-block',
-          opacity: '1'
-        }}>{ ': ' + currentHero.name + ' '}
-          </h3>
-        }
+        <div>
+          <h3 className='random-hero__title'>Random Hero</h3>
+          {
+            !currentHero ? '':
+              <h3 className='random-hero__title-name'>{currentHero.name}</h3>
+          }
         </div>
+        
   
         <div id="random-btns" className={btnClasses.root}>
             <Button className="random-hero__btn" onClick={()=>{getNumber(17, 'dps')}}>

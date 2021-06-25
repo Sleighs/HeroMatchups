@@ -8,7 +8,16 @@
     /*box-shadow: 0px 0px 4px 1px rgba(153, 153, 153, 0.4);*/
 }
 #matchup-table__title {
+    display: block;
     padding: 2px 15px;
+    text-shadow: 1px 1px 1px rgb(199, 197, 197);
+    color: rgb(1, 51, 80);
+    text-transform: uppercase;
+    font-size: 24pt;
+    opacity: 1;
+    font-family: 'Khula', sans-serif;
+    height: 40px;
+    margin: 15px 0 10px 0;
 }
 #counter-table__table {
     display: block;

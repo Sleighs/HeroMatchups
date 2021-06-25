@@ -9,9 +9,10 @@ export default function Home() {
         <Header />
         <div className='home__body'>
           <div className='home__header-image'></div>
-          <RandomHero />
-          <hr class="home-hr"/>
           <HeroProfile />
+          <hr class="home-hr"/>
+          
+          <RandomHero />
           <MatchupTable />
         </div>
         <Footer />
