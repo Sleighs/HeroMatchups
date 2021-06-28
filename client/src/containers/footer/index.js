@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <div className='footer'>
             <p style={{
-                fontSize: '.7em',
+                fontSize: '.75em',
                 letterSpacing: '1px'
             }}>
                 HeroMatchups &#169; 2021

@@ -26,10 +26,12 @@
 }
 
 .hero-matchup__table-title {
-    height: 20px;
+    height: 25px;
     margin: 20px 2px 15px 2px;
     text-shadow: 1px 1px 1px rgb(199, 197, 197);
-    color: rgb(1, 51, 80);
+    color: rgba(1, 18, 27, 0.75);
+    font-size: 18pt;
+    font-family: 'Khula';
 }
 
 .counter-hero__td-random {

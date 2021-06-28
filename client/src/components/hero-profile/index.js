@@ -4,6 +4,7 @@ import heroData from "../../js/heroData";
 import './style.css';
 
 import heroPics from '../../resources/overwatch assets';
+import stateManager from "../../js/stateManager";
 
 export default function HeroProfile() {
   const [currentHero, setCurrentHero] = useState(null);
@@ -16,7 +17,6 @@ export default function HeroProfile() {
       matchups: Object.entries(heroData[name].counters)
     });
   }
-
 
   useEffect(()=>{
     // Create elements for each hero to select and view matchups 
@@ -261,7 +261,16 @@ export default function HeroProfile() {
 
   return (
     <div className="hero-profile">
-      <h2 className='hero-profile__title'>Hero Lookup</h2>
+      <h2 className='hero-profile__title'
+        title='Click hero icons for matchups'>
+          Hero Lookup
+      </h2>
+      
+      <p style={{
+        fontSize: '11pt',
+        opacity: '.7',
+        margin: '-5px 2px 20px 2px'
+      }}>{'This page shows an updated list of counters for each hero in ' + stateManager.game + ' for the ' + stateManager.date + ' patch. The matchups shown are based on aggregated data from win rates, hero kits and Overwatch community feedback. Click hero icons to check out the matchups.'}</p>
       <div id="hero-profile__pics-container"></div>
       
       {/*!currentHero ? '' :

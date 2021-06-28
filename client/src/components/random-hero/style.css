@@ -6,7 +6,7 @@
     font-size: '8pt';
     background-color: white;
     overflow: visible;
-    padding: 5px 15px;
+    padding: 15px 15px;
     /*box-shadow: 0px 0px 4px 1px rgba(153, 153, 153, 0.4);*/
 
 }
@@ -38,16 +38,18 @@
     height: 30px;
     width: 124px;
     border-radius: 5px;
-    /*color: white;
-    
+
+    /*
+    color: white;
     background-color: rgb(42, 99, 99, .8);
     box-shadow: 0px 0px 3px rgb(177, 177, 177, .2);
-    border: solid 1pt rgb(204, 199, 158);*/
+    border: solid 1pt rgb(204, 199, 158);
+    */
   }
 
   .random-hero__title {
     height: 40px;
-    font-size: 20pt;
+    font-size: 22pt;
     display: inline-block;
     margin: 2px 2px;
     color: rgb(1, 51, 80);
@@ -58,9 +60,16 @@
   }
 
   .random-hero__title-name {
-    font-size: 18pt;
+    height: 38px;
+    margin: 0 ;
+    font-size: 20pt;
     display: inline-block;
     color: rgb(68, 2, 27);
     text-shadow: 1px 1px 1px rgb(199, 197, 197);
-    margin: 2px;
+    margin-left: 3vw;
+    /*border: solid 1pt rgb(179, 177, 177, .5);*/
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px rgb(163, 162, 162);
+    padding: 2px 25px;
+    background-color: rgb(163, 162, 162, .2);
   }

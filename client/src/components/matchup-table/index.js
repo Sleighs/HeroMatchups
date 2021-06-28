@@ -156,11 +156,20 @@ export default function MatchupTable() {
   return (
     <div className="counter-table">
         <hr id="matchup-hr"/>
-        <p className="counter-table__summary">
-            {'This page shows an updated list of counters for each hero in ' + stateManager.game + ' for the ' + stateManager.date + ' patch. The chart below shows all of the heroes and how they matchup against other heroes.'}
-        </p>
+        
         <h2 id="matchup-table__title">{ stateManager.game + ' Matchups'}</h2>
+        
+        <p className="counter-table__summary"
+            style={{
+                fontSize: '11pt',
+                opacity: '.7',
+                margin: '-5px 2px 20px 2px'
+            }}>
+            {'The chart below shows all of the heroes and how they matchup against other heroes. '}
+        </p>
+        
         <table id="counter-table__table" ></table>
+
         <div className="counter-table__legend">
             <div>
                 <div className="counter-table__legend-td">

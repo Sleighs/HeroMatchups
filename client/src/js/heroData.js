@@ -52,6 +52,7 @@ var heroData = {
     Roadhog: {
       type: "tank",
       counters: {
+        Ana: "-*",
         Baptiste: "+",
         Bastion: "+",
         Echo: "+",
@@ -86,7 +87,7 @@ var heroData = {
         McCree: "+",
         Reaper: "--",
         Roadhog: "--",
-        Symmetra: "++",
+        Symmetra: "+",
         Widowmaker: "++",
         Zenyatta: "++"
       }
@@ -125,6 +126,7 @@ var heroData = {
         Brigitte: "+",
         Dva: "+",
         Doomfist: "+",
+        Hanzo: "-",
         Junkfist: "+",
         Mei: "+",
         Mercy: "+",
@@ -177,13 +179,13 @@ var heroData = {
         Ana: "-",
         Bastion: "-",
         Baptiste: "-",
-        Dva: "-",
         McCree: "-",
+        //Mei: "-",
         Roadhog: "-",
         Soldier76: "-",
-        Sombra: "-",
-        Tracer: "+*",
-        Widowmaker: "-*"
+        Sombra: "-"
+        //Tracer: "+*",
+        //Widowmaker: "-*"
       }
     },
     Genji: {
@@ -236,6 +238,7 @@ var heroData = {
       counters: {
         Dva: "-",
         Doomfist: "+",
+        Echo: "+",
         Lucio: "++",
         Mei: "-",
         Mercy: "+",
@@ -243,8 +246,8 @@ var heroData = {
         Roadhog: "-",
         Sombra: "+",
         Symmetra: "+",
-        Tracer: "++",
-        Widwomaker: "-",
+        Tracer: "+",
+        Widowmaker: "-",
         Winston: "-"
       }
     },
@@ -253,6 +256,7 @@ var heroData = {
       counters: {
         Ashe: "-",
         Dva: "+",
+        //Echo: "+",
         Lucio: "-",
         McCree: "+",
         Pharah: "-",
@@ -336,7 +340,9 @@ var heroData = {
         McCree: "-",
         Pharah: "--",
         Sombra: "-",
-        Winston: "--"
+        //Tracer: "+*",
+        Winston: "--",
+        Reinhardt: "+"
       }
     },
     Torbjorn: {
@@ -359,7 +365,7 @@ var heroData = {
         Brigitte: "-",
         Hanzo: "++",
         Junkrat: "-",
-        McCree: "--",
+        McCree: "-",
         Pharah: "-",
         Sombra: "--",
         Torbjorn: "-",
@@ -371,6 +377,7 @@ var heroData = {
       counters: {
         Bastion: "+",
         Dva: "--",
+        //Echo: "+*",
         Genji: "--",
         Hanzo: "-",
         Junkrat: "++",
@@ -396,6 +403,7 @@ var heroData = {
         Moira: "+",
         Pharah: "+",
         Reaper: "+",
+        Roadhog: "+*",
         Sigma: "-",
         Sombra: "-",
         Winston: "-",
@@ -410,9 +418,11 @@ var heroData = {
         Doomfist: "+",
         Dva: "+*",
         Echo: "+",
+        //Junkrat: "+*",
         Roadhog: "+",
         Sombra: "-",
         Soldier: "-*"
+        //Tracer: "+*"
       }
     },
     Brigitte: {
