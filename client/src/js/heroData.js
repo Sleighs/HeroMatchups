@@ -282,7 +282,8 @@ var heroData = {
         Reaper: "++",
         Reinhardt: "++",
         Soldier76: "-",
-        Symmetra: "++"
+        Symmetra: "++",
+        Widowmaker: "-"
       }
     },
     Reaper: {
@@ -384,7 +385,7 @@ var heroData = {
         McCree: "+",
         Mei: "+",
         Orisa: "-",
-        Pharah: "++",
+        Pharah: "+",
         Reinhardt: "-",
         Torbjorn: "++",
         Winston: "--",

@@ -3,6 +3,29 @@ import "./style.css";
 import { Footer, Header, Navbar } from "../../containers";
 import { MatchupTable, HeroProfile, RandomHero } from "../../components";
 
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  HatenaShareButton,
+  InstapaperShareButton,
+  LineShareButton,
+  LinkedinShareButton,
+  LivejournalShareButton,
+  MailruShareButton,
+  OKShareButton,
+  PinterestShareButton,
+  PocketShareButton,
+  RedditShareButton,
+  TelegramShareButton,
+  TumblrShareButton,
+  TwitterShareButton,
+  ViberShareButton,
+  VKShareButton,
+  WhatsappShareButton,
+  WorkplaceShareButton
+} from "react-share";
+
+
 export default function Home() {
   return (
     <div className="home">
@@ -16,6 +39,7 @@ export default function Home() {
           <MatchupTable />
         </div>
         <Footer />
+        <RedditShareButton children='hi' url='https://heromatchups.com'/>
     </div>
   );
 }

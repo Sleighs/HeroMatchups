@@ -30,6 +30,11 @@
     box-shadow: 0px 0px 2px 1px rgb(199, 197, 197);
     margin: 2px;
 }
+
+.hero-profile__hero-thumbnail:hover 
+{
+    cursor: pointer;
+}
 .hero-profile__hero-row-title {
     display: 'inline-block';
     /*width: 10px;

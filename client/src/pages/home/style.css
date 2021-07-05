@@ -18,6 +18,7 @@
     box-shadow: 0px 0px 5px .5px rgba(153, 153, 153, 0.4);
     padding: 15px 15px;
     margin: auto;
+    border-radius: 0px;
 }
 
 .home__header-image {
