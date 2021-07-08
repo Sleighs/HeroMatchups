@@ -39,7 +39,6 @@ export default function Home() {
           <MatchupTable />
         </div>
         <Footer />
-        <RedditShareButton children='hi' url='https://heromatchups.com'/>
     </div>
   );
 }
