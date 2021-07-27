@@ -14,7 +14,7 @@ var heroData = {
         Mercy: "++",
         Moira: "+",
         Pharah: "+",
-        Reaper: "-",
+        //Reaper: "-",
         Sombra: "-",
         Widowmaker: "++",
         Zarya: "--"
@@ -290,7 +290,7 @@ var heroData = {
       type: "dps",
       counters: {
         Ana: "-",
-        Dva: "+",
+        //Dva: "+",
         Junkrat: "-",
         Orisa: "+*",
         Pharah: "--",

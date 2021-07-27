@@ -270,7 +270,7 @@ export default function HeroProfile() {
         fontSize: '11pt',
         opacity: '.7',
         margin: '-5px 2px 20px 2px'
-      }}>{'This page shows an updated list of counters for each hero in ' + stateManager.game + ' for the ' + stateManager.date + ' patch. The matchups shown are based on aggregated data from win rates, hero kits and Overwatch community feedback. Click hero icons to check out the matchups.'}</p>
+      }}>{'This page shows an updated list of counters for each hero in ' + stateManager.game + ' for the ' + stateManager.date + ' patch. The matchups shown are based on aggregated data from win rates, hero kits and Overwatch community feedback. Click hero icons to view the matchups.'}</p>
       <div id="hero-profile__pics-container"></div>
       
       {/*!currentHero ? '' :
