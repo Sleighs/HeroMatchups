@@ -18,7 +18,9 @@ var heroData = {
         Sombra: "-",
         Widowmaker: "++",
         Zarya: "--"
-      }
+      },
+      difficulty: 2,
+      skill: 2,
     },
     Orisa: {
       type: "tank",
@@ -31,7 +33,9 @@ var heroData = {
         Reaper: "-",
         Torbjorn: "+",
         Widowmaker: "+"
-      }
+      },
+      difficulty: 2,
+      skill: 2,
     },
     Reinhardt: {
       type: "tank",
@@ -47,7 +51,9 @@ var heroData = {
         Soldier76: "+",
         Sombra: "-",
         Widowmaker: "+"
-      }
+      },
+      difficulty: 1,
+      skill: 1,
     },
     Roadhog: {
       type: "tank",
@@ -67,7 +73,9 @@ var heroData = {
         Winston: "++",
         WreckingBall: "+",
         Zarya: "-"
-      }
+      },
+      difficulty: 1,
+      skill: 1,
     },
     Sigma: {
       type: "tank",
@@ -76,7 +84,9 @@ var heroData = {
         Doomfist: "-",
         Lucio: "-",
         Roadhog: "+"
-      }
+      },
+      difficulty: 3,
+      skill: 3,
     },
     Winston: {
       type: "tank",
@@ -90,7 +100,9 @@ var heroData = {
         Symmetra: "+",
         Widowmaker: "++",
         Zenyatta: "++"
-      }
+      },
+      difficulty: 2,
+      skill: 2,
     },
     WreckingBall: {
       type: "tank",
@@ -102,7 +114,9 @@ var heroData = {
         Roadhog: "-",
         Sombra: "--",
         Widowmaker: "+"
-      }
+      },
+      difficulty: 3,
+      skill: 3,
     },
     Zarya: {
       type: "tank",
@@ -117,7 +131,9 @@ var heroData = {
         Roadhog: "+",
         Torbjorn: "++",
         Zenyatta: "-"
-      }
+      },
+      difficulty: 3,
+      skill: 3,
     },
     Ashe: {
       type: "dps",
@@ -138,7 +154,9 @@ var heroData = {
         Widowmaker: "-",
         Winston: "-",
         WreckingBall: "-"
-      }
+      },
+      difficulty: 2,
+      skill: 2,
     },
     Bastion: {
       type: "dps",
@@ -156,7 +174,9 @@ var heroData = {
         Widowmaker: "-",
         Winston: "++",
         Zarya: "+"
-      }
+      },
+      difficulty: 1,
+      skill: 1,
     },
     Doomfist: {
       type: "dps",
@@ -171,7 +191,9 @@ var heroData = {
         Sigma: "+",
         Soldier76: "-",
         Sombra: "--"
-      }
+      },
+      difficulty: 3,
+      skill: 3,
     },
     Echo: {
       type: "dps",
@@ -186,7 +208,9 @@ var heroData = {
         Sombra: "-"
         //Tracer: "+*",
         //Widowmaker: "-*"
-      }
+      },
+      difficulty: 2,
+      skill: 2,
     },
     Genji: {
       type: "dps",
@@ -201,7 +225,9 @@ var heroData = {
         Widowmaker: "++",
         Winston: "--",
         Zarya: "--"
-      }
+      },
+      difficulty: 3,
+      skill: 3,
     },
     Hanzo: {
       type: "dps",
@@ -215,7 +241,9 @@ var heroData = {
         Torbjorn: "+",
         Tracer: "--",
         Widowmaker: "-"
-      }
+      },
+      difficulty: 3,
+      skill: 3,
     },
     Junkrat: {
       type: "dps",
@@ -231,7 +259,9 @@ var heroData = {
         Tracer: "+",
         Widowmaker: "--",
         Zarya: "-"
-      }
+      },
+      difficulty: 2,
+      skill: 2,
     },
     McCree: {
       type: "dps",
@@ -249,7 +279,9 @@ var heroData = {
         Tracer: "+",
         Widowmaker: "-",
         Winston: "-"
-      }
+      },
+      difficulty: 2,
+      skill: 2,
     },
     Mei: {
       type: "dps",
@@ -265,7 +297,9 @@ var heroData = {
         Widowmaker: "-",
         WreckingBall: "+",
         Zarya: "-"
-      }
+      },
+      difficulty: 3,
+      skill: 3,
     },
     Pharah: {
       type: "dps",
@@ -284,7 +318,9 @@ var heroData = {
         Soldier76: "-",
         Symmetra: "++",
         Widowmaker: "-"
-      }
+      },
+      difficulty: 1,
+      skill: 1,
     },
     Reaper: {
       type: "dps",
@@ -301,7 +337,9 @@ var heroData = {
         WreckingBall: "+",
         Zarya: "+",
         Zenyatta: "++"
-      }
+      },
+      difficulty: 1,
+      skill: 1,
     },
     Soldier76: {
       type: "dps",
@@ -312,7 +350,9 @@ var heroData = {
         Pharah: "+",
         Reinhardt: "-",
         Torbjorn: "++"
-      }
+      },
+      difficulty: 1,
+      skill: 1,
     },
     Sombra: {
       type: "dps",
@@ -333,7 +373,9 @@ var heroData = {
         Tracer: "++",
         WreckingBall: "++",
         Zenyatta: "+"
-      }
+      },
+      difficulty: 3,
+      skill: 3,
     },
     Symmetra: {
       type: "dps",
@@ -344,7 +386,9 @@ var heroData = {
         //Tracer: "+*",
         Winston: "--",
         Reinhardt: "+"
-      }
+      },
+      difficulty: 2,
+      skill: 2,
     },
     Torbjorn: {
       type: "dps",
@@ -357,7 +401,9 @@ var heroData = {
         Tracer: "+",
         Widowmaker: "--",
         Zarya: "--"
-      }
+      },
+      difficulty: 2,
+      skill: 2,
     },
     Tracer: {
       type: "dps",
@@ -371,7 +417,9 @@ var heroData = {
         Sombra: "--",
         Torbjorn: "-",
         Zenyatta: "++"
-      }
+      },
+      difficulty: 2,
+      skill: 2,
     },
     Widowmaker: {
       type: "dps",
@@ -390,7 +438,9 @@ var heroData = {
         Torbjorn: "++",
         Winston: "--",
         WreckingBall: "-"
-      }
+      },
+      difficulty: 2,
+      skill: 2,
     },
     Ana: {
       type: "healer",
@@ -410,7 +460,9 @@ var heroData = {
         Winston: "-",
         WreckingBall: "+",
         Zenyatta: "+"
-      }
+      },
+      difficulty: 3,
+      skill: 3,
     },
     Baptiste: {
       type: "healer",
@@ -424,7 +476,9 @@ var heroData = {
         Sombra: "-",
         Soldier: "-*"
         //Tracer: "+*"
-      }
+      },
+      difficulty: 3,
+      skill: 3,
     },
     Brigitte: {
       type: "healer",
@@ -439,7 +493,9 @@ var heroData = {
         Sombra: "-",
         Tracer: "+",
         WreckingBall: "++"
-      }
+      },
+      difficulty: 1,
+      skill: 1,
     },
     Lucio: {
       type: "healer",
@@ -450,7 +506,9 @@ var heroData = {
         Roadhog: "-",
         Sigma: "+",
         Sombra: "-"
-      }
+      },
+      difficulty: 2,
+      skill: 2,
     },
     Mercy: {
       type: "healer",
@@ -459,7 +517,9 @@ var heroData = {
         Dva: "--",
         Genji: "--",
         McCree: "-"
-      }
+      },
+      difficulty: 1,
+      skill: 1,
     },
     Moira: {
       type: "healer",
@@ -468,7 +528,9 @@ var heroData = {
         Dva: "-",
         Orisa: "+",
         Reinhardt: "+"
-      }
+      },
+      difficulty: 2,
+      skill: 2,
     },
     Zenyatta: {
       type: "healer",
@@ -478,7 +540,9 @@ var heroData = {
         Sombra: "-",
         Tracer: "--",
         Zarya: "+"
-      }
+      },
+      difficulty: 3,
+      skill: 3,
     }
   };
 

@@ -13,6 +13,11 @@
   }
 }
 
+.dark-theme {
+  background-color: gray;
+  color: white
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import heroData from "../../js/heroData";
 import './style.css';
 
-export default function HeroMatchup({ heroName , matchups, id, type }) {
+export default function HeroMatchup({ heroName , matchups, id, type }, props) {
+  const {darkMode} = props
+
   const [heroes, setHeroData] = useState(heroData);
 
   function heroMatchupTable() {
@@ -75,7 +77,7 @@ export default function HeroMatchup({ heroName , matchups, id, type }) {
   });
 
   return (
-    <div className="" id={"hero-matchup__container" + id}>
+    <div className={!darkMode ? '' : 'dark-theme'} id={"hero-matchup__container" + id} >
       
     </div>
   );

@@ -58,3 +58,7 @@
     border: solid .5pt rgb(228, 228, 228, .3);
 }
 
+.dark-theme {
+    background-color: gray;
+    color: white
+  }
