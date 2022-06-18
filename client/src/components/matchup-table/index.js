@@ -157,7 +157,7 @@ export default function MatchupTable() {
     <div className="counter-table">
         <hr id="matchup-hr"/>
         
-        <h2 id="matchup-table__title">{ stateManager.game + ' Matchups'}</h2>
+        <h2 id="matchup-table__title" className=" __title">{ stateManager.game + ' Matchups'}</h2>
         
         <p className="counter-table__summary"
             style={{

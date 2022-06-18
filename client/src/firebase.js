@@ -1,4 +1,5 @@
 import firebase from "firebase";
+import { initializeApp } from "firebase/app";
 import firebaseKey from "./firebaseKey";
 
 var firebaseConfig = {
@@ -11,7 +12,8 @@ var firebaseConfig = {
   measurementId: "G-GZVCZS4M48"
 };
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
+//const firebaseApp = firebase.initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
 
 const db = firebaseApp.firestore();
 const auth = firebase.auth();

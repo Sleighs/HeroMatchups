@@ -16,8 +16,8 @@
     font-size: 24pt;
     opacity: 1;
     font-family: 'Khula', sans-serif;
-    height: 40px;
-    margin: 15px 0 10px 0;
+    height: fit-content;
+    margin: 15px 0 5px 0;
 }
 #counter-table__table {
     display: block;

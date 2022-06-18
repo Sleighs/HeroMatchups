@@ -14,7 +14,7 @@ export default function HeroMatchup({ heroName , matchups, id, type }, props) {
 
     // Create a table element and a tbody element
     var tableTitle = document.createElement("h3");
-    tableTitle.className = "hero-matchup__table-title";
+    tableTitle.className = "hero-matchup__table-title __title";
     tableTitle.innerHTML = heroName + "'s Matchups";
     var tbl = document.createElement("table");
     var tblBody = document.createElement("tbody");
@@ -77,7 +77,10 @@ export default function HeroMatchup({ heroName , matchups, id, type }, props) {
   });
 
   return (
-    <div className={!darkMode ? '' : 'dark-theme'} id={"hero-matchup__container" + id} >
+    <div 
+      className={!darkMode ? '' : 'dark-theme'} 
+      id={"hero-matchup__container" + id} 
+    >
       
     </div>
   );

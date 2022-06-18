@@ -48,10 +48,10 @@ const Home = () => {
     },
     homeBody: {
       backgroundColor: !darkModeToggle ? 'white' : 'black',
-      color: 'rgba(24, 22, 22, 0.8)',
+      color: !darkModeToggle ? 'rgba(24, 22, 22, 0.8)' : 'white',
     },
     darkModeBtn: {
-      
+      display: 'none',
     },
   }
 

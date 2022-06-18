@@ -3,8 +3,6 @@
     margin: 'auto';
     padding: 15px;
     font-family: 'Khula';
-
-    
 }
 
 .home-hr {
@@ -26,4 +24,14 @@
     height: 220px;
     border: solid 1pt;
     display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .__title {
+        text-align: center;
+    }
+    .home__body {
+        width: 92%;
+        padding: 10px 10px;
+    }
 }

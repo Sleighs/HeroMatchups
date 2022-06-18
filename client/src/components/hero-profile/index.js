@@ -261,7 +261,7 @@ export default function HeroProfile() {
 
   return (
     <div className="hero-profile">
-      <h2 className='hero-profile__title'
+      <h2 className='hero-profile__title __title'
         title='Click hero icons for matchups'>
           Hero Lookup
       </h2>

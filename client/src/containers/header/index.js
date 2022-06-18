@@ -39,7 +39,7 @@ export default function Header() {
               className='header-link'
               href='/' 
               style={{
-                  fontSize: '.85em',
+                  fontSize: '.9em',
                   display: 'block',
                   testDecoration: 'none',
                   margin: 'auto'

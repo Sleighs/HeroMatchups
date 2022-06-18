@@ -58,9 +58,9 @@ export default function RandomHero() {
 
   return (
     <div className="random-hero__container">
-      <div id="btns-container">
+      <div className="btns-container __title" >
         <div>
-          <h3 className='random-hero__title'>Random Hero</h3>
+          <h3 className='random-hero__title __title'>Random Hero</h3>
           {
             !currentHero ? '':
               <h3 className='random-hero__title-name'>{currentHero.name}</h3>

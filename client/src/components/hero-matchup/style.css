@@ -26,7 +26,7 @@
 }
 
 .hero-matchup__table-title {
-    height: 25px;
+    height: fit-content;
     margin: 20px 2px 15px 2px;
     text-shadow: 1px 1px 1px rgb(199, 197, 197);
     color: rgba(1, 18, 27, 0.75);

@@ -48,7 +48,8 @@
   }
 
   .random-hero__title {
-    height: 40px;
+    height: fit-content;
+    margin-bottom: 5px;
     font-size: 22pt;
     display: inline-block;
     margin: 2px 2px;
