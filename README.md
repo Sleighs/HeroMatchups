@@ -7,6 +7,6 @@ HeroMatchups is a hero counter & matchup resource for Overwatch competitive play
 * Random hero picker - Receive a random hero. Choose between tank, damage or support 
 * Hero profile lookup - Check out individual hero counters and weak or strong matchups
 
-Check it out at https://hero-pick-app.web.app/
+Check out demo at https://hero-pick-app.web.app/
 
 ![](client/public/heromatchups-screenshot02.png)
