@@ -8,13 +8,7 @@ export default function Footer() {
                 fontSize: '.75em',
                 letterSpacing: '1px'
             }}>
-                HeroMatchups &#169; 2021
-                                       
-                {/*
-                    <span>By Samuel Wright</span>
-                &nbsp; &nbsp; &nbsp;
-                <a href='https://github.com/Sleighs/HeroMatchups' style={{color: '#C6BABD'}}>GitHub</a>
-                */}
+                Hero Matchups &#169; 2021
             </p>
         </div>        
     );
