@@ -5,6 +5,7 @@ import './style.css';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 import { RequestContext } from "../../contexts/RequestContext";
+import heroPics from "../../resources/overwatch assets";
 
 const useStyles = makeStyles((theme) => ({
       root: {
@@ -63,6 +64,30 @@ export default function RandomHero(props) {
 
     const btnClasses = useStyles();
 
+    function getKeyByValue(object, value) {
+
+      return Object.keys(object).find(key => object[key] === value);
+    }
+
+
+    function getHeroPic(name){
+      var object = heroData
+      var value = name
+      //getKeyByValue(heroData, name)
+      var keys = Object.keys(object).find(key => object[key] === value)
+      var entries = Object.entries(object)
+
+      console.log('getheropick', {
+        heroData: heroData,
+        entries: entries
+      })
+      
+    }
+
+  useEffect(()=>{
+    getHeroPic("Reaper")
+  }, [])
+
   return (
     <div className="random-hero__container">
       <div className="btns-container __title" >
@@ -70,7 +95,12 @@ export default function RandomHero(props) {
           <h3 className='random-hero__title __title'>Random Hero</h3>
           {
             !currentRandomHero ? '':
-              <h3 className='random-hero__title-name'>{currentRandomHero.name}</h3>
+              <div>
+                {/*<img src={getHeroPic(currentRandomHero.name)}/>*/}
+                <h3 className='random-hero__title-name'>
+                  {currentRandomHero.name}
+                </h3>
+              </div>
           }
         </div>
         
