@@ -17,6 +17,9 @@
     padding: 15px 15px;
     margin: auto;
     border-radius: 0px;
+
+    /*background-color:rgb(29, 35, 54);*/
+    
 }
 
 .home__header-image {
@@ -25,6 +28,21 @@
     border: solid 1pt;
     display: none;
 }
+
+.page-header__container {
+    text-align: center;
+}
+.page-header__title {
+    color:rgb(255, 255, 255);
+    text-shadow: 1px 1px 1px rgba(67, 65, 65, 0.7);
+    font-size: 2.5em;
+    margin: 3% auto 2% auto; 
+    
+}
+.page-header__text {
+    opacity: .75;
+}
+
 
 @media only screen and (max-width: 768px) {
     .__title {

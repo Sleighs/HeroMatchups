@@ -1,83 +1,68 @@
 import React, { useContext, useEffect, useState, StyleSheet } from "react";
 import "./style.css";
 import { Footer, Header, Navbar } from "../../containers";
-import { MatchupTable, HeroProfile, RandomHero } from "../../components";
-
-
-import {
-  EmailShareButton,
-  FacebookShareButton,
-  HatenaShareButton,
-  InstapaperShareButton,
-  LineShareButton,
-  LinkedinShareButton,
-  LivejournalShareButton,
-  MailruShareButton,
-  OKShareButton,
-  PinterestShareButton,
-  PocketShareButton,
-  RedditShareButton,
-  TelegramShareButton,
-  TumblrShareButton,
-  TwitterShareButton,
-  ViberShareButton,
-  VKShareButton,
-  WhatsappShareButton,
-  WorkplaceShareButton
-} from "react-share";
-
+import { MatchupTable, RandomHero, HeroSelection } from "../../components";
+import ow1Data from "../../js/ow1Data";
+import ow2Data from "../../js/ow2Data";
+import { RequestContext } from "../../contexts/RequestContext";
 
 const Home = () => {
-  const [darkModeToggle, setDarkModeToggle] = useState(false);
+  const { 
+    getData,
+    getAllHeroes,
+    getSingleHero,
+    heroData,
+    setHeroData
+  } = useContext(RequestContext)
 
-  const darkMode = () => {
+  var reqCount = 0;
 
-    if (!darkModeToggle) {
-      setDarkModeToggle(true)
-    } else {
-      setDarkModeToggle(false)
-    }
-    
-    console.log('dark mode toggle', darkModeToggle)
-  }
+  useEffect(()=>{
+    getAllHeroes()
+    reqCount = reqCount + 1
+    // eslint-disable-line react-hooks/exhaustive-deps
+  }, [reqCount])
 
-  const styles = {
-    homeContainer: {
-      backgroundColor: !darkModeToggle ? 'rgba(245, 248, 239, 0.3)' : 'black',
-      color: !darkModeToggle ? 'rgba(24, 22, 22, 0.8)' : 'white',
-    },
-    homeBody: {
-      backgroundColor: !darkModeToggle ? 'white' : 'black',
-      color: !darkModeToggle ? 'rgba(24, 22, 22, 0.8)' : 'white',
-    },
-    darkModeBtn: {
-      display: 'none',
-    },
-  }
 
   return (
-    <div 
-      className="home" 
-      style={styles.homeContainer}>
-        <Header darkMode={darkModeToggle}/>
-        <div className='home__body' style={styles.homeBody}>
+    <div className="home">
+        <div className='home__body'>
           <div className='home__header-image'></div>
-          <button className='home__darkModeBtn'
-            style={styles.darkModeBtn}
-            onClick={()=>{darkMode()}}
-          >
-            Dark Mode
-          </button>
-          <HeroProfile darkMode={darkModeToggle}/>
-          <hr class="home-hr"/>
-          <RandomHero darkMode={darkModeToggle}/>
-          <MatchupTable darkMode={darkModeToggle}/>
+
+          <div className='page-header__container' >
+            <h2 className='page-header__title'>
+                Hero Matchups API
+            </h2>
+          </div>
+
+          <HeroSelection />
+          <hr className="home-hr"/>
+          <RandomHero />
+          {heroData && <MatchupTable />}
         </div>
         <Footer />
     </div>
   );
 }
 
+const Testing = (props) => {
+  const { 
+    getData,
+    getAllHeroes,
+    getSingleHero,
+    heroData,
+    setHeroData,
+    currentHero,
+    setCurrentHero
+  } = useContext(RequestContext)
 
+  return(
+    <div>    
+      <button onClick={()=>{
+        console.log(currentHero)
+        }}>Get Data</button>
+    </div>
+  )
+}
 
 export default Home

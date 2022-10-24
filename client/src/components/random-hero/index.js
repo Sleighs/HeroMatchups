@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { HeroMatchup } from "..";
-import heroData from "../../js/heroData";
 import './style.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
+import { RequestContext } from "../../contexts/RequestContext";
 
 const useStyles = makeStyles((theme) => ({
       root: {
@@ -14,12 +14,19 @@ const useStyles = makeStyles((theme) => ({
       },
     }));
 
-export default function RandomHero() {
-    const [currentHero, setCurrentHero] = useState(null);
+export default function RandomHero(props) {
+    const { 
+      heroData, 
+      currentRandomHero, 
+      getRandomHero,
+      getRandomHeroByType
+    } = useContext(RequestContext)
+
+    const [current, setCurrent] = useState(0);
     const [heroes, setHeroData] = useState(heroData);
     const [randomNum, setRandomNum] = useState(null);
 
-    function getNumber(max, type) {
+    /*function getNumber(max, type) {
       // Generate random number
       var num = Math.floor(Math.random() * Math.floor(max)) + 1;
       setRandomNum(num);
@@ -51,7 +58,7 @@ export default function RandomHero() {
           name: name,
           matchups: Object.entries(heroes[name].counters)
       });
-    }
+    }*/
 
 
     const btnClasses = useStyles();
@@ -62,31 +69,47 @@ export default function RandomHero() {
         <div>
           <h3 className='random-hero__title __title'>Random Hero</h3>
           {
-            !currentHero ? '':
-              <h3 className='random-hero__title-name'>{currentHero.name}</h3>
+            !currentRandomHero ? '':
+              <h3 className='random-hero__title-name'>{currentRandomHero.name}</h3>
           }
         </div>
         
-  
         <div id="random-btns" className={btnClasses.root}>
-            <Button className="random-hero__btn" onClick={()=>{getNumber(17, 'dps')}}>
+          <button 
+            className="random-hero__btn" 
+            onClick={()=>{getRandomHeroByType('damage')}}
+          >
             Damage
-            </Button>
-            <Button className="random-hero__btn" onClick={()=>{getNumber(8, 'tank')}}>
+          </button>
+          <button 
+            className="random-hero__btn" 
+            onClick={()=>{getRandomHeroByType('tank')}}
+          >
             Tank
-            </Button>
-            <Button className="random-hero__btn" onClick={()=>{getNumber(7, 'healer')}}>
+          </button>
+          <button 
+            className="random-hero__btn" 
+            onClick={()=>{getRandomHeroByType('support')}}
+          >
             Support
-            </Button>
-            <Button className={'random-hero__btn hero-btn'} onClick={()=>{getNumber(32, 'all')}}>
+          </button>
+          <button 
+            className={'random-hero__btn hero-btn'} 
+            onClick={()=>{getRandomHero()}}
+            >
             All Heroes
-            </Button>
+          </button>
         </div>
       </div>
       <div>
-        {!currentHero ? 
-          '' : 
-          <HeroMatchup heroName={currentHero.name} matchups={currentHero.matchups} id={"-random"} type={"-random"}/>}
+        {!currentRandomHero 
+          ? <div style={{height: 116,}}></div> 
+          : <HeroMatchup 
+              heroName={currentRandomHero.name} 
+              matchups={Object.entries(currentRandomHero.counters)} 
+              id={"-random"} 
+              type={"-random"}
+          />}
       </div>
     </div>
   );

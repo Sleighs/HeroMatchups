@@ -9,6 +9,8 @@ import echoPic from './Icon-Echo.png';
 import genjiPic from './Icon-Genji.png';
 import hanzoPic from './Icon-Hanzo.png';
 import junkratPic from './Icon-Junkrat.png';
+import junkerqueenPic from './Icon-JunkerQueen.png';
+import kirikoPic from './Icon-Kiriko.png';
 import lucioPic from './Icon-Lucio.png';
 import mccreePic from './Icon-McCree.png';
 import meiPic from './Icon-Mei.png';
@@ -20,6 +22,7 @@ import reaperPic from './Icon-Reaper.png';
 import reinhardtPic from './Icon-Reinhardt.png';
 import roadhogPic from './Icon-Roadhog.png';
 import sigmaPic from './Icon-Sigma.png';
+import sojournPic from './Icon-Sojourn.png';
 import soldier76Pic from './Icon-Soldier76.png';
 import sombraPic from './Icon-Sombra.png';
 import symmetraPic from './Icon-Symmetra.png';
@@ -43,6 +46,8 @@ const heroPics = {
     Genji: genjiPic,
     Hanzo: hanzoPic,
     Junkrat: junkratPic,
+    JunkerQueen: junkerqueenPic,
+    Kiriko: kirikoPic,
     Lucio: lucioPic,
     McCree: mccreePic,
     Mei: meiPic,
@@ -54,6 +59,7 @@ const heroPics = {
     Reinhardt: reinhardtPic,
     Roadhog: roadhogPic,
     Sigma: sigmaPic,
+    Sojourn: sojournPic,
     Soldier76: soldier76Pic,
     Sombra: sombraPic,
     Symmetra: symmetraPic,

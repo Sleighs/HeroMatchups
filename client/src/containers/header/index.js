@@ -46,7 +46,7 @@ export default function Header() {
               }}
               
             >                       
-                Hero Matchups
+                Hero Matchups (Demo)
             </a>
         </div>        
     );

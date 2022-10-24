@@ -1,6 +1,11 @@
 .hero-matchup__container-random tbody {
 
 } 
+
+.hero-matchup__container {
+    margin: auto;
+}
+
 .hero-matchup__tbody {
     display: block;
     max-width: 1080px;
@@ -22,16 +27,17 @@
     background-color: rgb(226, 13, 59, .6);
 }
 .hero-matchup__td-minus {
-    background-color: rgb(255, 180, 193, .5);
+    background-color: rgb(255, 180, 193, .8);
 }
 
 .hero-matchup__table-title {
     height: fit-content;
     margin: 20px 2px 15px 2px;
-    text-shadow: 1px 1px 1px rgb(199, 197, 197);
-    color: rgba(1, 18, 27, 0.75);
-    font-size: 18pt;
+    text-shadow: .5px .5px .5px rgb(149, 149, 149);
+    /*color: rgba(255, 255, 255);*/
+    font-size: 20pt;
     font-family: 'Khula';
+    
 }
 
 .counter-hero__td-random {
@@ -42,11 +48,11 @@
 .counter-type__td-random {
     font-size: 12pt;
     text-align: center;
-    border: solid .5pt rgb(228, 228, 228, .3);
+    border: solid .5pt rgb(228, 228, 228, .333);
 }
 .counter-hero__td-profile {
     min-width: 30px;
-    font-size: 11pt;
+    font-size: 12pt;
     text-align: center;
     overflow: hidden
 }

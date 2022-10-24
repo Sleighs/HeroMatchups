@@ -10,7 +10,7 @@
     
 }
 .header a {
-  width: 125px;
+  width: fit-content;
 }
 .header a:link {
     color: rgb(110, 110, 110);;

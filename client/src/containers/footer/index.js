@@ -8,7 +8,7 @@ export default function Footer() {
                 fontSize: '.75em',
                 letterSpacing: '1px'
             }}>
-                Hero Matchups &#169; 2021
+                Hero Matchups API &#169; 2022
             </p>
         </div>        
     );

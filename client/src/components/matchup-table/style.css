@@ -1,7 +1,5 @@
 .counter-table {
     max-width: 1080px;
-    background-color: white;
-    
     margin: 15px auto;
     border-radius: 3px;
     user-select: none;
@@ -11,7 +9,7 @@
     display: block;
     padding: 2px 15px;
     text-shadow: 1px 1px 1px rgb(199, 197, 197);
-    color: rgb(1, 51, 80);
+    /*color: rgb(1, 51, 80);*/
     text-transform: uppercase;
     font-size: 24pt;
     opacity: 1;
@@ -21,7 +19,7 @@
 }
 #counter-table__table {
     display: block;
-    font-size: 8pt;
+    font-size: 9pt;
     overflow: scroll;
 }
 #counter-table__table::-webkit-scrollbar {
@@ -29,6 +27,8 @@
 }
 .counter-table__summary {
     padding: 5px 15px 0 15px;
+    font-size: 12pt;
+    margin: -5px 2px 20px 2px;
 }
 #matchup-hr {
     opacity: .1;
@@ -57,17 +57,19 @@
 }
 .create-table__column-head {
     min-width: 40px;
-    max-width: 60px;
+    max-width: 55px;
     text-align: center;
+    overflow: auto;
 }
 .counter-table__value {
     min-width: 40px;
-    max-width: 60px;
+    max-width: 55px;
     text-align: center;
-    font-size: 10pt;
+    font-size: 10.5pt;
+    font-weight: bold;
     border: solid .5pt rgb(228, 228, 228, .3);
 }
-
+/*
 .counter-table__td-doubleplus {
     background-color: rgb(1, 182, 228, .85);
 }
@@ -79,12 +81,25 @@
 }
 .counter-table__td-minus {
     background-color: rgb(255, 180, 193, .8);
+}*/
+
+.counter-table__td-doubleplus {
+    background-color: rgb(1, 182, 228, .8);
+}
+.counter-table__td-plus {
+    background-color: rgba(183, 240, 248, .85);
+}
+.counter-table__td-doubleminus {
+    background-color: rgb(226, 13, 59, .8);
+}
+.counter-table__td-minus {
+    background-color: rgb(255, 180, 193, .85);
 }
 
 .counter-table__legend {
     width: 350px;
     margin: 5px auto;
-    font-size: 9pt;
+    font-size: 10pt;
 }
 
 .counter-table__legend-td {

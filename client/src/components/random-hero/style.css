@@ -1,10 +1,8 @@
 .random-hero__container {
     max-width: 1080px;
-    background-color: white;
     border-radius: 3px;
     margin: 0 auto 5px auto;
     font-size: '8pt';
-    background-color: white;
     overflow: visible;
     padding: 15px 15px;
     /*box-shadow: 0px 0px 4px 1px rgba(153, 153, 153, 0.4);*/
@@ -15,19 +13,20 @@
     height: 30px;
     width: 90px;
     outline: none;
-    font-size: 16px;
-    
+    font-size: 16px;  
     display: inline-block;
     border-radius: 5px;
     margin: 0 3px;
-    
-    color: rgb(36, 46, 46, .7);
-    background-color: white;
-    /*
-    box-shadow: 0px 0px 3px rgb(177, 177, 177, .2);
-    border: solid 1pt rgb(204, 199, 158);
-    /* rgba(179, 247, 219, 0.1);*/
+    color: rgb(46, 36, 39);
+    /*box-shadow: 0px 0px 3px rgb(230, 150, 2);*/
+    box-shadow: 0px 0px 5px rgb(59, 51, 38);
+    border: solid 1pt rgb(204, 199, 158, .75);
+    font-weight: bold;
+    background-color: rgb(255, 255, 255, .98);
   }
+.random-hero__btn:hover {
+  background-color: rgb(230, 150, 2);
+}
 
   #random-btns {
     margin: auto;
@@ -53,11 +52,10 @@
     font-size: 22pt;
     display: inline-block;
     margin: 2px 2px;
-    color: rgb(1, 51, 80);
-    text-shadow: 1px 1px 1px rgb(199, 197, 197);
+    /*color: rgb(1, 51, 80);
+    text-shadow: .5px .5px .5px rgb(199, 197, 197);*/
     font-family: 'Khula', sans-serif;
     text-transform: uppercase;
-    
   }
 
   .random-hero__title-name {
@@ -66,11 +64,13 @@
     font-size: 20pt;
     display: inline-block;
     color: rgb(68, 2, 27);
-    text-shadow: 1px 1px 1px rgb(199, 197, 197);
+    color: rgb(230, 150, 2);
+    text-shadow: .5px .5px .5px rgb(91, 91, 91);
     margin-left: 3vw;
     /*border: solid 1pt rgb(179, 177, 177, .5);*/
-    border-radius: 5px;
-    box-shadow: 0px 0px 3px rgb(163, 162, 162);
+    
+    box-shadow: 0px 0px 2px rgb(222, 222, 222);
     padding: 2px 25px;
-    background-color: rgb(163, 162, 162, .2);
+    border-radius: 5px;
+    background-color: rgba(87, 87, 87, 0.942);
   }
