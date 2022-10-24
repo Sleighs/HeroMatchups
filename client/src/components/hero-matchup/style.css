@@ -4,6 +4,7 @@
 
 .hero-matchup__container {
     margin: auto;
+    min-height: 125px;
 }
 
 .hero-matchup__tbody {

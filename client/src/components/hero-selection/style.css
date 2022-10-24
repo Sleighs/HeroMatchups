@@ -38,6 +38,9 @@
     box-shadow: 0px 0px 2px 1px rgb(199, 197, 197);
     margin: 2px;
 }
+.icon-highlight {
+  box-shadow: 0px 0px 3px 3px rgb(230, 150, 2);
+}
 .hero-profile__text {
     font-size: 13pt;
     margin: -5px 2px 20px 2px;

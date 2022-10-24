@@ -8,50 +8,32 @@
     /*box-shadow: 0px 0px 4px 1px rgba(153, 153, 153, 0.4);*/
 
 }
-
-.random-hero__btn {
-    height: 30px;
-    width: 90px;
-    outline: none;
-    font-size: 16px;  
-    display: inline-block;
-    border-radius: 5px;
-    margin: 0 3px;
-    color: rgb(46, 36, 39);
-    /*box-shadow: 0px 0px 3px rgb(230, 150, 2);*/
-    box-shadow: 0px 0px 5px rgb(59, 51, 38);
-    border: solid 1pt rgb(204, 199, 158, .75);
-    font-weight: bold;
-    background-color: rgb(255, 255, 255, .98);
-  }
-.random-hero__btn:hover {
-  background-color: rgb(230, 150, 2);
+.random-hero-thumbnail__container {
+  display: flex;
+  align-items: center;
+  padding: 1% 2.5%;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
+.random-hero-thumbnail__image {
+  display: 'inline-block';
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px 1px rgb(199, 197, 197);
+  margin: 2px;
 }
 
-  #random-btns {
-    margin: auto;
-    margin-left: -5px;
+  .random-hero__title-container {
+    display: flex;
+    margin-right: auto;
   }
-
-  .hero-btn {
-    height: 30px;
-    width: 124px;
-    border-radius: 5px;
-
-    /*
-    color: white;
-    background-color: rgb(42, 99, 99, .8);
-    box-shadow: 0px 0px 3px rgb(177, 177, 177, .2);
-    border: solid 1pt rgb(204, 199, 158);
-    */
-  }
-
   .random-hero__title {
     height: fit-content;
-    margin-bottom: 5px;
+    width: fit-content;
     font-size: 22pt;
-    display: inline-block;
-    margin: 2px 2px;
+    margin: 5px auto 15px auto;
     /*color: rgb(1, 51, 80);
     text-shadow: .5px .5px .5px rgb(199, 197, 197);*/
     font-family: 'Khula', sans-serif;
@@ -73,4 +55,46 @@
     padding: 2px 25px;
     border-radius: 5px;
     background-color: rgba(87, 87, 87, 0.942);
+  }
+
+  .random-hero__btn {
+    height: 32px;
+    min-width: 90px;
+    outline: none;
+    font-size: 16px;  
+    display: inline-block;
+    border-radius: 5px;
+    margin: 0 10px;
+    color: rgb(46, 36, 39);
+    /*box-shadow: 0px 0px 3px rgb(230, 150, 2);*/
+    box-shadow: 0px 0px 5px rgb(59, 51, 38);
+    border: solid 1pt rgb(204, 199, 158, .75);
+    font-weight: bold;
+    background-color: rgb(255, 255, 255, .98);
+  }
+.random-hero__btn:hover {
+  background-color: rgb(230, 150, 2);
+}
+
+  #random-btns {
+    margin: 2% auto;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+
+  }
+
+  .hero-btn {
+    height: 32px;
+    width: 140px;
+    border-radius: 5px;
+    margin: 0 2.5%;
+
+    /*
+    color: white;
+    background-color: rgb(42, 99, 99, .8);
+    box-shadow: 0px 0px 3px rgb(177, 177, 177, .2);
+    border: solid 1pt rgb(204, 199, 158);
+    */
   }

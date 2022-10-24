@@ -16,6 +16,7 @@
     font-family: 'Khula', sans-serif;
     height: fit-content;
     margin: 15px 0 5px 0;
+    text-align: center;
 }
 #counter-table__table {
     display: block;
@@ -29,6 +30,7 @@
     padding: 5px 15px 0 15px;
     font-size: 12pt;
     margin: -5px 2px 20px 2px;
+    text-align: center;
 }
 #matchup-hr {
     opacity: .1;

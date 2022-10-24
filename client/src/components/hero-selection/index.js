@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { HeroMatchup } from "..";
 import './style.css';
 
-import heroPics from '../../resources/overwatch assets';
+import heroPics from '../../resources/overwatch-assets';
 import stateManager from "../../js/stateManager";
 import { RequestContext } from "../../contexts/RequestContext";
 
@@ -14,12 +14,14 @@ export default function HeroSelection(props) {
     getSingleHero
   } = useContext(RequestContext)
 
-  //const [currentHero, setCurrentHero] = useState(null);
+  const [highlightedHero, setHighlightedHero] = useState(null);
   //const [heroes, setHeroData] = useState(Object.entries(props.heroData).sort());
+  
   const [hoverHero, setHoverHero] = useState(null);
 
-  function getHeroData(name){
+  function getHeroData(e, name){
     getSingleHero(name)
+    setHighlightedHero(name)
   }
 
   useEffect(()=>{
@@ -187,41 +189,41 @@ export default function HeroSelection(props) {
     imgZenyatta.setAttribute('title', 'Zenyatta');
 
     // Add onclick to image elements
-    imgAna.onclick = ()=>{getHeroData('Ana')};
-    imgAshe.onclick = ()=>{getHeroData('Ashe')};
-    imgBaptiste.onclick = ()=>{getHeroData('Baptiste')};
-    imgBastion.onclick = ()=>{getHeroData('Bastion')};
-    imgBrigitte.onclick = ()=>{getHeroData('Brigitte')};
-    imgDva.onclick = ()=>{getHeroData('Dva')};
-    imgDoomfist.onclick = ()=>{getHeroData('Doomfist')};
-    imgEcho.onclick = ()=>{getHeroData('Echo')};
-    imgGenji.onclick = ()=>{getHeroData('Genji')};
-    imgHanzo.onclick = ()=>{getHeroData('Hanzo')};
-    imgJunkrat.onclick = ()=>{getHeroData('Junkrat')};
-    imgJunkerQueen.onclick = ()=>{getHeroData('JunkerQueen')};
-    imgKiriko.onclick = ()=>{getHeroData('Kiriko')};
-    imgLucio.onclick = ()=>{getHeroData('Lucio')};
-    imgCassidy.onclick = ()=>{getHeroData('Cassidy')};
-    imgMei.onclick = ()=>{getHeroData('Mei')};
-    imgMercy.onclick = ()=>{getHeroData('Mercy')};
-    imgMoira.onclick = ()=>{getHeroData('Moira')};
-    imgOrisa.onclick = ()=>{getHeroData('Orisa')};
-    imgPharah.onclick = ()=>{getHeroData('Pharah')};
-    imgReaper.onclick = ()=>{getHeroData('Reaper')};
-    imgReinhardt.onclick = ()=>{getHeroData('Reinhardt')};
-    imgRoadhog.onclick = ()=>{getHeroData('Roadhog')};
-    imgSigma.onclick = ()=>{getHeroData('Sigma')};
-    imgSojourn.onclick = ()=>{getHeroData('Sojourn')};
-    imgSoldier76.onclick = ()=>{getHeroData('Soldier76')};
-    imgSombra.onclick = ()=>{getHeroData('Sombra')};
-    imgSymmetra.onclick = ()=>{getHeroData('Symmetra')};
-    imgTorbjorn.onclick = ()=>{getHeroData('Torbjorn')};
-    imgTracer.onclick = ()=>{getHeroData('Tracer')};
-    imgWidowmaker.onclick = ()=>{getHeroData('Widowmaker')};
-    imgWinston.onclick = ()=>{getHeroData('Winston')};
-    imgWreckingBall.onclick = ()=>{getHeroData('WreckingBall')};
-    imgZarya.onclick = ()=>{getHeroData('Zarya')};
-    imgZenyatta.onclick = ()=>{getHeroData('Zenyatta')};
+    imgAna.onclick = (e)=>{getHeroData(e, 'Ana')};
+    imgAshe.onclick = (e)=>{getHeroData(e, 'Ashe')};
+    imgBaptiste.onclick = (e)=>{getHeroData(e, 'Baptiste')};
+    imgBastion.onclick = (e)=>{getHeroData(e, 'Bastion')};
+    imgBrigitte.onclick = (e)=>{getHeroData(e, 'Brigitte')};
+    imgDva.onclick = (e)=>{getHeroData(e, 'Dva')};
+    imgDoomfist.onclick = (e)=>{getHeroData(e, 'Doomfist')};
+    imgEcho.onclick = (e)=>{getHeroData(e, 'Echo')};
+    imgGenji.onclick = (e)=>{getHeroData(e, 'Genji')};
+    imgHanzo.onclick = (e)=>{getHeroData(e, 'Hanzo')};
+    imgJunkrat.onclick = (e)=>{getHeroData(e, 'Junkrat')};
+    imgJunkerQueen.onclick = (e)=>{getHeroData(e, 'JunkerQueen')};
+    imgKiriko.onclick = (e)=>{getHeroData(e, 'Kiriko')};
+    imgLucio.onclick = (e)=>{getHeroData(e, 'Lucio')};
+    imgCassidy.onclick = (e)=>{getHeroData(e, 'Cassidy')};
+    imgMei.onclick = (e)=>{getHeroData(e, 'Mei')};
+    imgMercy.onclick = (e)=>{getHeroData(e, 'Mercy')};
+    imgMoira.onclick = (e)=>{getHeroData(e, 'Moira')};
+    imgOrisa.onclick = (e)=>{getHeroData(e, 'Orisa')};
+    imgPharah.onclick = (e)=>{getHeroData(e, 'Pharah')};
+    imgReaper.onclick = (e)=>{getHeroData(e, 'Reaper')};
+    imgReinhardt.onclick = (e)=>{getHeroData(e, 'Reinhardt')};
+    imgRoadhog.onclick = (e)=>{getHeroData(e, 'Roadhog')};
+    imgSigma.onclick = (e)=>{getHeroData(e, 'Sigma')};
+    imgSojourn.onclick = (e)=>{getHeroData(e, 'Sojourn')};
+    imgSoldier76.onclick = (e)=>{getHeroData(e, 'Soldier76')};
+    imgSombra.onclick = (e)=>{getHeroData(e, 'Sombra')};
+    imgSymmetra.onclick = (e)=>{getHeroData(e, 'Symmetra')};
+    imgTorbjorn.onclick = (e)=>{getHeroData(e, 'Torbjorn')};
+    imgTracer.onclick = (e)=>{getHeroData(e, 'Tracer')};
+    imgWidowmaker.onclick = (e)=>{getHeroData('Widowmaker')};
+    imgWinston.onclick = (e)=>{getHeroData(e, 'Winston')};
+    imgWreckingBall.onclick = (e)=>{getHeroData(e, 'WreckingBall')};
+    imgZarya.onclick = (e)=>{getHeroData(e, 'Zarya')};
+    imgZenyatta.onclick = (e)=>{getHeroData(e, 'Zenyatta')};
 
     // Name titles
     tankTitleEle.innerHTML = 'Tank';
@@ -278,6 +280,14 @@ export default function HeroSelection(props) {
     containerEle.appendChild(imgZenyatta);
 
     //console.log(heroPics)
+    var elements = document.querySelectorAll(`.hero-profile__hero-thumbnail`)
+    elements.forEach(item => item.classList.remove('icon-highlight'))
+
+    if (highlightedHero){
+      var updateEle = document.querySelectorAll(`.hero-profile__hero-thumbnail[title=${highlightedHero}]`)
+      updateEle[0].classList.add('icon-highlight')
+    }
+    
   });
   
 
@@ -285,7 +295,7 @@ export default function HeroSelection(props) {
     <div className="hero-profile">      
       <p className="hero-profile__text">
         <span>{
-        'The Hero Matchups API retrieves updated lists of counters for each hero in ' 
+        'The Hero Matchups API retrieves updated lists of strategic counters for each hero in ' 
         + stateManager.game 
         + ' for the ' 
         + stateManager.date 

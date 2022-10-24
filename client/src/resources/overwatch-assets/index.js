@@ -50,6 +50,7 @@ const heroPics = {
     Kiriko: kirikoPic,
     Lucio: lucioPic,
     McCree: mccreePic,
+    Cassidy: mccreePic,
     Mei: meiPic,
     Mercy: mercyPic,
     Moira: moiraPic,
