@@ -306,7 +306,7 @@ export default function HeroSelection(props) {
       <div id="hero-profile__pics-container"></div>
 
       {!currentHero 
-        ? <div style={{height: 116,}}></div> 
+        ? <div style={{height: 125,}}></div> 
         : <HeroMatchup 
           heroName={currentHero.name} 
           matchups={Object.entries(currentHero.counters)} 

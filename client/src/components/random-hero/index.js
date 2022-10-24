@@ -103,7 +103,7 @@ export default function RandomHero(props) {
       </div>
       <div>
         {!currentRandomHero 
-          ? <div style={{height: 116,}}></div> 
+          ? <div style={{height: 125,}}></div> 
           : <HeroMatchup 
               heroName={currentRandomHero.name} 
               matchups={Object.entries(currentRandomHero.counters)} 
