@@ -1,15 +1,7 @@
-import React, { useEffect, useContext, useState } from "react";
-import { RequestContext } from "../../contexts/RequestContext";
+import React, { useEffect } from "react";
 import './style.css';
 
 export default function HeroMatchup({ heroName , matchups, id, type }, props) {
-  const { 
-    heroData, 
-    getRandomHero,
-    currentHero, 
-    currentRandomHero
-  } = useContext(RequestContext)
-
   function heroMatchupTable() {
     var body = document.getElementById("hero-matchup__container" + id);
     body.innerHTML = '';
@@ -73,6 +65,7 @@ export default function HeroMatchup({ heroName , matchups, id, type }, props) {
   
     // put the <tbody> in the <table>
     tbl.appendChild(tblBody);
+
     // appends <table> into <body>
     body.appendChild(tableTitle);
     body.appendChild(tbl);

@@ -1,10 +1,13 @@
 import "./App.css";
 import { Home } from "./pages";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { ThemeContext } from "./contexts/ThemeContext";
+import { useContext } from "react";
 
 const Homepage = () => {
+  const { theme } = useContext(ThemeContext)
 	return (
-      <div className="app">
+      <div className={`app ${theme}`} >
         <Home />
       </div>
 	)

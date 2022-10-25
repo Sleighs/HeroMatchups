@@ -1,16 +1,17 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { HeroMatchup } from "..";
 import './style.css';
 import { RequestContext } from "../../contexts/RequestContext";
 import heroPics from "../../resources/overwatch-assets";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function RandomHero(props) {
     const { 
-      heroData, 
       currentRandomHero, 
       getRandomHero,
       getRandomHeroByType
     } = useContext(RequestContext)
+    const { theme } = useContext(ThemeContext)
 
     function getHeroPic(name){
       var hero = name;
@@ -42,8 +43,18 @@ export default function RandomHero(props) {
     <div className="random-hero__container">
       <div className="btns-container __title" >
         <div>
-          <h3 className='random-hero__title __title'>Random Hero</h3>
+          <h2 className={`random-hero__title __title section-heading ${theme}__title`}>Random Hero API</h2>
         </div>
+
+        <section>
+          <h3 className="resources__route-style">/random</h3> 
+          <h3 className="resources__route-style">/random/:type</h3>
+          <ul>
+            <li><strong>Description:</strong> Gets a random character. Adding a character "/type" tag retrieves a hero of the given type, choices include "tank", "damage" and "supoort".  </li>
+            <li><strong>URL:</strong> https://hero-matchups-api.herokuapp.com/random</li>
+            <li><strong>Method:</strong> GET</li>
+          </ul>
+        </section>
         
         <div id="random-btns">
           <button 
@@ -71,26 +82,23 @@ export default function RandomHero(props) {
             All Heroes
           </button>
         </div>
-        {
-            !currentRandomHero ? '':
-              <div className="random-hero-thumbnail__container">
-                <img 
-                  className='random-hero-thumbnail__image'
-                  title={currentRandomHero.name} 
-                  src={getHeroPic(currentRandomHero.name)}
-                  alt=''
-                />
-                <h3 className='random-hero__title-name'>
-                  {currentRandomHero.name}
-                </h3>
-              </div>
-          }
-          
+        {!currentRandomHero ? '':
+          <div className="random-hero-thumbnail__container">
+            <img 
+              className='random-hero-thumbnail__image'
+              title={currentRandomHero.name} 
+              src={getHeroPic(currentRandomHero.name)}
+              alt=''
+            />
+            <div className='random-hero__title-name'>
+              <h3>{currentRandomHero.name}</h3>
+            </div>
+          </div>}
       </div>
 
       <div>
         {!currentRandomHero 
-          ? <div style={{height: 125,}}></div> 
+          ? <div style={{height: 225,}}></div> 
           : <HeroMatchup 
               heroName={currentRandomHero.name} 
               matchups={Object.entries(currentRandomHero.counters)} 

@@ -3,13 +3,10 @@
     margin: 15px auto;
     border-radius: 3px;
     user-select: none;
-    /*box-shadow: 0px 0px 4px 1px rgba(153, 153, 153, 0.4);*/
 }
 #matchup-table__title {
     display: block;
     padding: 2px 15px;
-    text-shadow: 1px 1px 1px rgb(199, 197, 197);
-    /*color: rgb(1, 51, 80);*/
     text-transform: uppercase;
     font-size: 24pt;
     opacity: 1;
@@ -117,10 +114,3 @@
     font-size: 10pt;
     border: solid .5pt rgb(228, 228, 228, .35);
 }
-
-/*.counter-table__col0:hover {
-    background-color: gray;
-}
-.counter-table__col1 col:hover {
-    background-color: gray;
-}*/

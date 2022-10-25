@@ -1,19 +1,21 @@
 import React, { useContext, useEffect, useState } from "react";
 import { RequestContext } from "../../contexts/RequestContext";
+import { ThemeContext } from "../../contexts/ThemeContext";
 import stateManager from "../../js/stateManager";
 import './style.css';
 
 export default function MatchupTable(props) {
   const { heroData } = useContext(RequestContext)
-  
+  const { theme } = useContext(ThemeContext)
+
   const [heroes, setHeroes] = useState(Object.entries(heroData).sort(
     ((a, b) => (a[1].name > b[1].name) ? 1 : -1)
   ));
   
-
   useEffect(() => {
     // Hero matchup table
-        // Dynamically made using character data. The result is an application that isn't game dependent and allows players to choose a game and a table will be generated from the data.
+
+    // Suited for interchangeability between games
     
     // Create a table element and a tbody element
     var tableBody = document.getElementById("counter-table__table");
@@ -176,7 +178,7 @@ export default function MatchupTable(props) {
     <div className="counter-table">
         <hr id="matchup-hr"/>
         
-        <h2 id="matchup-table__title" className=" __title">{ stateManager.game + ' Matchups'}</h2>
+        <h2 id="matchup-table__title" className={`__title ${theme}__title`}>{ stateManager.game + ' Matchups'}</h2>
         
         <p className="counter-table__summary">
             {'The chart below shows all of the heroes and how they matchup against other heroes. '}

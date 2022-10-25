@@ -1,7 +1,3 @@
-.hero-matchup__container-random tbody {
-
-} 
-
 .hero-matchup__container {
     margin: auto;
     min-height: 125px;
@@ -34,11 +30,8 @@
 .hero-matchup__table-title {
     height: fit-content;
     margin: 20px 2px 15px 2px;
-    text-shadow: .5px .5px .5px rgb(149, 149, 149);
-    /*color: rgba(255, 255, 255);*/
     font-size: 20pt;
     font-family: 'Khula';
-    
 }
 
 .counter-hero__td-random {
@@ -64,8 +57,3 @@
     text-align: center;
     border: solid .5pt rgb(228, 228, 228, .3);
 }
-
-.dark-theme {
-    background-color: gray;
-    color: white
-  }

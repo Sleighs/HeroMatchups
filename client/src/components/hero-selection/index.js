@@ -5,19 +5,17 @@ import './style.css';
 import heroPics from '../../resources/overwatch-assets';
 import stateManager from "../../js/stateManager";
 import { RequestContext } from "../../contexts/RequestContext";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function HeroSelection(props) {
   const {
-    heroData,
     currentHero,
-    setCurrentHero,
     getSingleHero
   } = useContext(RequestContext)
 
+  const { theme } = useContext(ThemeContext)
+
   const [highlightedHero, setHighlightedHero] = useState(null);
-  //const [heroes, setHeroData] = useState(Object.entries(props.heroData).sort());
-  
-  const [hoverHero, setHoverHero] = useState(null);
 
   function getHeroData(e, name){
     getSingleHero(name)
@@ -156,17 +154,17 @@ export default function HeroSelection(props) {
     imgAshe.setAttribute('title', 'Ashe');
     imgBaptiste.setAttribute('title', 'Baptiste');
     imgBastion.setAttribute('title', 'Bastion');
-    imgBrigitte.setAttribute('title', 'Ashe');
+    imgBrigitte.setAttribute('title', 'Brigitte');
     imgDva.setAttribute('title', 'Dva');
     imgDoomfist.setAttribute('title', 'Doomfist');
     imgEcho.setAttribute('title', 'Echo');
     imgGenji.setAttribute('title', 'Genji');
     imgHanzo.setAttribute('title', 'Hanzo');
     imgJunkrat.setAttribute('title', 'Junkrat');
-    imgJunkerQueen.setAttribute('title', 'Junker Queen');
+    imgJunkerQueen.setAttribute('title', 'JunkerQueen');
     imgKiriko.setAttribute('title', 'Kiriko');
     imgLucio.setAttribute('title', 'Lucio');
-    imgCassidy.setAttribute('title', 'Cassidy (McCree)');
+    imgCassidy.setAttribute('title', 'Cassidy');
     imgMei.setAttribute('title', 'Mei');
     imgMercy.setAttribute('title', 'Mercy');
     imgMoira.setAttribute('title', 'Moira');
@@ -177,14 +175,14 @@ export default function HeroSelection(props) {
     imgRoadhog.setAttribute('title', 'Roadhog');
     imgSigma.setAttribute('title', 'Sigma');
     imgSojourn.setAttribute('title', 'Sojourn');
-    imgSoldier76.setAttribute('title', 'Soldier 76');
+    imgSoldier76.setAttribute('title', 'Soldier76');
     imgSombra.setAttribute('title', 'Sombra');
     imgSymmetra.setAttribute('title', 'Symmetra');
     imgTorbjorn.setAttribute('title', 'Torbjorn');
     imgTracer.setAttribute('title', 'Tracer');
     imgWidowmaker.setAttribute('title', 'Widowmaker');
     imgWinston.setAttribute('title', 'Winston');
-    imgWreckingBall.setAttribute('title', 'Wrecking Ball');
+    imgWreckingBall.setAttribute('title', 'WreckingBall');
     imgZarya.setAttribute('title', 'Zarya');
     imgZenyatta.setAttribute('title', 'Zenyatta');
 
@@ -219,7 +217,7 @@ export default function HeroSelection(props) {
     imgSymmetra.onclick = (e)=>{getHeroData(e, 'Symmetra')};
     imgTorbjorn.onclick = (e)=>{getHeroData(e, 'Torbjorn')};
     imgTracer.onclick = (e)=>{getHeroData(e, 'Tracer')};
-    imgWidowmaker.onclick = (e)=>{getHeroData('Widowmaker')};
+    imgWidowmaker.onclick = (e)=>{getHeroData(e, 'Widowmaker')};
     imgWinston.onclick = (e)=>{getHeroData(e, 'Winston')};
     imgWreckingBall.onclick = (e)=>{getHeroData(e, 'WreckingBall')};
     imgZarya.onclick = (e)=>{getHeroData(e, 'Zarya')};
@@ -279,7 +277,6 @@ export default function HeroSelection(props) {
     containerEle.appendChild(imgMoira);
     containerEle.appendChild(imgZenyatta);
 
-    //console.log(heroPics)
     var elements = document.querySelectorAll(`.hero-profile__hero-thumbnail`)
     elements.forEach(item => item.classList.remove('icon-highlight'))
 
@@ -287,7 +284,6 @@ export default function HeroSelection(props) {
       var updateEle = document.querySelectorAll(`.hero-profile__hero-thumbnail[title=${highlightedHero}]`)
       updateEle[0].classList.add('icon-highlight')
     }
-    
   });
   
 
@@ -307,8 +303,32 @@ export default function HeroSelection(props) {
         Check out the documentation at <a target="_blank" href="https://github.com/Sleighs/hero-matchups-api/" rel="noreferrer"> github.com/Sleighs/hero-matchups-api</a>   
       </span>
       </p>
-      
 
+      <h2 className={`section-heading ${theme}__title`}>Resources</h2>
+      
+      <p style={{textAlign: '', fontSize: '1.2em' }}>
+        <strong>Base URL:</strong> https://hero-matchups-api.herokuapp.com/
+      </p>
+      
+      <section>
+        <h3 className="resources__route-style">/heroes</h3>
+        <h3 className="resources__route-style">/heroes/:heroName</h3>
+        <ul>
+          <li><strong>Description:</strong> Retrieves information for all available heroes in JSON. Adding a "/heroName" tag retrieves only details for the specified hero.</li>
+          <li><strong>URL:</strong> https://hero-matchups-api.herokuapp.com/heroes</li>
+          <li><strong>Method:</strong> GET</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h3 className="resources__route-style">/type/:type</h3>
+        <ul>
+          <li><strong>Description:</strong> Retrieves information for all heroes of the selected type.</li>
+          <li><strong>URL:</strong> https://hero-matchups-api.herokuapp.com/type/:type</li>
+          <li><strong>Method:</strong> GET</li>
+        </ul>
+      </section>
+      
       <p className="hero-profile__text3" >
         Click hero icons to view matchups
       </p>
@@ -316,7 +336,7 @@ export default function HeroSelection(props) {
       <div id="hero-profile__pics-container"></div>
 
       {!currentHero 
-        ? <div style={{height: 125,}}></div> 
+        ? <div style={{height: 150,}}></div> 
         : <HeroMatchup 
           heroName={currentHero.name} 
           matchups={Object.entries(currentHero.counters)} 

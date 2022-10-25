@@ -17,10 +17,7 @@
     */
     padding: 15px 15px;
     margin: auto;
-    border-radius: 0px;
-
-    /*background-color:rgb(29, 35, 54);*/
-    
+    border-radius: 0px; 
 }
 
 .home__header-image {
@@ -34,16 +31,22 @@
     text-align: center;
 }
 .page-header__title {
-    color:rgb(255, 255, 255);
-    text-shadow: 1px 1px 1px rgba(67, 65, 65, 0.7);
-    font-size: 2.5em;
+    font-size: 2.55em;
     margin: 3% auto 2% auto; 
-    
 }
 .page-header__text {
     opacity: .75;
 }
 
+.resources__route-style {
+    color: rgb(230, 150, 2);
+}
+.section-heading {
+    font-family: 'Khula', sans-serif;
+    text-align: center;
+    font-size: 2.2em;
+    margin-bottom: -1%;
+}
 
 @media only screen and (max-width: 768px) {
     .__title {
