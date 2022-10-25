@@ -19,7 +19,11 @@
     margin: auto;
     border-radius: 0px; 
 }
-
+.themeToggleBtn {
+    float: right;
+    opacity: .1;
+    display: none;
+}
 .home__header-image {
     width: 99%;
     height: 220px;
