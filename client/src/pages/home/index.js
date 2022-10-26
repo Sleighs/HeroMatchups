@@ -49,14 +49,14 @@ const Home = () => {
           <div className="home-intro__text-container">
             <p className="home-intro__text">
               <span>{
-              'The Hero Matchups API retrieves updated lists of strategic counters for each hero in ' 
-              + stateManager.game 
-              + ' for the ' 
-              + stateManager.date 
-              + ' patch. The matchups shown are based on aggregated data from win rates, hero kits and ' 
-              + stateManager.game 
-              + ' community feedback. '}
-              </span>
+                'The Hero Matchups API retrieves strategic matchup information for each hero in ' 
+                + stateManager.game 
+                + ' for the ' 
+                + stateManager.date 
+                + ' patch. The available information is based on aggregated data from win rates, hero kits and ' 
+                + stateManager.game 
+                + ' community feedback. '
+              }</span>
               <span className="hero-profile__text2" >
                 Check out the repository at <a target="_blank" href="https://github.com/Sleighs/hero-matchups-api/" rel="noreferrer"> github.com/Sleighs/hero-matchups-api</a>   
               </span>
