@@ -46,11 +46,11 @@ export default function RandomHero(props) {
           <h2 className={`random-hero__title __title section-heading ${theme}__title`}>Random Hero API</h2>
         </div>
 
-        <section>
+        <section className="resources__section">
           <h3 className="resources__route-style">/random</h3> 
           <h3 className="resources__route-style">/random/:type</h3>
-          <ul>
-            <li><strong>Description:</strong> Gets a random character. Adding a character "/type" tag retrieves a hero of the given type, choices include "tank", "damage" and "supoort".  </li>
+          <ul className="resources__list">
+            <li><strong>Description:</strong> Gets a random character. The "/type" tag retrieves a random hero of the given type, choices include "tank", "damage" and "supoort".  </li>
             <li><strong>URL:</strong> https://hero-matchups-api.herokuapp.com/random</li>
             <li><strong>Method:</strong> GET</li>
           </ul>

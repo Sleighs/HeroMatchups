@@ -42,8 +42,22 @@
     opacity: .75;
 }
 
+.home-intro__text-container {
+    padding: 0 15px;
+}
+.home-intro__text {
+    font-size: 13pt;
+    margin: -5px 2px 20px 2px;
+}
+.resources__section {
+    margin-top: 3%;
+}
 .resources__route-style {
     color: rgb(230, 150, 2);
+    margin-bottom: -1.5%;
+}
+.resources__list {
+ margin-top: 2%;
 }
 .section-heading {
     font-family: 'Khula', sans-serif;

@@ -289,42 +289,37 @@ export default function HeroSelection(props) {
 
   return (
     <div className="hero-profile">      
-      <p className="hero-profile__text">
-        <span>{
-        'The Hero Matchups API retrieves updated lists of strategic counters for each hero in ' 
-        + stateManager.game 
-        + ' for the ' 
-        + stateManager.date 
-        + ' patch. The matchups shown are based on aggregated data from win rates, hero kits and ' 
-        + stateManager.game 
-        + ' community feedback. '}
-        </span>
-        <span className="hero-profile__text2" >
-        Check out the documentation at <a target="_blank" href="https://github.com/Sleighs/hero-matchups-api/" rel="noreferrer"> github.com/Sleighs/hero-matchups-api</a>   
-      </span>
-      </p>
-
       <h2 className={`section-heading ${theme}__title`}>Resources</h2>
       
       <p style={{textAlign: '', fontSize: '1.2em' }}>
         <strong>Base URL:</strong> https://hero-matchups-api.herokuapp.com/
       </p>
       
-      <section>
+      <section className="resources__section">
         <h3 className="resources__route-style">/heroes</h3>
         <h3 className="resources__route-style">/heroes/:heroName</h3>
-        <ul>
-          <li><strong>Description:</strong> Retrieves information for all available heroes in JSON. Adding a "/heroName" tag retrieves only details for the specified hero.</li>
+        <ul className="resources__list">
+          <li><strong>Description:</strong> Retrieves information for all available heroes in JSON. The "heroName" tag retrieves details for only the specified hero.</li>
           <li><strong>URL:</strong> https://hero-matchups-api.herokuapp.com/heroes</li>
           <li><strong>Method:</strong> GET</li>
         </ul>
       </section>
       
-      <section>
+      <section className="resources__section">
         <h3 className="resources__route-style">/type/:type</h3>
-        <ul>
+        <ul className="resources__list">
           <li><strong>Description:</strong> Retrieves information for all heroes of the selected type.</li>
           <li><strong>URL:</strong> https://hero-matchups-api.herokuapp.com/type/:type</li>
+          <li><strong>Method:</strong> GET</li>
+        </ul>
+      </section>
+
+      <section className="resources__section">
+        <h3 className="resources__route-style">/archetype/</h3>
+        <h3 className="resources__route-style">/archetype/:archetypeName</h3>
+        <ul className="resources__list">
+          <li><strong>Description:</strong> The "/archetype" route lists all available hero archetypes. The "archetypeName" tag retrieves all heroes of the selected archetype.</li>
+          <li><strong>URL:</strong> https://hero-matchups-api.herokuapp.com/archetype/:archeTypeName</li>
           <li><strong>Method:</strong> GET</li>
         </ul>
       </section>
@@ -336,7 +331,7 @@ export default function HeroSelection(props) {
       <div id="hero-profile__pics-container"></div>
 
       {!currentHero 
-        ? <div style={{height: 150,}}></div> 
+        ? <div style={{height: 155,}}></div> 
         : <HeroMatchup 
           heroName={currentHero.name} 
           matchups={Object.entries(currentHero.counters)} 
@@ -344,7 +339,6 @@ export default function HeroSelection(props) {
           type={"-profile"}
         />
       }
-
       <div id="hero-profile__hero-select">
         <label 
           for="hero-select" 
@@ -384,7 +378,7 @@ export default function HeroSelection(props) {
             <option value="Roadhog">Roadhog</option>
             <option value="Sigma">Sigma</option>
             <option value="Sojourn">Sojourn</option>
-            <option value="Soldier76">Soldier 76</option>
+            <option value="Soldier76">Soldier: 76</option>
             <option value="Sombra">Sombra</option>
             <option value="Symmetra">Symmetra</option>
             <option value="Torbjorn">Torbjorn</option>

@@ -20,15 +20,17 @@
 
 #hero-profile__hero-select {
     padding: 10px 0;
+    width: fit-content;
     height: 25px;
-    opacity: 1;
-    margin: 10px 2px 0 2px;
+    margin: 10px auto 25px auto;
+    
 }
 #choose-hero-text {
     font-size: 14.5pt;
 }
 #hero-selection {
     font-size: 13pt;
+    opacity: .5;
 }
 .hero-profile__hero-thumbnail {
     display: 'inline-block';
