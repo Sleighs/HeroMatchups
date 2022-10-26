@@ -215,7 +215,7 @@ export default function HeroSelection(props) {
     imgSoldier76.onclick = (e)=>{getHeroData(e, 'Soldier76')};
     imgSombra.onclick = (e)=>{getHeroData(e, 'Sombra')};
     imgSymmetra.onclick = (e)=>{getHeroData(e, 'Symmetra')};
-    imgTorbjorn.onclick = (e)=>{getHeroData(e, 'Torbjorn')};
+    imgTorbjorn.onclick = (e)=>{getHeroData(e, 'Torbjorn')}; //Torbjörn
     imgTracer.onclick = (e)=>{getHeroData(e, 'Tracer')};
     imgWidowmaker.onclick = (e)=>{getHeroData(e, 'Widowmaker')};
     imgWinston.onclick = (e)=>{getHeroData(e, 'Winston')};
@@ -291,7 +291,7 @@ export default function HeroSelection(props) {
     <div className="hero-profile">      
       <h2 className={`section-heading ${theme}__title`}>Resources</h2>
       
-      <p style={{textAlign: '', fontSize: '1.2em' }}>
+      <p style={{textAlign: '', fontSize: '1.1em' }}>
         <strong>Base URL:</strong> https://hero-matchups-api.herokuapp.com/
       </p>
       
@@ -309,6 +309,7 @@ export default function HeroSelection(props) {
         <h3 className="resources__route-style">/type/:type</h3>
         <ul className="resources__list">
           <li><strong>Description:</strong> Retrieves information for all heroes of the selected type.</li>
+          <li><span><strong>Options:</strong> tank, damage, support</span></li>
           <li><strong>URL:</strong> https://hero-matchups-api.herokuapp.com/type/:type</li>
           <li><strong>Method:</strong> GET</li>
         </ul>
@@ -318,8 +319,20 @@ export default function HeroSelection(props) {
         <h3 className="resources__route-style">/archetype/</h3>
         <h3 className="resources__route-style">/archetype/:archetypeName</h3>
         <ul className="resources__list">
-          <li><strong>Description:</strong> The "/archetype" route lists all available hero archetypes. The "archetypeName" tag retrieves all heroes of the selected archetype.</li>
-          <li><strong>URL:</strong> https://hero-matchups-api.herokuapp.com/archetype/:archeTypeName</li>
+          <li>
+            <span><strong>Description:</strong> The "/archetype" route lists all available hero archetypes. The "archetypeName" tag retrieves all heroes of the selected archetype.</span>
+            <br/>
+          </li>
+
+          <li><span><strong>Options:</strong></span>
+            <ul>
+              <li><strong>Tank:</strong> Anchor, Initiator, First Responder, Damage Heavy</li>
+              <li><strong>Damage: </strong> Anchor, Flanker, Sniper, Scrapper, Specialist</li>
+              <li><strong>Suppport: </strong>Main Healer, Pocket Healer, Utility</li>
+            </ul>
+          </li>
+          
+          <li><strong>URL:</strong> https://hero-matchups-api.herokuapp.com/archetype/:archetypeName</li>
           <li><strong>Method:</strong> GET</li>
         </ul>
       </section>
@@ -335,6 +348,7 @@ export default function HeroSelection(props) {
         : <HeroMatchup 
           heroName={currentHero.name} 
           matchups={Object.entries(currentHero.counters)} 
+          archetypes={currentHero.archetype}
           id={"-profile"} 
           type={"-profile"}
         />

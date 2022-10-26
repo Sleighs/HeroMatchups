@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import './style.css';
 
-export default function HeroMatchup({ heroName , matchups, id, type }, props) {
+export default function HeroMatchup({ heroName , matchups, id, type, archetypes }, props) {
   function heroMatchupTable() {
     var body = document.getElementById("hero-matchup__container" + id);
     body.innerHTML = '';
@@ -69,6 +69,17 @@ export default function HeroMatchup({ heroName , matchups, id, type }, props) {
     // appends <table> into <body>
     body.appendChild(tableTitle);
     body.appendChild(tbl);
+
+    var archetypeEle = document.createElement('div')
+    archetypeEle.classList.add('hero-matchup__archetype-container')
+
+    for (var x = 0; x < archetypes.length; x++){
+      var  archTextEle = document.createElement('span')
+      archTextEle.innerHTML = (x === 0 ? '' : ', ') + archetypes[x]
+      archetypeEle.appendChild(archTextEle)
+    }
+
+    body.appendChild(archetypeEle)
   }
   
   useEffect(() => {  

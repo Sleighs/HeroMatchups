@@ -102,6 +102,7 @@ export default function RandomHero(props) {
           : <HeroMatchup 
               heroName={currentRandomHero.name} 
               matchups={Object.entries(currentRandomHero.counters)} 
+              archetypes={currentRandomHero.archetype}
               id={"-random"} 
               type={"-random"}
           />}
