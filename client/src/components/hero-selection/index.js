@@ -316,7 +316,7 @@ export default function HeroSelection(props) {
       </section>
 
       <section className="resources__section">
-        <h3 className="resources__route-style">/archetype/</h3>
+        <h3 className="resources__route-style">/archetype</h3>
         <h3 className="resources__route-style">/archetype/:archetypeName</h3>
         <ul className="resources__list">
           <li>
