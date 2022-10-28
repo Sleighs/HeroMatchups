@@ -24,14 +24,7 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });*/
 
-// Routes
-app.get('/greeting', (req, res)=> {
-    res.send({
-        "greeting": "hey yall"
-    })
-})
-
-// starting the server
+// Start the server
 const PORT = process.env.PORT || 5000; 
   
 app.listen(PORT, console.log(`Hero matchups server started on port ${PORT}`));
