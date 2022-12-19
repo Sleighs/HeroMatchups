@@ -9,6 +9,7 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function HeroSelection(props) {
   const {
+    apiUrl,
     currentHero,
     getSingleHero
   } = useContext(RequestContext)
@@ -298,7 +299,7 @@ export default function HeroSelection(props) {
       <h2 className={`section-heading ${theme}__title`}>Resources</h2>
       
       <p style={{textAlign: '', fontSize: '1.1em' }}>
-        <strong>Base URL:</strong> https://hero-matchups-api.herokuapp.com/
+        <strong>Base URL:</strong> {apiUrl}
       </p>
       
       <section className="resources__section">
@@ -306,7 +307,7 @@ export default function HeroSelection(props) {
         <h3 className="resources__route-style">/heroes/:heroName</h3>
         <ul className="resources__list">
           <li><strong>Description:</strong> Retrieves information for all available heroes in JSON. The "heroName" tag retrieves details for only the specified hero.</li>
-          <li><strong>URL:</strong> https://hero-matchups-api.herokuapp.com/heroes</li>
+          <li><strong>URL:</strong> {apiUrl}/heroes</li>
           <li><strong>Method:</strong> GET</li>
         </ul>
       </section>
@@ -316,7 +317,7 @@ export default function HeroSelection(props) {
         <ul className="resources__list">
           <li><strong>Description:</strong> Retrieves information for all heroes of the selected type.</li>
           <li><span><strong>Options:</strong> tank, damage, support</span></li>
-          <li><strong>URL:</strong> https://hero-matchups-api.herokuapp.com/type/:type</li>
+          <li><strong>URL:</strong> {apiUrl}/type/:type</li>
           <li><strong>Method:</strong> GET</li>
         </ul>
       </section>
@@ -338,7 +339,7 @@ export default function HeroSelection(props) {
             </ul>
           </li>
           
-          <li><strong>URL:</strong> https://hero-matchups-api.herokuapp.com/archetype/:archetypeName</li>
+          <li><strong>URL:</strong> {apiUrl}/archetype/:archetypeName</li>
           <li><strong>Method:</strong> GET</li>
         </ul>
       </section>

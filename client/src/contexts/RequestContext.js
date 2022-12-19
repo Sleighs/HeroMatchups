@@ -7,7 +7,8 @@ function RequestContextProvider(props){
     const [currentHero, setCurrentHero] = useState(null)
     const [currentRandomHero, setCurrentRandomHero] = useState(null)
 
-    const apiUrl = 'https://hero-matchups-api.herokuapp.com'
+    //const apiUrl = 'https://hero-matchups-api.herokuapp.com'
+    const apiUrl = 'https://hero-matchups-api.netlify.app/.netlify/functions/api'
 
     async function getData() {
         const res = await fetch(apiUrl)
@@ -56,6 +57,7 @@ function RequestContextProvider(props){
 
     return(
         <RequestContext.Provider value={{
+            apiUrl,
             heroData,
             setHeroData,
             currentHero,
