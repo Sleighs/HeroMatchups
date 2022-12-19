@@ -51,6 +51,7 @@ export default function HeroSelection(props) {
     var imgMoira = document.createElement('img');
     var imgOrisa = document.createElement('img');
     var imgPharah = document.createElement('img');
+    var imgRamattra = document.createElement('img');
     var imgReaper = document.createElement('img');
     var imgReinhardt = document.createElement('img');
     var imgRoadhog = document.createElement('img');
@@ -78,6 +79,7 @@ export default function HeroSelection(props) {
     imgDva.classList.add('hero-profile__hero-thumbnail');
     imgJunkerQueen.classList.add('hero-profile__hero-thumbnail');
     imgOrisa.classList.add('hero-profile__hero-thumbnail');
+    imgRamattra.classList.add('hero-profile__hero-thumbnail');
     imgReinhardt.classList.add('hero-profile__hero-thumbnail');
     imgRoadhog.classList.add('hero-profile__hero-thumbnail');
     imgSigma.classList.add('hero-profile__hero-thumbnail');
@@ -134,6 +136,7 @@ export default function HeroSelection(props) {
     imgMoira.src = heroPics.Moira;
     imgOrisa.src = heroPics.Orisa;
     imgPharah.src = heroPics.Pharah;
+    imgRamattra.src = heroPics.Ramattra;
     imgReaper.src = heroPics.Reaper;
     imgReinhardt.src = heroPics.Reinhardt;
     imgRoadhog.src = heroPics.Roadhog;
@@ -170,6 +173,7 @@ export default function HeroSelection(props) {
     imgMoira.setAttribute('title', 'Moira');
     imgOrisa.setAttribute('title', 'Orisa');
     imgPharah.setAttribute('title', 'Pharah');
+    imgRamattra.setAttribute('title', 'Ramattra');
     imgReaper.setAttribute('title', 'Reaper');
     imgReinhardt.setAttribute('title', 'Reinhardt');
     imgRoadhog.setAttribute('title', 'Roadhog');
@@ -207,6 +211,7 @@ export default function HeroSelection(props) {
     imgMoira.onclick = (e)=>{getHeroData(e, 'Moira')};
     imgOrisa.onclick = (e)=>{getHeroData(e, 'Orisa')};
     imgPharah.onclick = (e)=>{getHeroData(e, 'Pharah')};
+    imgRamattra.onclick = (e)=>{getHeroData(e, 'Ramattra')};
     imgReaper.onclick = (e)=>{getHeroData(e, 'Reaper')};
     imgReinhardt.onclick = (e)=>{getHeroData(e, 'Reinhardt')};
     imgRoadhog.onclick = (e)=>{getHeroData(e, 'Roadhog')};
@@ -234,6 +239,7 @@ export default function HeroSelection(props) {
     containerEle.appendChild(imgDva);
     containerEle.appendChild(imgJunkerQueen);
     containerEle.appendChild(imgOrisa);
+    containerEle.appendChild(imgRamattra);
     containerEle.appendChild(imgReinhardt);
     containerEle.appendChild(imgRoadhog);
     containerEle.appendChild(imgSigma);

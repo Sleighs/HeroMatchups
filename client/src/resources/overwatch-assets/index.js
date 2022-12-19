@@ -18,6 +18,7 @@ import mercyPic from './Icon-Mercy.png';
 import moiraPic from './Icon-Moira.png';
 import orisaPic from './Icon-Orisa.png';
 import pharahPic from './Icon-Pharah.png';
+import ramattraPic from './Icon-Ramattra.png';
 import reaperPic from './Icon-Reaper.png';
 import reinhardtPic from './Icon-Reinhardt.png';
 import roadhogPic from './Icon-Roadhog.png';
@@ -56,6 +57,7 @@ const heroPics = {
     Moira: moiraPic,
     Orisa: orisaPic,
     Pharah: pharahPic,
+    Ramattra: ramattraPic,
     Reaper: reaperPic,
     Reinhardt: reinhardtPic,
     Roadhog: roadhogPic,
