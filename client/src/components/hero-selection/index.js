@@ -299,7 +299,7 @@ export default function HeroSelection(props) {
       <h2 className={`section-heading ${theme}__title`}>Resources</h2>
       
       <p style={{textAlign: '', fontSize: '1.1em' }}>
-        <strong>Base URL:</strong> {apiUrl}
+        <strong>Base URL:</strong>{apiUrl}
       </p>
       
       <section className="resources__section">
@@ -307,7 +307,7 @@ export default function HeroSelection(props) {
         <h3 className="resources__route-style">/heroes/:heroName</h3>
         <ul className="resources__list">
           <li><strong>Description:</strong> Retrieves information for all available heroes in JSON. The "heroName" tag retrieves details for only the specified hero.</li>
-          <li className='api-url'><strong>URL:</strong> {apiUrl}/heroes</li>
+          <li className='api-url'><span><strong>URL:</strong> {apiUrl}/heroes</span></li>
           <li><strong>Method:</strong> GET</li>
         </ul>
       </section>
@@ -339,7 +339,9 @@ export default function HeroSelection(props) {
             </ul>
           </li>
           
-          <li className='api-url'><strong>URL:</strong> {apiUrl}/archetype/:archetypeName</li>
+          <li className='api-url'>
+            <span><strong>URL:</strong> {apiUrl}/archetype/:archetypeName</span>
+          </li>
           <li><strong>Method:</strong> GET</li>
         </ul>
       </section>
@@ -351,7 +353,7 @@ export default function HeroSelection(props) {
       <div id="hero-profile__pics-container"></div>
 
       {!currentHero 
-        ? <div style={{height: 155,}}></div> 
+        ? <div style={{height: 155, width: '100%',}}></div> 
         : <HeroMatchup 
           heroName={currentHero.name} 
           matchups={Object.entries(currentHero.counters)} 
@@ -360,6 +362,7 @@ export default function HeroSelection(props) {
           type={"-profile"}
         />
       }
+
       <div id="hero-profile__hero-select">
         <label 
           for="hero-select" 

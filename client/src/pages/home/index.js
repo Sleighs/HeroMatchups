@@ -24,7 +24,7 @@ const Home = () => {
   return (
     <div className="home">
         <div className='home__body'>
-
+          
           <DarkModeToggle
             className="themeToggleBtn"
             onChange={() => {
@@ -46,6 +46,8 @@ const Home = () => {
             </h2>
           </div>
 
+            
+
           <div className="home-intro__text-container">
             <p className="home-intro__text">
               <span>{
@@ -64,13 +66,13 @@ const Home = () => {
           </div>
 
           <hr className="home-hr"/>
-
+          
           <HeroSelection />
 
           <hr className="home-hr"/>
-
+          
           <RandomHero />
-
+          
           {heroData && <MatchupTable />}
           
         </div>

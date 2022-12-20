@@ -1,8 +1,8 @@
 .counter-table {
-    max-width: 1080px;
     margin: 15px auto;
     border-radius: 3px;
     user-select: none;
+    width: 100%;
 }
 #matchup-table__title {
     display: block;
@@ -139,7 +139,7 @@
 }
 
 .counter-table__legend {
-    width: fit-content;
+    width: 100%;
     margin: 5px auto;
     font-size: 1em;
 }
@@ -163,5 +163,11 @@
         margin: auto;
         margin-left: 20%;
         margin-bottom: 2%;
+    }
+    .counter-table__legend {
+        width: 70%;
+        margin: 5px auto;
+        font-size: 1em;
+        text-align: center;
     }
 }

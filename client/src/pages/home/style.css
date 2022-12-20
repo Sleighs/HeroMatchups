@@ -1,8 +1,9 @@
 .home {
     width: 100%;
+    max-width: 1080px;
     height: 100%;
-    margin: 0;
     font-family: 'Khula';
+    margin: auto;
 }
 
 .home-hr {
@@ -12,16 +13,12 @@
 
 .home__body {
     width: 100%;
-    max-width: 1080px;
-    /*box-shadow: 0px 0px 5px .5px rgba(153, 153, 153, 0.4);
-    */
     padding: 15px 15px;
     margin: auto;
     border-radius: 0px; 
 }
 .themeToggleBtn {
-    float: right;
-    opacity: .1;
+    opacity: 1;
     display: none;
 }
 .home__header-image {
@@ -36,7 +33,7 @@
 }
 .page-header__title {
     font-size: 2.55em;
-    margin: 3% auto 2% auto; 
+    margin: 3% auto 4% auto;
 }
 .page-header__text {
     opacity: .75;
