@@ -1,6 +1,5 @@
 .home {
     width: 100%;
-    max-width: 1080px;
     height: 100%;
     font-family: 'Khula';
     margin: auto;
@@ -13,6 +12,7 @@
 
 .home__body {
     width: 100%;
+    max-width: 1080px;
     padding: 15px 15px;
     margin: auto;
     border-radius: 0px; 

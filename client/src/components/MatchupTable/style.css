@@ -59,7 +59,7 @@
 }
 .counter-table__y-list-name {
     height: 28px;
-    max-height: 26px;
+    max-height: 28px;
     width: 70px;
     overflow: hidden;
     font-size: .87em;
@@ -139,7 +139,7 @@
 }
 
 .counter-table__legend {
-    width: 100%;
+    width: fit-content;
     margin: 5px auto;
     font-size: 1em;
 }

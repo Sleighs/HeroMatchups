@@ -90,7 +90,7 @@ export default function MatchupTable(props) {
                cell.classList.add('counter-table__row-head');
 
                if (c === heroes.length){
-                   cell.classList.add('counter-table__row-head2')
+                   //cell.classList.add('counter-table__row-head2')
                }
                row.appendChild(cell);
 
