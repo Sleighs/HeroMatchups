@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
 import { Footer} from "../../containers";
-import { MatchupTable, RandomHero, HeroSelection } from "../../components";
+import { MatchupTable, RandomHero, HeroSelection, MatchupTable2 } from "../../components";
 import { RequestContext } from "../../contexts/RequestContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import DarkModeToggle from "react-dark-mode-toggle";
@@ -72,7 +72,6 @@ const Home = () => {
           <RandomHero />
 
           {heroData && <MatchupTable />}
-
           
         </div>
         <Footer />

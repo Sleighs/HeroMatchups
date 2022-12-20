@@ -7,6 +7,7 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function RandomHero(props) {
     const { 
+      apiUrl,
       currentRandomHero, 
       getRandomHero,
       getRandomHeroByType
@@ -51,7 +52,7 @@ export default function RandomHero(props) {
           <h3 className="resources__route-style">/random/:type</h3>
           <ul className="resources__list">
             <li><strong>Description:</strong> Gets a random character. The "type" tag retrieves a random hero of the given type, choices include "tank", "damage" and "supoort".  </li>
-            <li><strong>URL:</strong> https://hero-matchups-api.herokuapp.com/random</li>
+            <li className='api-url'><strong>URL:</strong> {apiUrl}/random</li>
             <li><strong>Method:</strong> GET</li>
           </ul>
         </section>

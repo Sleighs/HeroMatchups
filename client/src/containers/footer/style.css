@@ -1,6 +1,8 @@
 .footer {
     text-align: center;
-    width: 100%;
+    width: 100vw;
+    height: 10vh;
     margin-top: 22px;
-    color: #C6BABD;
+    bottom: 0;
+    color: rgba(198, 186, 189, 0.8);
 }
