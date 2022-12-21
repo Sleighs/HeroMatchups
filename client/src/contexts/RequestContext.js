@@ -7,6 +7,10 @@ function RequestContextProvider(props){
     const [currentHero, setCurrentHero] = useState(null)
     const [currentRandomHero, setCurrentRandomHero] = useState(null)
 
+    const [tanks, setTanks] = useState([])
+    const [damage, setDamage] = useState([])
+    const [supports, setSupports] = useState([])
+
     //const apiUrl = 'https://hero-matchups-api.herokuapp.com'
     const apiUrl = 'https://hero-matchups-api.netlify.app/.netlify/functions/api'
 
@@ -23,9 +27,31 @@ function RequestContextProvider(props){
         const res = await fetch(apiUrl + '/heroes')
         const data = await res.json()
 
-        //console.log(data)
-
         setHeroData(data)
+        saveAllHeroes(data)
+    }
+
+    function saveAllHeroes(data) {
+        data.forEach(item => {
+            if (item.type === 'tank'){
+                setTanks(prev => ([
+                    ...prev,
+                    item
+                ]))
+            }
+            if (item.type === 'damage'){
+                setDamage(prev => ([
+                    ...prev,
+                    item
+                ]))
+            }
+            if (item.type === 'support'){
+                setSupports(prev => ([
+                    ...prev,
+                    item
+                ]))
+            }
+        })
     }
 
     async function getSingleHero(heroName) {
@@ -68,7 +94,10 @@ function RequestContextProvider(props){
             getAllHeroes,
             getSingleHero,
             getRandomHero,
-            getRandomHeroByType
+            getRandomHeroByType,
+            tanks,
+            damage,
+            supports
         }}>
             {props.children}
         </RequestContext.Provider>

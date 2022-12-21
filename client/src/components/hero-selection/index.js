@@ -6,284 +6,63 @@ import heroPics from '../../resources/overwatch-assets';
 import stateManager from "../../js/stateManager";
 import { RequestContext } from "../../contexts/RequestContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import getHeroName from "../../js/getHeroName";
 
 export default function HeroSelection(props) {
   const {
     apiUrl,
     currentHero,
-    getSingleHero
+    getSingleHero,
+    tanks,
+    damage,
+    supports
   } = useContext(RequestContext)
 
   const { theme } = useContext(ThemeContext)
 
   const [highlightedHero, setHighlightedHero] = useState(null);
-
+  const [sortedHeroes, setSortedHeroes] = useState({
+    tanks: tanks,
+    damage: damage,
+    supports: supports
+  })
+  
   function getHeroData(e, name){
     getSingleHero(name)
     setHighlightedHero(name)
   }
 
+  function sortHeroes(){
+    function sortArr (arr, prop) {
+        arr.sort (
+            function (a, b) {
+                if (a[prop] < b[prop]){
+                    return -1;
+                } else if (a[prop] > b[prop]){
+                    return 1;
+                } else {
+                    return 0;   
+                }
+            }
+        );
+    }
+
+    var tanksArr = tanks
+    var damageArr = damage
+    var supportsArr = supports
+
+    sortArr(tanksArr, 'name')
+    sortArr(damageArr, 'name')
+    sortArr(supportsArr, 'name')
+
+    setSortedHeroes(prev => ({
+        tanks: tanksArr,
+        damage: damageArr,
+        supports: supportsArr
+    }))
+}
+
   useEffect(()=>{
-    // Create elements for each hero to select and view matchups 
-    var containerEle = document.getElementById('hero-profile__pics-container');
-    var tankTitleEle = document.createElement('div');
-    var damageTitleEle = document.createElement('div');
-    var supportTitleEle = document.createElement('div');
-    var breakEle1 = document.createElement('br');
-    var breakEle2 = document.createElement('br');
-
-    var imgAna = document.createElement('img');
-    var imgAshe = document.createElement('img');
-    var imgBaptiste = document.createElement('img');
-    var imgBastion = document.createElement('img');
-    var imgBrigitte = document.createElement('img');
-    var imgDva = document.createElement('img');
-    var imgDoomfist = document.createElement('img');
-    var imgEcho = document.createElement('img');
-    var imgGenji = document.createElement('img');
-    var imgHanzo = document.createElement('img');
-    var imgJunkrat = document.createElement('img');
-    var imgJunkerQueen = document.createElement('img');
-    var imgKiriko = document.createElement('img');
-    var imgLucio = document.createElement('img');
-    var imgCassidy = document.createElement('img');
-    var imgMei = document.createElement('img');
-    var imgMercy = document.createElement('img');
-    var imgMoira = document.createElement('img');
-    var imgOrisa = document.createElement('img');
-    var imgPharah = document.createElement('img');
-    var imgRamattra = document.createElement('img');
-    var imgReaper = document.createElement('img');
-    var imgReinhardt = document.createElement('img');
-    var imgRoadhog = document.createElement('img');
-    var imgSigma = document.createElement('img');
-    var imgSojourn = document.createElement('img');
-    var imgSoldier76 = document.createElement('img');
-    var imgSombra = document.createElement('img');
-    var imgSymmetra = document.createElement('img');
-    var imgTorbjorn = document.createElement('img');
-    var imgTracer = document.createElement('img');
-    var imgWidowmaker = document.createElement('img');
-    var imgWinston = document.createElement('img');
-    var imgWreckingBall = document.createElement('img');
-    var imgZarya = document.createElement('img');
-    var imgZenyatta = document.createElement('img');
-
-    // Clear container
-    containerEle.innerHTML = '';
-
-    // Add classname to img elements
-    tankTitleEle.classList.add('hero-profile__hero-row-title');
-    damageTitleEle.classList.add('hero-profile__hero-row-title');
-    supportTitleEle.classList.add('hero-profile__hero-row-title');
-
-    imgDva.classList.add('hero-profile__hero-thumbnail');
-    imgJunkerQueen.classList.add('hero-profile__hero-thumbnail');
-    imgOrisa.classList.add('hero-profile__hero-thumbnail');
-    imgRamattra.classList.add('hero-profile__hero-thumbnail');
-    imgReinhardt.classList.add('hero-profile__hero-thumbnail');
-    imgRoadhog.classList.add('hero-profile__hero-thumbnail');
-    imgSigma.classList.add('hero-profile__hero-thumbnail');
-    imgWinston.classList.add('hero-profile__hero-thumbnail');
-    imgWreckingBall.classList.add('hero-profile__hero-thumbnail');
-    imgZarya.classList.add('hero-profile__hero-thumbnail');
-    
-    imgAshe.classList.add('hero-profile__hero-thumbnail');
-    imgBastion.classList.add('hero-profile__hero-thumbnail');
-    imgDoomfist.classList.add('hero-profile__hero-thumbnail');
-    imgEcho.classList.add('hero-profile__hero-thumbnail');
-    imgGenji.classList.add('hero-profile__hero-thumbnail');
-    imgHanzo.classList.add('hero-profile__hero-thumbnail');
-    imgJunkrat.classList.add('hero-profile__hero-thumbnail');
-    imgCassidy.classList.add('hero-profile__hero-thumbnail');
-    imgMei.classList.add('hero-profile__hero-thumbnail');
-    imgPharah.classList.add('hero-profile__hero-thumbnail');
-    imgReaper.classList.add('hero-profile__hero-thumbnail');
-    imgSojourn.classList.add('hero-profile__hero-thumbnail');
-    imgSoldier76.classList.add('hero-profile__hero-thumbnail');
-    imgSombra.classList.add('hero-profile__hero-thumbnail');
-    imgSymmetra.classList.add('hero-profile__hero-thumbnail');
-    imgTorbjorn.classList.add('hero-profile__hero-thumbnail');
-    imgTracer.classList.add('hero-profile__hero-thumbnail');
-    imgWidowmaker.classList.add('hero-profile__hero-thumbnail');
-
-    imgAna.classList.add('hero-profile__hero-thumbnail');
-    imgBaptiste.classList.add('hero-profile__hero-thumbnail');
-    imgBrigitte.classList.add('hero-profile__hero-thumbnail');
-    imgKiriko.classList.add('hero-profile__hero-thumbnail');
-    imgLucio.classList.add('hero-profile__hero-thumbnail');
-    imgMercy.classList.add('hero-profile__hero-thumbnail');
-    imgMoira.classList.add('hero-profile__hero-thumbnail');
-    imgZenyatta.classList.add('hero-profile__hero-thumbnail');
-
-    // Add source to image elements
-    imgAna.src = heroPics.Ana;
-    imgAshe.src = heroPics.Ashe;
-    imgBaptiste.src = heroPics.Baptiste;
-    imgBastion.src = heroPics.Bastion;
-    imgBrigitte.src = heroPics.Brigitte;
-    imgDva.src = heroPics.Dva;
-    imgDoomfist.src = heroPics.Doomfist;
-    imgEcho.src = heroPics.Echo;
-    imgGenji.src = heroPics.Genji;
-    imgHanzo.src = heroPics.Hanzo;
-    imgJunkrat.src = heroPics.Junkrat;
-    imgJunkerQueen.src = heroPics.JunkerQueen;
-    imgKiriko.src = heroPics.Kiriko;
-    imgLucio.src = heroPics.Lucio;
-    imgCassidy.src = heroPics.McCree;
-    imgMei.src = heroPics.Mei;
-    imgMercy.src = heroPics.Mercy;
-    imgMoira.src = heroPics.Moira;
-    imgOrisa.src = heroPics.Orisa;
-    imgPharah.src = heroPics.Pharah;
-    imgRamattra.src = heroPics.Ramattra;
-    imgReaper.src = heroPics.Reaper;
-    imgReinhardt.src = heroPics.Reinhardt;
-    imgRoadhog.src = heroPics.Roadhog;
-    imgSigma.src = heroPics.Sigma;
-    imgSojourn.src = heroPics.Sojourn;
-    imgSoldier76.src = heroPics.Soldier76;
-    imgSombra.src = heroPics.Sombra;
-    imgSymmetra.src = heroPics.Symmetra;
-    imgTorbjorn.src = heroPics.Torbjorn;
-    imgTracer.src = heroPics.Tracer;
-    imgWidowmaker.src = heroPics.Widowmaker;
-    imgWinston.src = heroPics.Winston;
-    imgWreckingBall.src = heroPics.WreckingBall;
-    imgZarya.src = heroPics.Zarya;
-    imgZenyatta.src = heroPics.Zenyatta;
-
-    imgAna.setAttribute('title', 'Ana');
-    imgAshe.setAttribute('title', 'Ashe');
-    imgBaptiste.setAttribute('title', 'Baptiste');
-    imgBastion.setAttribute('title', 'Bastion');
-    imgBrigitte.setAttribute('title', 'Brigitte');
-    imgDva.setAttribute('title', 'Dva');
-    imgDoomfist.setAttribute('title', 'Doomfist');
-    imgEcho.setAttribute('title', 'Echo');
-    imgGenji.setAttribute('title', 'Genji');
-    imgHanzo.setAttribute('title', 'Hanzo');
-    imgJunkrat.setAttribute('title', 'Junkrat');
-    imgJunkerQueen.setAttribute('title', 'JunkerQueen');
-    imgKiriko.setAttribute('title', 'Kiriko');
-    imgLucio.setAttribute('title', 'Lucio');
-    imgCassidy.setAttribute('title', 'Cassidy');
-    imgMei.setAttribute('title', 'Mei');
-    imgMercy.setAttribute('title', 'Mercy');
-    imgMoira.setAttribute('title', 'Moira');
-    imgOrisa.setAttribute('title', 'Orisa');
-    imgPharah.setAttribute('title', 'Pharah');
-    imgRamattra.setAttribute('title', 'Ramattra');
-    imgReaper.setAttribute('title', 'Reaper');
-    imgReinhardt.setAttribute('title', 'Reinhardt');
-    imgRoadhog.setAttribute('title', 'Roadhog');
-    imgSigma.setAttribute('title', 'Sigma');
-    imgSojourn.setAttribute('title', 'Sojourn');
-    imgSoldier76.setAttribute('title', 'Soldier76');
-    imgSombra.setAttribute('title', 'Sombra');
-    imgSymmetra.setAttribute('title', 'Symmetra');
-    imgTorbjorn.setAttribute('title', 'Torbjorn');
-    imgTracer.setAttribute('title', 'Tracer');
-    imgWidowmaker.setAttribute('title', 'Widowmaker');
-    imgWinston.setAttribute('title', 'Winston');
-    imgWreckingBall.setAttribute('title', 'WreckingBall');
-    imgZarya.setAttribute('title', 'Zarya');
-    imgZenyatta.setAttribute('title', 'Zenyatta');
-
-    // Add onclick to image elements
-    imgAna.onclick = (e)=>{getHeroData(e, 'Ana')};
-    imgAshe.onclick = (e)=>{getHeroData(e, 'Ashe')};
-    imgBaptiste.onclick = (e)=>{getHeroData(e, 'Baptiste')};
-    imgBastion.onclick = (e)=>{getHeroData(e, 'Bastion')};
-    imgBrigitte.onclick = (e)=>{getHeroData(e, 'Brigitte')};
-    imgDva.onclick = (e)=>{getHeroData(e, 'Dva')};
-    imgDoomfist.onclick = (e)=>{getHeroData(e, 'Doomfist')};
-    imgEcho.onclick = (e)=>{getHeroData(e, 'Echo')};
-    imgGenji.onclick = (e)=>{getHeroData(e, 'Genji')};
-    imgHanzo.onclick = (e)=>{getHeroData(e, 'Hanzo')};
-    imgJunkrat.onclick = (e)=>{getHeroData(e, 'Junkrat')};
-    imgJunkerQueen.onclick = (e)=>{getHeroData(e, 'JunkerQueen')};
-    imgKiriko.onclick = (e)=>{getHeroData(e, 'Kiriko')};
-    imgLucio.onclick = (e)=>{getHeroData(e, 'Lucio')};
-    imgCassidy.onclick = (e)=>{getHeroData(e, 'Cassidy')};
-    imgMei.onclick = (e)=>{getHeroData(e, 'Mei')};
-    imgMercy.onclick = (e)=>{getHeroData(e, 'Mercy')};
-    imgMoira.onclick = (e)=>{getHeroData(e, 'Moira')};
-    imgOrisa.onclick = (e)=>{getHeroData(e, 'Orisa')};
-    imgPharah.onclick = (e)=>{getHeroData(e, 'Pharah')};
-    imgRamattra.onclick = (e)=>{getHeroData(e, 'Ramattra')};
-    imgReaper.onclick = (e)=>{getHeroData(e, 'Reaper')};
-    imgReinhardt.onclick = (e)=>{getHeroData(e, 'Reinhardt')};
-    imgRoadhog.onclick = (e)=>{getHeroData(e, 'Roadhog')};
-    imgSigma.onclick = (e)=>{getHeroData(e, 'Sigma')};
-    imgSojourn.onclick = (e)=>{getHeroData(e, 'Sojourn')};
-    imgSoldier76.onclick = (e)=>{getHeroData(e, 'Soldier76')};
-    imgSombra.onclick = (e)=>{getHeroData(e, 'Sombra')};
-    imgSymmetra.onclick = (e)=>{getHeroData(e, 'Symmetra')};
-    imgTorbjorn.onclick = (e)=>{getHeroData(e, 'Torbjorn')}; //Torbjörn
-    imgTracer.onclick = (e)=>{getHeroData(e, 'Tracer')};
-    imgWidowmaker.onclick = (e)=>{getHeroData(e, 'Widowmaker')};
-    imgWinston.onclick = (e)=>{getHeroData(e, 'Winston')};
-    imgWreckingBall.onclick = (e)=>{getHeroData(e, 'WreckingBall')};
-    imgZarya.onclick = (e)=>{getHeroData(e, 'Zarya')};
-    imgZenyatta.onclick = (e)=>{getHeroData(e, 'Zenyatta')};
-
-    // Name titles
-    tankTitleEle.innerHTML = 'Tank';
-    damageTitleEle.innerHTML = 'Damage';
-    supportTitleEle.innerHTML = 'Support';
-
-    // Add image elements to container
-    containerEle.appendChild(tankTitleEle);
-
-    containerEle.appendChild(imgDva);
-    containerEle.appendChild(imgJunkerQueen);
-    containerEle.appendChild(imgOrisa);
-    containerEle.appendChild(imgRamattra);
-    containerEle.appendChild(imgReinhardt);
-    containerEle.appendChild(imgRoadhog);
-    containerEle.appendChild(imgSigma);
-    containerEle.appendChild(imgWinston);
-    containerEle.appendChild(imgWreckingBall);
-    containerEle.appendChild(imgZarya);
-
-    containerEle.appendChild(breakEle1);
-
-    containerEle.appendChild(damageTitleEle);
-
-    containerEle.appendChild(imgAshe);
-    containerEle.appendChild(imgBastion);
-    containerEle.appendChild(imgDoomfist);
-    containerEle.appendChild(imgEcho);
-    containerEle.appendChild(imgGenji);
-    containerEle.appendChild(imgHanzo);
-    containerEle.appendChild(imgJunkrat);
-    containerEle.appendChild(imgCassidy);
-    containerEle.appendChild(imgMei);
-    containerEle.appendChild(imgPharah);
-    containerEle.appendChild(imgReaper);
-    containerEle.appendChild(imgSojourn);
-    containerEle.appendChild(imgSoldier76);
-    containerEle.appendChild(imgSombra);
-    containerEle.appendChild(imgSymmetra);
-    containerEle.appendChild(imgTorbjorn);
-    containerEle.appendChild(imgTracer);
-    containerEle.appendChild(imgWidowmaker);
-    
-    containerEle.appendChild(breakEle2);
-
-    containerEle.appendChild(supportTitleEle);
-
-    containerEle.appendChild(imgAna);
-    containerEle.appendChild(imgBaptiste);
-    containerEle.appendChild(imgBrigitte);
-    containerEle.appendChild(imgKiriko);
-    containerEle.appendChild(imgLucio);
-    containerEle.appendChild(imgMercy);
-    containerEle.appendChild(imgMoira);
-    containerEle.appendChild(imgZenyatta);
-
     var elements = document.querySelectorAll(`.hero-profile__hero-thumbnail`)
     elements.forEach(item => item.classList.remove('icon-highlight'))
 
@@ -291,15 +70,17 @@ export default function HeroSelection(props) {
       var updateEle = document.querySelectorAll(`.hero-profile__hero-thumbnail[title=${highlightedHero}]`)
       updateEle[0].classList.add('icon-highlight')
     }
-  });
+
+    sortHeroes()
+  }, []);
   
 
   return (
     <div className="hero-profile">      
       <h2 className={`section-heading ${theme}__title`}>Resources</h2>
       
-      <p style={{textAlign: '', fontSize: '1.1em' }}>
-        <strong>Base URL:</strong>{apiUrl}
+      <p style={{textAlign: '', fontSize: '1.2em' }}>
+        <strong>Base URL: </strong>{apiUrl}
       </p>
       
       <section className="resources__section">
@@ -350,17 +131,62 @@ export default function HeroSelection(props) {
         Click hero icons to view matchups
       </p>
       
-      <div id="hero-profile__pics-container"></div>
+      <div id="hero-profile__pics-container">
+        <div className="hero-profile__hero-section">
+          <div className="hero-profile__hero-row-title">Tank</div>
+          {sortedHeroes && sortedHeroes.tanks.map((hero, index) => {
+            if (hero.type === 'tank'){
+              return(
+                <HeroIcon 
+                  name={getHeroName(hero.name, true)} 
+                  src={heroPics[getHeroName(hero.name, false)]}
+                  handleClick={(e)=>{getHeroData(e, getHeroName(hero.name, false))}}
+                  index={index}
+                />)
+            }
+          })}
+        </div>
+        <div className="hero-profile__hero-section">
+          <div className="hero-profile__hero-row-title">Damage</div>
+          {sortedHeroes && sortedHeroes.damage.map((hero, index) => {
+            if (hero.type === 'damage'){
+              return(
+                <HeroIcon 
+                  name={getHeroName(hero.name, true)} 
+                  src={heroPics[getHeroName(hero.name, false)]}
+                  handleClick={(e)=>{getHeroData(e, getHeroName(hero.name, false))}}
+                  index={index}
+                />)
+            }
+          })}
+        </div>
+        <div className="hero-profile__hero-section">
+          <div className="hero-profile__hero-row-title">Support</div>
+          {sortedHeroes && sortedHeroes.supports.map((hero, index) => {
+            if (hero.type === 'support'){
+              return(
+                <HeroIcon 
+                  name={getHeroName(hero.name, true)} 
+                  src={heroPics[getHeroName(hero.name, false)]}
+                  handleClick={(e)=>{getHeroData(e, getHeroName(hero.name, false))}}
+                  index={index}
+                />)
+            }
+          })}
+        </div>
+      </div>
 
       {!currentHero 
-        ? <div style={{height: 155, width: '100%',}}></div> 
-        : <HeroMatchup 
-          heroName={currentHero.name} 
-          matchups={Object.entries(currentHero.counters)} 
-          archetypes={currentHero.archetype}
-          id={"-profile"} 
-          type={"-profile"}
-        />
+        ? 
+          <div style={{height: 155, width: '100%',}}></div> 
+        : 
+          <HeroMatchup 
+            heroName={currentHero.name} 
+            matchups={Object.entries(currentHero.counters)} 
+            archetypes={currentHero.archetype}
+            id={"-profile"} 
+            type={"-profile"}
+          />
       }
 
       <div id="hero-profile__hero-select">
@@ -416,4 +242,23 @@ export default function HeroSelection(props) {
       </div>
     </div>
   );
+}
+
+const HeroIcon = (props) => {
+  const {
+    src, 
+    name, 
+    handleClick,
+    index
+  } = props
+  
+  return(
+    <img className="hero-profile__hero-thumbnail" 
+      onClick={handleClick}
+      src={src} 
+      alt={name} 
+      title={name}
+      key={index}
+    />
+  )
 }
