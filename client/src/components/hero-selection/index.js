@@ -3,7 +3,6 @@ import { HeroMatchup } from "..";
 import './style.css';
 
 import heroPics from '../../resources/overwatch-assets';
-import stateManager from "../../js/stateManager";
 import { RequestContext } from "../../contexts/RequestContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import getHeroName from "../../js/getHeroName";
@@ -13,54 +12,17 @@ export default function HeroSelection(props) {
     apiUrl,
     currentHero,
     getSingleHero,
-    tanks,
-    damage,
-    supports
+    heroData
   } = useContext(RequestContext)
 
   const { theme } = useContext(ThemeContext)
 
   const [highlightedHero, setHighlightedHero] = useState(null);
-  const [sortedHeroes, setSortedHeroes] = useState({
-    tanks: tanks,
-    damage: damage,
-    supports: supports
-  })
-  
+
   function getHeroData(e, name){
     getSingleHero(name)
-    setHighlightedHero(name)
+    setHighlightedHero(getHeroName(name, false))
   }
-
-  function sortHeroes(){
-    function sortArr (arr, prop) {
-        arr.sort (
-            function (a, b) {
-                if (a[prop] < b[prop]){
-                    return -1;
-                } else if (a[prop] > b[prop]){
-                    return 1;
-                } else {
-                    return 0;   
-                }
-            }
-        );
-    }
-
-    var tanksArr = tanks
-    var damageArr = damage
-    var supportsArr = supports
-
-    sortArr(tanksArr, 'name')
-    sortArr(damageArr, 'name')
-    sortArr(supportsArr, 'name')
-
-    setSortedHeroes(prev => ({
-        tanks: tanksArr,
-        damage: damageArr,
-        supports: supportsArr
-    }))
-}
 
   useEffect(()=>{
     var elements = document.querySelectorAll(`.hero-profile__hero-thumbnail`)
@@ -70,9 +32,7 @@ export default function HeroSelection(props) {
       var updateEle = document.querySelectorAll(`.hero-profile__hero-thumbnail[title=${highlightedHero}]`)
       updateEle[0].classList.add('icon-highlight')
     }
-
-    sortHeroes()
-  }, []);
+  });
   
 
   return (
@@ -131,10 +91,11 @@ export default function HeroSelection(props) {
         Click hero icons to view matchups
       </p>
       
+      {heroData &&
       <div id="hero-profile__pics-container">
         <div className="hero-profile__hero-section">
           <div className="hero-profile__hero-row-title">Tank</div>
-          {sortedHeroes && sortedHeroes.tanks.map((hero, index) => {
+          {heroData.map((hero, index) => {
             if (hero.type === 'tank'){
               return(
                 <HeroIcon 
@@ -142,13 +103,14 @@ export default function HeroSelection(props) {
                   src={heroPics[getHeroName(hero.name, false)]}
                   handleClick={(e)=>{getHeroData(e, getHeroName(hero.name, false))}}
                   index={index}
+                  heroTitle={getHeroName(hero.name, false)}
                 />)
             }
           })}
         </div>
         <div className="hero-profile__hero-section">
           <div className="hero-profile__hero-row-title">Damage</div>
-          {sortedHeroes && sortedHeroes.damage.map((hero, index) => {
+          {heroData.map((hero, index) => {
             if (hero.type === 'damage'){
               return(
                 <HeroIcon 
@@ -156,13 +118,14 @@ export default function HeroSelection(props) {
                   src={heroPics[getHeroName(hero.name, false)]}
                   handleClick={(e)=>{getHeroData(e, getHeroName(hero.name, false))}}
                   index={index}
+                  heroTitle={getHeroName(hero.name, false)}
                 />)
             }
           })}
         </div>
         <div className="hero-profile__hero-section">
           <div className="hero-profile__hero-row-title">Support</div>
-          {sortedHeroes && sortedHeroes.supports.map((hero, index) => {
+          {heroData.map((hero, index) => {
             if (hero.type === 'support'){
               return(
                 <HeroIcon 
@@ -170,11 +133,12 @@ export default function HeroSelection(props) {
                   src={heroPics[getHeroName(hero.name, false)]}
                   handleClick={(e)=>{getHeroData(e, getHeroName(hero.name, false))}}
                   index={index}
+                  heroTitle={getHeroName(hero.name, false)}
                 />)
             }
           })}
         </div>
-      </div>
+      </div>}
 
       {!currentHero 
         ? 
@@ -249,7 +213,8 @@ const HeroIcon = (props) => {
     src, 
     name, 
     handleClick,
-    index
+    index,
+    heroTitle
   } = props
   
   return(
@@ -257,7 +222,7 @@ const HeroIcon = (props) => {
       onClick={handleClick}
       src={src} 
       alt={name} 
-      title={name}
+      title={heroTitle}
       key={index}
     />
   )

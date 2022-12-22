@@ -16,7 +16,7 @@ const Home = () => {
   var reqCount = 0;
 
   useEffect(()=>{
-    getAllHeroes()
+    getAllHeroes();
     reqCount = reqCount + 1
     // eslint-disable-line react-hooks/exhaustive-deps
   }, [reqCount])

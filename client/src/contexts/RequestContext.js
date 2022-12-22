@@ -6,11 +6,7 @@ function RequestContextProvider(props){
     const [heroData, setHeroData] = useState(null)
     const [currentHero, setCurrentHero] = useState(null)
     const [currentRandomHero, setCurrentRandomHero] = useState(null)
-
-    const [tanks, setTanks] = useState([])
-    const [damage, setDamage] = useState([])
-    const [supports, setSupports] = useState([])
-
+    
     //const apiUrl = 'https://hero-matchups-api.herokuapp.com'
     const apiUrl = 'https://hero-matchups-api.netlify.app/.netlify/functions/api'
 
@@ -26,32 +22,17 @@ function RequestContextProvider(props){
     async function getAllHeroes() {
         const res = await fetch(apiUrl + '/heroes')
         const data = await res.json()
-
-        setHeroData(data)
-        saveAllHeroes(data)
-    }
-
-    function saveAllHeroes(data) {
-        data.forEach(item => {
-            if (item.type === 'tank'){
-                setTanks(prev => ([
-                    ...prev,
-                    item
-                ]))
+        
+        setHeroData(prev => data.sort(
+            function (a, b) {
+            if (a['name'] < b['name']){
+                return -1;
+            } else if (a['name'] > b['name']){
+                return 1;
+            } else {
+                return 0;   
             }
-            if (item.type === 'damage'){
-                setDamage(prev => ([
-                    ...prev,
-                    item
-                ]))
-            }
-            if (item.type === 'support'){
-                setSupports(prev => ([
-                    ...prev,
-                    item
-                ]))
-            }
-        })
+          }))
     }
 
     async function getSingleHero(heroName) {
@@ -94,10 +75,7 @@ function RequestContextProvider(props){
             getAllHeroes,
             getSingleHero,
             getRandomHero,
-            getRandomHeroByType,
-            tanks,
-            damage,
-            supports
+            getRandomHeroByType
         }}>
             {props.children}
         </RequestContext.Provider>

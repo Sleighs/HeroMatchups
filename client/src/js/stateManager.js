@@ -3,5 +3,5 @@ var stateManager = {
     date: 'December 15th 2022',
     version: 4
 }
-
+        
 export default stateManager;
