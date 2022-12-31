@@ -3,3 +3,4 @@ changelog
 client/src/firebaseKey.js
 ./trash
 client/notes.md
+client/.env
