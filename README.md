@@ -1,6 +1,6 @@
 # Hero Matchups Api Documentation Website
 
-This is a repository for the Hero Matchups API documentation website. The Hero Matchups API is a resource that offers strategic counters & opponent matchups for the team based multiplayer first-person shooter Overwatch 2. 
+This is the home to the Hero Matchups API documentation website. The Hero Matchups API is a resource that offers strategic counters & opponent matchups for the team based multiplayer first-person shooter Overwatch 2. 
 
 ### Features
 * Hero matchup chart - Including all strong and weak matchups for each character based on hero kits, the latest competitive season and win rates 
