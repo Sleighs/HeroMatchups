@@ -113,6 +113,10 @@
     text-align: center;
     overflow: auto;
 }
+/* hide scrollbar for create-table__column-head */
+.create-table__column-head::-webkit-scrollbar {
+    display: none;
+}
 .counter-table__value {
     height: 20px;
     max-height: 20px;

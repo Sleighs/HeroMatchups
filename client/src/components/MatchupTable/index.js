@@ -198,6 +198,7 @@ export default function MatchupTable(props) {
                     <span className="counter-table__y-list-name">Junker Queen</span>
                     <span className="counter-table__y-list-name">Junkrat</span>
                     <span className="counter-table__y-list-name">Kiriko</span>
+                    <span className="counter-table__y-list-name">Lifeweaver</span>
                     <span className="counter-table__y-list-name">Lucio</span>
                     <span className="counter-table__y-list-name">Mei</span>
                     <span className="counter-table__y-list-name">Mercy</span>

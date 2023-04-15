@@ -272,6 +272,7 @@ const HeroLineupSelect = ({lineUpIndex, test, setTest}, props) => {
                     <option value="Baptiste">Baptiste</option>
                     <option value="Brigitte">Brigitte</option>
                     <option value="Kiriko">Kiriko</option>
+                    <option value="Lifeweaver">Lifeweaver</option>
                     <option value="Lucio">Lucio</option>
                     <option value="Mercy">Mercy</option>
                     <option value="Moira">Moira</option>
