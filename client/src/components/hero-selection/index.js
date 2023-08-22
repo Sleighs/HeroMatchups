@@ -164,7 +164,7 @@ export default function HeroSelection(props) {
           name="hero-selection" 
           id="hero-selection" 
           onChange={(event)=>{
-            getHeroData(event.target.value);
+            getHeroData(event, event.target.value);
           }}
         >
             <option value="Ana">Ana</option>
@@ -177,9 +177,11 @@ export default function HeroSelection(props) {
             <option value="Echo">Echo</option>
             <option value="Genji">Genji</option>
             <option value="Hanzo">Hanzo</option>
+            <option value="Illari">Illari</option>
             <option value="Junker Queen">Junker Queen</option>
             <option value="Junkrat">Junkrat</option>
             <option value="Kiriko">Kiriko</option>
+            <option value="Lifeweaver">Lifeweaver</option>
             <option value="Lucio">Lucio</option>
             <option value="Cassidy">{"Cassidy (McCree)"}</option>
             <option value="Mei">Mei</option>

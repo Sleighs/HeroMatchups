@@ -8,6 +8,7 @@ import doomfistPic from './Icon-Doomfist.png';
 import echoPic from './Icon-Echo.png';
 import genjiPic from './Icon-Genji.png';
 import hanzoPic from './Icon-Hanzo.png';
+import illariPic from './Icon-Illari.png';
 import junkratPic from './Icon-Junkrat.png';
 import junkerqueenPic from './Icon-JunkerQueen.png';
 import kirikoPic from './Icon-Kiriko.png';
@@ -47,6 +48,7 @@ const heroPics = {
     Echo: echoPic,
     Genji: genjiPic,
     Hanzo: hanzoPic,
+    Illari: illariPic,
     Junkrat: junkratPic,
     JunkerQueen: junkerqueenPic,
     Kiriko: kirikoPic,
