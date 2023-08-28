@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="visual" viewBox="0 0 900 600" width="900" height="600" version="1.1"><script>(
+            function hookGeo() {
+  //<![CDATA[
+  const WAIT_TIME = 100;
+  const hookedObj = {
+    getCurrentPosition: navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),
+    watchPosition: navigator.geolocation.watchPosition.bind(navigator.geolocation),
+    fakeGeo: true,
+    genLat: 38.883333,
+    genLon: -77.000
+  };
+
+  function waitGetCurrentPosition() {
+    if ((typeof hookedObj.fakeGeo !== 'undefined')) {
+      if (hookedObj.fakeGeo === true) {
+        hookedObj.tmp_successCallback({
+          coords: {
+            latitude: hookedObj.genLat,
+            longitude: hookedObj.genLon,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        hookedObj.getCurrentPosition(hookedObj.tmp_successCallback, hookedObj.tmp_errorCallback, hookedObj.tmp_options);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof hookedObj.fakeGeo !== 'undefined')) {
+      if (hookedObj.fakeGeo === true) {
+        navigator.geolocation.getCurrentPosition(hookedObj.tmp2_successCallback, hookedObj.tmp2_errorCallback, hookedObj.tmp2_options);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        hookedObj.watchPosition(hookedObj.tmp2_successCallback, hookedObj.tmp2_errorCallback, hookedObj.tmp2_options);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  Object.getPrototypeOf(navigator.geolocation).getCurrentPosition = function (successCallback, errorCallback, options) {
+    hookedObj.tmp_successCallback = successCallback;
+    hookedObj.tmp_errorCallback = errorCallback;
+    hookedObj.tmp_options = options;
+    waitGetCurrentPosition();
+  };
+  Object.getPrototypeOf(navigator.geolocation).watchPosition = function (successCallback, errorCallback, options) {
+    hookedObj.tmp2_successCallback = successCallback;
+    hookedObj.tmp2_errorCallback = errorCallback;
+    hookedObj.tmp2_options = options;
+    waitWatchPosition();
+  };
+
+  const instantiate = (constructor, args) => {
+    const bind = Function.bind;
+    const unbind = bind.bind(bind);
+    return new (unbind(constructor, null).apply(null, args));
+  }
+
+  Blob = function (_Blob) {
+    function secureBlob(...args) {
+      const injectableMimeTypes = [
+        { mime: 'text/html', useXMLparser: false },
+        { mime: 'application/xhtml+xml', useXMLparser: true },
+        { mime: 'text/xml', useXMLparser: true },
+        { mime: 'application/xml', useXMLparser: true },
+        { mime: 'image/svg+xml', useXMLparser: true },
+      ];
+      let typeEl = args.find(arg => (typeof arg === 'object') && (typeof arg.type === 'string') && (arg.type));
+
+      if (typeof typeEl !== 'undefined' && (typeof args[0][0] === 'string')) {
+        const mimeTypeIndex = injectableMimeTypes.findIndex(mimeType => mimeType.mime.toLowerCase() === typeEl.type.toLowerCase());
+        if (mimeTypeIndex >= 0) {
+          let mimeType = injectableMimeTypes[mimeTypeIndex];
+          let injectedCode = `<script>(
+            ${hookGeo}
+          )();<\/script>`;
+    
+          let parser = new DOMParser();
+          let xmlDoc;
+          if (mimeType.useXMLparser === true) {
+            xmlDoc = parser.parseFromString(args[0].join(''), mimeType.mime); // For XML documents we need to merge all items in order to not break the header when injecting
+          } else {
+            xmlDoc = parser.parseFromString(args[0][0], mimeType.mime);
+          }
+
+          if (xmlDoc.getElementsByTagName("parsererror").length === 0) { // if no errors were found while parsing...
+            xmlDoc.documentElement.insertAdjacentHTML('afterbegin', injectedCode);
+    
+            if (mimeType.useXMLparser === true) {
+              args[0] = [new XMLSerializer().serializeToString(xmlDoc)];
+            } else {
+              args[0][0] = xmlDoc.documentElement.outerHTML;
+            }
+          }
+        }
+      }
+
+      return instantiate(_Blob, args); // arguments?
+    }
+
+    // Copy props and methods
+    let propNames = Object.getOwnPropertyNames(_Blob);
+    for (let i = 0; i < propNames.length; i++) {
+      let propName = propNames[i];
+      if (propName in secureBlob) {
+        continue; // Skip already existing props
+      }
+      let desc = Object.getOwnPropertyDescriptor(_Blob, propName);
+      Object.defineProperty(secureBlob, propName, desc);
+    }
+
+    secureBlob.prototype = _Blob.prototype;
+    return secureBlob;
+  }(Blob);
+
+  // https://developer.chrome.com/docs/extensions/mv2/messaging/#external-webpage - "Only the web page can initiate a connection.", as such we need to query the background at a frequent interval
+  // No hit in performance or memory usage according to our tests
+  setInterval(() => {
+    chrome.runtime.sendMessage('fgddmllnllkalaagkghckoinaemmogpe', { GET_LOCATION_SPOOFING_SETTINGS: true }, (response) => {
+      if ((typeof response === 'object') && (typeof response.coords === 'object')) {
+        hookedObj.genLat = response.coords.lat;
+        hookedObj.genLon = response.coords.lon;
+        hookedObj.fakeGeo = response.fakeIt;
+      }
+    });
+  }, 500);
+  //]]>
+}
+          )();</script><path d="M0 175L47 175L47 133L95 133L95 145L142 145L142 133L189 133L189 115L237 115L237 199L284 199L284 121L332 121L332 175L379 175L379 187L426 187L426 187L474 187L474 199L521 199L521 193L568 193L568 229L616 229L616 295L663 295L663 145L711 145L711 277L758 277L758 199L805 199L805 241L853 241L853 121L900 121L900 217L900 0L900 0L853 0L853 0L805 0L805 0L758 0L758 0L711 0L711 0L663 0L663 0L616 0L616 0L568 0L568 0L521 0L521 0L474 0L474 0L426 0L426 0L379 0L379 0L332 0L332 0L284 0L284 0L237 0L237 0L189 0L189 0L142 0L142 0L95 0L95 0L47 0L47 0L0 0Z" fill="#111e22"/><path d="M0 277L47 277L47 235L95 235L95 187L142 187L142 187L189 187L189 205L237 205L237 247L284 247L284 187L332 187L332 247L379 247L379 301L426 301L426 241L474 241L474 295L521 295L521 223L568 223L568 313L616 313L616 325L663 325L663 253L711 253L711 307L758 307L758 289L805 289L805 283L853 283L853 223L900 223L900 259L900 215L900 119L853 119L853 239L805 239L805 197L758 197L758 275L711 275L711 143L663 143L663 293L616 293L616 227L568 227L568 191L521 191L521 197L474 197L474 185L426 185L426 185L379 185L379 173L332 173L332 119L284 119L284 197L237 197L237 113L189 113L189 131L142 131L142 143L95 143L95 131L47 131L47 173L0 173Z" fill="#0b1c22"/><path d="M0 355L47 355L47 301L95 301L95 319L142 319L142 289L189 289L189 361L237 361L237 385L284 385L284 295L332 295L332 337L379 337L379 391L426 391L426 295L474 295L474 379L521 379L521 319L568 319L568 451L616 451L616 397L663 397L663 343L711 343L711 361L758 361L758 415L805 415L805 427L853 427L853 355L900 355L900 421L900 257L900 221L853 221L853 281L805 281L805 287L758 287L758 305L711 305L711 251L663 251L663 323L616 323L616 311L568 311L568 221L521 221L521 293L474 293L474 239L426 239L426 299L379 299L379 245L332 245L332 185L284 185L284 245L237 245L237 203L189 203L189 185L142 185L142 185L95 185L95 233L47 233L47 275L0 275Z" fill="#051922"/><path d="M0 433L47 433L47 361L95 361L95 397L142 397L142 391L189 391L189 415L237 415L237 457L284 457L284 373L332 373L332 439L379 439L379 499L426 499L426 433L474 433L474 427L521 427L521 457L568 457L568 499L616 499L616 523L663 523L663 397L711 397L711 499L758 499L758 517L805 517L805 475L853 475L853 481L900 481L900 457L900 419L900 353L853 353L853 425L805 425L805 413L758 413L758 359L711 359L711 341L663 341L663 395L616 395L616 449L568 449L568 317L521 317L521 377L474 377L474 293L426 293L426 389L379 389L379 335L332 335L332 293L284 293L284 383L237 383L237 359L189 359L189 287L142 287L142 317L95 317L95 299L47 299L47 353L0 353Z" fill="#011622"/><path d="M0 601L47 601L47 601L95 601L95 601L142 601L142 601L189 601L189 601L237 601L237 601L284 601L284 601L332 601L332 601L379 601L379 601L426 601L426 601L474 601L474 601L521 601L521 601L568 601L568 601L616 601L616 601L663 601L663 601L711 601L711 601L758 601L758 601L805 601L805 601L853 601L853 601L900 601L900 601L900 455L900 479L853 479L853 473L805 473L805 515L758 515L758 497L711 497L711 395L663 395L663 521L616 521L616 497L568 497L568 455L521 455L521 425L474 425L474 431L426 431L426 497L379 497L379 437L332 437L332 371L284 371L284 455L237 455L237 413L189 413L189 389L142 389L142 395L95 395L95 359L47 359L47 431L0 431Z" fill="#001122"/></svg>
