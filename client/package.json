@@ -42,5 +42,8 @@
     ]
   },
   "license": "MIT",
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000",
+  "devDependencies": {
+    "terser-brunch": "^4.1.0"
+  }
 }
