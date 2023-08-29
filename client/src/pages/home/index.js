@@ -10,7 +10,6 @@ import stateManager from "../../js/stateManager";
 const HeroSelection = lazy(() => import('../../components/HeroSelection'));
 //const MatchupTable = lazy(() => import('../../components/MatchupTable'));
 
-
 const Home = () => {
   const { getAllHeroes, heroData } = useContext(RequestContext)
   const { theme, setTheme } = useContext(ThemeContext)
@@ -27,62 +26,61 @@ const Home = () => {
 
   return (
     <div className="home">
-        <div className='home__body'>
-          
-          <DarkModeToggle
-            className="themeToggleBtn"
-            onChange={() => {
-              if (theme === 'dark-theme'){
-                setTheme('light-theme')
-                setIsDarkMode(false)
-              } else {
-                setTheme('dark-theme')
-                setIsDarkMode(true)
-              }
-            }}
-            checked={isDarkMode}
-            size={40}          
-          />
-          
-          <div className='page-header__container'>
-            <h2 className={`page-header__title ${theme}__title`}>
-                Hero Matchups API
-            </h2>
-          </div>
-
-            
-
-          <div className="home-intro__text-container">
-            <p className="home-intro__text">
-              <span>{
-                'The Hero Matchups API retrieves strategic matchup information for each hero in ' 
-                + stateManager.game 
-                + ' for the ' 
-                + stateManager.date 
-                + ' patch. The available information is based on aggregated data from win rates, hero kits and ' 
-                + stateManager.game 
-                + ' community feedback. '
-              }</span>
-              <span className="hero-profile__text2" >
-                Check out the repository at <a target="_blank" href="https://github.com/Sleighs/hero-matchups-api/" rel="noreferrer"> github.com/Sleighs/hero-matchups-api</a>   
-              </span>
-            </p>
-          </div>
-
-          <hr className="home-hr"/>
-
-          <Suspense fallback={<div></div>}>
-            <HeroSelection />
-          </Suspense>
-          
-          <hr className="home-hr"/>
-          
-          <RandomHero />
-          
-          {heroData && <MatchupTable />}
-          
+      <div className='home__body'>
+        <DarkModeToggle
+          className="themeToggleBtn"
+          onChange={() => {
+            if (theme === 'dark-theme'){
+              setTheme('light-theme')
+              setIsDarkMode(false)
+            } else {
+              setTheme('dark-theme')
+              setIsDarkMode(true)
+            }
+          }}
+          checked={isDarkMode}
+          size={40}          
+        />
+        
+        <div className='page-header__container'>
+          <h2 className={`page-header__title ${theme}__title`}>
+              Hero Matchups API
+          </h2>
         </div>
-        <Footer />
+
+        <div className="home-intro__text-container">
+          <p className="home-intro__text">
+            <span>{
+              'The Hero Matchups API retrieves strategic matchup information for each hero in ' 
+              + stateManager.game 
+              + ' for the season '
+              + stateManager.season 
+              + ' ' 
+              + stateManager.date 
+              + ' patch. The available information is based on aggregated data from win rates, hero kits and ' 
+              + stateManager.game 
+              + ' community feedback. '
+            }</span>
+            <span className="hero-profile__text2" >
+              Check out the repository at <a target="_blank" href="https://github.com/Sleighs/hero-matchups-api/" rel="noreferrer"> github.com/Sleighs/hero-matchups-api</a>   
+            </span>
+          </p>
+        </div>
+
+        <hr className="home-hr"/>
+
+        <Suspense fallback={<div></div>}>
+          <HeroSelection />
+        </Suspense>
+        
+        <hr className="home-hr"/>
+        
+        <RandomHero />
+        
+        {heroData && <MatchupTable />}
+      </div>
+
+      <Footer />
     </div>
   );
 }

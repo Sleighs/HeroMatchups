@@ -49,6 +49,8 @@
 }
 .resources__section {
     margin-top: 3%;
+    width: 100%;
+    word-wrap: break-word;
 }
 .resources__route-style {
     color: rgb(230, 150, 2);

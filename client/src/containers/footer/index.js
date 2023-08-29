@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <div className='footer'>
             <p style={{
-                fontSize: '.85em',
+                fontSize: '.9em',
                 letterSpacing: '1px'
             }}>
                 Hero Matchups API &#169; 2023

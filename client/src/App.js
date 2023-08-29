@@ -5,11 +5,12 @@ import { ThemeContext } from "./contexts/ThemeContext";
 import { useContext } from "react";
 
 const Homepage = () => {
-  const { theme } = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext);
+
 	return (
-      <div className={`app ${theme}`} >
-        <Home />
-      </div>
+    <div id="home-page" className={`app ${theme}`}>
+      <Home />
+    </div>
 	)
 };
 

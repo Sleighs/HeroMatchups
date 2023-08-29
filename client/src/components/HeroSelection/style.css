@@ -78,6 +78,14 @@
   margin: 5px auto;
 }
 .resources__section {
+  
+}
+.resources__list {
+  width: 100%;
+}
+.api-url {
+  width: 100%;
+  word-wrap: break-word;
 }
 
 section {

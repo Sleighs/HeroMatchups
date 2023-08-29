@@ -48,7 +48,7 @@ export default function HeroSelection(props) {
         <h3 className="resources__route-style">/heroes/:heroName</h3>
         <ul className="resources__list">
           <li><strong>Description:</strong> Retrieves information for all available heroes in JSON. The "heroName" tag retrieves details for only the specified hero.</li>
-          <li className='api-url'><span><strong>URL:</strong> {apiUrl}/heroes</span></li>
+          <li className='api-url'><strong>URL:</strong> {apiUrl}/heroes</li>
           <li><strong>Method:</strong> GET</li>
         </ul>
       </section>
@@ -81,7 +81,7 @@ export default function HeroSelection(props) {
           </li>
           
           <li className='api-url'>
-            <span><strong>URL:</strong> {apiUrl}/archetype/:archetypeName</span>
+            <strong>URL:</strong> {apiUrl}/archetype/:archetypeName
           </li>
           <li><strong>Method:</strong> GET</li>
         </ul>

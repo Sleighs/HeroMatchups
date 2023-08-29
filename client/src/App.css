@@ -1,3 +1,27 @@
+/* Background #1b2125 #3f2932*/
+/* 
+10 11 14 21
+*/
+html {
+  --main-bg: url("./resources/background10.png");
+}
+
+#home-page {
+  /*background-image: var(--main-bg);*/
+  background-image: url("./resources/background21.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  width: 100%;
+}
+
+/* App */
+
+.app {
+  width: 100%;
+  height: 100%;
+}
 
 /* Theme */
 
@@ -18,12 +42,6 @@
   text-shadow: 1px 1px 1px rgb(199, 197, 197);
 }
 
-/* App */
-
-.app {
-  width: 100%;
-  height: 100%;
-}
 
 @media screen and (max-width: 600px) {
   .apiUrl span {

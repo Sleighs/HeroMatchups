@@ -4,5 +4,7 @@
     height: 11vh;
     margin-top: 22px;
     bottom: 0;
-    color: rgba(198, 186, 189, 0.8);
+    color: rgb(240, 231, 233, .4);
+    user-select: none;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
