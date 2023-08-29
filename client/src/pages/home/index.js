@@ -1,11 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, lazy, Suspense } from "react";
 import "./style.css";
 import { Footer} from "../../containers";
-import { MatchupTable, RandomHero, HeroSelection } from "../../components";
+import { RandomHero, MatchupTable } from "../../components";
 import { RequestContext } from "../../contexts/RequestContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import DarkModeToggle from "react-dark-mode-toggle";
 import stateManager from "../../js/stateManager";
+
+const HeroSelection = lazy(() => import('../../components/HeroSelection'));
+//const MatchupTable = lazy(() => import('../../components/MatchupTable'));
+
 
 const Home = () => {
   const { getAllHeroes, heroData } = useContext(RequestContext)
@@ -66,14 +70,19 @@ const Home = () => {
           </div>
 
           <hr className="home-hr"/>
-          
-          <HeroSelection />
 
+          <Suspense fallback={<div></div>}>
+            <HeroSelection />
+          </Suspense>
+          
           <hr className="home-hr"/>
           
           <RandomHero />
           
-          {heroData && <MatchupTable />}
+          {heroData &&  
+          <Suspense fallback={<div></div>}>
+            <MatchupTable />
+          </Suspense>}
           
         </div>
         <Footer />

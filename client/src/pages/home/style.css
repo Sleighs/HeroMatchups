@@ -41,9 +41,10 @@
 
 .home-intro__text-container {
     padding: 0 15px;
+    margin: 0 auto 25px auto;
 }
 .home-intro__text {
-    font-size: 13pt;
+    font-size: 14pt;
     margin: -5px 2px 20px 2px;
 }
 .resources__section {

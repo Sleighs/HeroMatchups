@@ -1,6 +1,6 @@
 var stateManager = {
     game: 'Overwatch 2',
-    date: 'December 15th 2022',
+    date: 'August 28th 2023',
     version: 4
 }
         
