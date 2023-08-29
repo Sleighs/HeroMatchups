@@ -104,6 +104,7 @@ export default function HeroSelection(props) {
                   handleClick={(e)=>{getHeroData(e, getHeroName(hero.name, false))}}
                   index={index}
                   heroTitle={getHeroName(hero.name, false)}
+                  key={index}
                 />)
             }
           })}
@@ -220,7 +221,7 @@ const HeroIcon = (props) => {
   } = props
   
   return(
-    <img className="hero-profile__hero-thumbnail" 
+    <img className="hero-profile__hero-thumbnail"
       onClick={handleClick}
       src={src} 
       alt={name} 

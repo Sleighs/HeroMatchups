@@ -45,8 +45,9 @@ export default function MatchupTable(props) {
     // Create table rows
     for (var b = 0; b < heroes.length; b++){
         var row = document.createElement("tr");
-        var rowClass = 'counter-table__row' + b;
+        var rowClass = 'counter-table__row' + b ;
 
+        row.classList.add('counter-table__row');
         row.classList.add(rowClass);
         
         var rowMatchups = Object.entries(heroes[b][1]['counters']);
@@ -57,7 +58,8 @@ export default function MatchupTable(props) {
             var hero; 
 
             cell.classList.add(colClass);
-
+            cell.classList.add('counter-table__col');
+            
             // Add hero name before matchup values
             if (c > -1 && c < heroes.length){
                 if (heroes[c][1].name === "D.Va"){
