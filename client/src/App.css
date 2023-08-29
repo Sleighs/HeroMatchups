@@ -1,11 +1,11 @@
-/* Background #1b2125 #3f2932*/
+/* Background */
 /* 
+#1b2125 #3f2932
 10 11 14 21
-*/
 html {
   --main-bg: url("./resources/background10.png");
 }
-
+*/
 #home-page {
   /*background-image: var(--main-bg);*/
   background-image: url("./resources/background21.png");
