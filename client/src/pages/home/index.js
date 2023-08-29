@@ -79,10 +79,7 @@ const Home = () => {
           
           <RandomHero />
           
-          {heroData &&  
-          <Suspense fallback={<div></div>}>
-            <MatchupTable />
-          </Suspense>}
+          {heroData && <MatchupTable />}
           
         </div>
         <Footer />
