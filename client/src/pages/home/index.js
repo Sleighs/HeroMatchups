@@ -1,25 +1,44 @@
 import React, { useContext, useEffect, useState, lazy, Suspense } from "react";
 import "./style.css";
 import { Footer} from "../../containers";
-import { RandomHero, MatchupTable } from "../../components";
+import { RandomHero, MatchupTable, HeroSelection } from "../../components";
 import { RequestContext } from "../../contexts/RequestContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import DarkModeToggle from "react-dark-mode-toggle";
 import stateManager from "../../js/stateManager";
 
-const HeroSelection = lazy(() => import('../../components/HeroSelection'));
+//const HeroSelection = lazy(() => import('../../components/HeroSelection'));
 //const MatchupTable = lazy(() => import('../../components/MatchupTable'));
 
 const Home = () => {
-  const { getAllHeroes, heroData } = useContext(RequestContext)
+  const { getAllHeroes, heroData, setHeroData } = useContext(RequestContext)
   const { theme, setTheme } = useContext(ThemeContext)
   
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  var reqCount = 0;
+  let reqCount = 0;
+
+  const getHeroData = async () => {
+    const data = await getAllHeroes();
+    console.log('getHeroData', data);
+    if (data){
+      setHeroData(prev => data.sort(
+        function (a, b) {
+        if (a['name'] < b['name']){
+          return -1;
+        } else if (a['name'] > b['name']){
+          return 1;
+        } else {
+          return 0;   
+        }
+      }))
+    }
+  }
 
   useEffect(()=>{
-    getAllHeroes();
+    //getAllHeroes();
+    getHeroData();
+        
     reqCount = reqCount + 1
     // eslint-disable-line react-hooks/exhaustive-deps
   }, [reqCount])
@@ -27,7 +46,7 @@ const Home = () => {
   return (
     <div className="home">
       <div className='home__body'>
-        <DarkModeToggle
+        {/* <DarkModeToggle
           className="themeToggleBtn"
           onChange={() => {
             if (theme === 'dark-theme'){
@@ -40,7 +59,7 @@ const Home = () => {
           }}
           checked={isDarkMode}
           size={40}          
-        />
+        /> */}
         
         <div className='page-header__container'>
           <h2 className={`page-header__title ${theme}__title`}>
@@ -69,10 +88,12 @@ const Home = () => {
 
         <hr className="home-hr"/>
 
-        <Suspense fallback={<div></div>}>
+        {/* <Suspense fallback={<div></div>}>
           <HeroSelection />
-        </Suspense>
+        </Suspense> */}
         
+        <HeroSelection />
+
         <hr className="home-hr"/>
         
         <RandomHero />
