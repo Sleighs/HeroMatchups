@@ -109,6 +109,7 @@ export default function HeroSelection(props) {
             }
           })}
         </div>
+
         <div className="hero-profile__hero-section">
           <div className="hero-profile__hero-row-title">Damage</div>
           {heroData.map((hero, index) => {
@@ -124,6 +125,7 @@ export default function HeroSelection(props) {
             }
           })}
         </div>
+
         <div className="hero-profile__hero-section">
           <div className="hero-profile__hero-row-title">Support</div>
           {heroData.map((hero, index) => {
@@ -184,6 +186,7 @@ export default function HeroSelection(props) {
             <option value="Kiriko">Kiriko</option>
             <option value="Lifeweaver">Lifeweaver</option>
             <option value="Lucio">Lucio</option>
+            <option value="Mauga">Mauga</option>
             <option value="Cassidy">{"Cassidy (McCree)"}</option>
             <option value="Mei">Mei</option>
             <option value="Mercy">Mercy</option>

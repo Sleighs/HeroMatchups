@@ -19,7 +19,7 @@ export default function MatchupTable(props) {
     
     // Create a table element and a tbody element
     var tableBody = document.getElementById("counter-table__table");
-    var tblBody = document.createElement("tbody");
+    // var tblBody = document.createElement("tbody");
     
     tableBody.innerHTML = '';
 
@@ -203,6 +203,7 @@ export default function MatchupTable(props) {
                     <span className="counter-table__y-list-name">Kiriko</span>
                     <span className="counter-table__y-list-name">Lifeweaver</span>
                     <span className="counter-table__y-list-name">Lucio</span>
+                    <span className="counter-table__y-list-name">Mauga</span>
                     <span className="counter-table__y-list-name">Mei</span>
                     <span className="counter-table__y-list-name">Mercy</span>
                     <span className="counter-table__y-list-name">Moira</span>

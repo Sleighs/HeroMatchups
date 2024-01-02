@@ -240,6 +240,7 @@ const HeroLineupSelect = ({lineUpIndex, test, setTest}, props) => {
                     <option value="Dva">D.Va</option>
                     <option value="Doomfist">Doomfist</option>
                     <option value="JunkerQueen">Junker Queen</option>
+                    <option value="Mauga">Mauga</option>
                     <option value="Orisa">Orisa</option>
                     <option value="Reinhardt">Reinhardt</option>
                     <option value="Roadhog">Roadhog</option>

@@ -63,7 +63,7 @@
     overflow: hidden;
     font-size: 13pt;
     padding: 1px 1px 0 0;
-    margin: 1px;
+    margin: 0px;
     border-bottom: solid .5pt rgba(128, 128, 128, 0.427);;
 }
 .counter-table__table-y-title {

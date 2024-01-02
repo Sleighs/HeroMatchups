@@ -14,6 +14,7 @@ import junkerqueenPic from './Icon-JunkerQueen.png';
 import kirikoPic from './Icon-Kiriko.png';
 import lifeweaverPic from './Icon-Lifeweaver.png';
 import lucioPic from './Icon-Lucio.png';
+import maugaPic from './Icon-Mauga.png';
 import mccreePic from './Icon-McCree.png';
 import meiPic from './Icon-Mei.png';
 import mercyPic from './Icon-Mercy.png';
@@ -54,6 +55,7 @@ const heroPics = {
     Kiriko: kirikoPic,
     Lifeweaver: lifeweaverPic,
     Lucio: lucioPic,
+    Mauga: maugaPic,
     McCree: mccreePic,
     Cassidy: mccreePic,
     Mei: meiPic,
