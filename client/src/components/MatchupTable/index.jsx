@@ -11,28 +11,23 @@ export default function MatchupTable(props) {
     ((a, b) => (a[1].name > b[1].name) ? 1 : -1)
   ));
   
-  useEffect(() => {
-
-    // Hero matchup table
-
-    // Suited for interchangeability between games
-    
+  const makeTable = () => {
     // Create a table element and a tbody element
-    var tableBody = document.getElementById("counter-table__table");
+    let tableBody = document.getElementById("counter-table__table");
     // var tblBody = document.createElement("tbody");
     
     tableBody.innerHTML = '';
 
     // Create row one
-    var row1 = document.createElement("tr");
-    var emptyCell = document.createElement("td");
-    var emptyCell2 = document.createElement("td");
+    let row1 = document.createElement("tr");
+    let emptyCell = document.createElement("td");
+    let emptyCell2 = document.createElement("td");
     row1.appendChild(emptyCell);
     row1.classList.add('counter-table__table-head');
 
     // Add hero names to row 1
-    for (var a = 0; a < heroes.length; a++){
-        var heroNameCell = document.createElement("td");
+    for (let a = 0; a < heroes.length; a++){
+      let heroNameCell = document.createElement("td");
         heroNameCell.innerHTML = heroes[a][1].name;
         heroNameCell.classList.add('create-table__column-head');
         row1.appendChild(heroNameCell);
@@ -43,19 +38,19 @@ export default function MatchupTable(props) {
     tableBody.appendChild(row1);
 
     // Create table rows
-    for (var b = 0; b < heroes.length; b++){
-        var row = document.createElement("tr");
-        var rowClass = 'counter-table__row' + b ;
+    for (let b = 0; b < heroes.length; b++){
+      let row = document.createElement("tr");
+      let rowClass = 'counter-table__row' + b ;
 
         row.classList.add('counter-table__row');
         row.classList.add(rowClass);
         
-        var rowMatchups = Object.entries(heroes[b][1]['counters']);
+        let rowMatchups = Object.entries(heroes[b][1]['counters']);
 
         for (var c = -1; c <= heroes.length; c++){
-            var cell = document.createElement("td");
-            var colClass = 'counter-table__col' + c;
-            var hero; 
+          let cell = document.createElement("td");
+          let colClass = 'counter-table__col' + c;
+          let hero; 
 
             cell.classList.add(colClass);
             cell.classList.add('counter-table__col');
@@ -172,81 +167,88 @@ export default function MatchupTable(props) {
     }
 
     tableBody.appendChild(lastRow);
-  });
+  }
+
+
+  useEffect(() => {
+    if (heroData) {
+      makeTable();
+    }
+  }, []);
 
   return (
     <>
     {heroData && 
     <div className="counter-table">
-        <h2 id="matchup-table__title" className={`__title ${theme}__title`}>Overwatch 2 Matchups</h2>
+      <h2 id="matchup-table__title" className={`__title ${theme}__title`}>Overwatch 2 Matchups</h2>
 
-        <div className="counter-table__table-container">
-            <span className="counter-table__table-y-title">Heroes {/*&#8592; Heroes &#8594;*/}</span>
-            <div className="counter-table__table-main">
-                <span className="counter-table__table-x-title">Counters {/*&#8592; Counters &#8594;*/}</span>  
-                <div id="counter-table__y-list">
-                    <span className="counter-table__y-list-name-head"></span>
-                    <span className="counter-table__y-list-name">Ana</span>
-                    <span className="counter-table__y-list-name">Ashe</span>
-                    <span className="counter-table__y-list-name">Baptiste</span>
-                    <span className="counter-table__y-list-name">Bastion</span>
-                    <span className="counter-table__y-list-name">Brigitte</span>
-                    <span className="counter-table__y-list-name">Cassidy</span>
-                    <span className="counter-table__y-list-name">D.Va</span>
-                    <span className="counter-table__y-list-name">Doomfist</span>
-                    <span className="counter-table__y-list-name">Echo</span>
-                    <span className="counter-table__y-list-name">Genji</span>
-                    <span className="counter-table__y-list-name">Hanzo</span>
-                    <span className="counter-table__y-list-name">Illari</span>
-                    <span className="counter-table__y-list-name">Junker Queen</span>
-                    <span className="counter-table__y-list-name">Junkrat</span>
-                    <span className="counter-table__y-list-name">Kiriko</span>
-                    <span className="counter-table__y-list-name">Lifeweaver</span>
-                    <span className="counter-table__y-list-name">Lucio</span>
-                    <span className="counter-table__y-list-name">Mauga</span>
-                    <span className="counter-table__y-list-name">Mei</span>
-                    <span className="counter-table__y-list-name">Mercy</span>
-                    <span className="counter-table__y-list-name">Moira</span>
-                    <span className="counter-table__y-list-name">Orisa</span>
-                    <span className="counter-table__y-list-name">Pharah</span>
-                    <span className="counter-table__y-list-name">Ramattra</span>
-                    <span className="counter-table__y-list-name">Reaper</span>
-                    <span className="counter-table__y-list-name">Reinhardt</span>
-                    <span className="counter-table__y-list-name">Roadhog</span>
-                    <span className="counter-table__y-list-name">Sigma</span>
-                    <span className="counter-table__y-list-name">Sojourn</span>
-                    <span className="counter-table__y-list-name">Soldier: 76</span>
-                    <span className="counter-table__y-list-name">Sombra</span>
-                    <span className="counter-table__y-list-name">Symmetra</span>
-                    <span className="counter-table__y-list-name">Torbjorn</span>
-                    <span className="counter-table__y-list-name">Tracer</span>
-                    <span className="counter-table__y-list-name">Widowmaker</span>
-                    <span className="counter-table__y-list-name">Winston</span>
-                    <span className="counter-table__y-list-name">Wrecking Ball</span>
-                    <span className="counter-table__y-list-name">Zarya</span>
-                    <span className="counter-table__y-list-name">Zenyatta</span>
-                </div>
-                 <table id="counter-table__table" ></table>
-            </div>
+      <div className="counter-table__table-container">
+        <span className="counter-table__table-y-title">Heroes {/*&#8592; Heroes &#8594;*/}</span>
+        <div className="counter-table__table-main">
+          <span className="counter-table__table-x-title">Counters {/*&#8592; Counters &#8594;*/}</span>  
+          <div id="counter-table__y-list">
+            <span className="counter-table__y-list-name-head"></span>
+            <span className="counter-table__y-list-name">Ana</span>
+            <span className="counter-table__y-list-name">Ashe</span>
+            <span className="counter-table__y-list-name">Baptiste</span>
+            <span className="counter-table__y-list-name">Bastion</span>
+            <span className="counter-table__y-list-name">Brigitte</span>
+            <span className="counter-table__y-list-name">Cassidy</span>
+            <span className="counter-table__y-list-name">D.Va</span>
+            <span className="counter-table__y-list-name">Doomfist</span>
+            <span className="counter-table__y-list-name">Echo</span>
+            <span className="counter-table__y-list-name">Genji</span>
+            <span className="counter-table__y-list-name">Hanzo</span>
+            <span className="counter-table__y-list-name">Illari</span>
+            <span className="counter-table__y-list-name">Junker Queen</span>
+            <span className="counter-table__y-list-name">Junkrat</span>
+            <span className="counter-table__y-list-name">Kiriko</span>
+            <span className="counter-table__y-list-name">Lifeweaver</span>
+            <span className="counter-table__y-list-name">Lucio</span>
+            <span className="counter-table__y-list-name">Mauga</span>
+            <span className="counter-table__y-list-name">Mei</span>
+            <span className="counter-table__y-list-name">Mercy</span>
+            <span className="counter-table__y-list-name">Moira</span>
+            <span className="counter-table__y-list-name">Orisa</span>
+            <span className="counter-table__y-list-name">Pharah</span>
+            <span className="counter-table__y-list-name">Ramattra</span>
+            <span className="counter-table__y-list-name">Reaper</span>
+            <span className="counter-table__y-list-name">Reinhardt</span>
+            <span className="counter-table__y-list-name">Roadhog</span>
+            <span className="counter-table__y-list-name">Sigma</span>
+            <span className="counter-table__y-list-name">Sojourn</span>
+            <span className="counter-table__y-list-name">Soldier: 76</span>
+            <span className="counter-table__y-list-name">Sombra</span>
+            <span className="counter-table__y-list-name">Symmetra</span>
+            <span className="counter-table__y-list-name">Torbjorn</span>
+            <span className="counter-table__y-list-name">Tracer</span>
+            <span className="counter-table__y-list-name">Widowmaker</span>
+            <span className="counter-table__y-list-name">Winston</span>
+            <span className="counter-table__y-list-name">Wrecking Ball</span>
+            <span className="counter-table__y-list-name">Zarya</span>
+            <span className="counter-table__y-list-name">Zenyatta</span>
+          </div>
+          <table id="counter-table__table" ></table>
         </div>
-        
+      </div>
+      
 
-        <div className="counter-table__legend">
-            <div>
-                <div className="counter-table__legend-td">
-                    {'++ very strong'}
-                </div>
-                <div className="counter-table__legend-td">
-                    {'-- very weak'}
-                </div>
-                <div className="counter-table__legend-td">
-                    {'+ strong'}
-                </div>
-                <div className="counter-table__legend-td">
-                    {'- weak'}
-                </div>
-            </div>
+      <div className="counter-table__legend">
+        <div>
+          <div className="counter-table__legend-td">
+            {'++ very strong'}
+          </div>
+          <div className="counter-table__legend-td">
+            {'-- very weak'}
+          </div>
+          <div className="counter-table__legend-td">
+            {'+ strong'}
+          </div>
+          <div className="counter-table__legend-td">
+            {'- weak'}
+          </div>
         </div>
+      </div>
     </div>
     }
     </>
