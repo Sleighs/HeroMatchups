@@ -85,6 +85,16 @@ export default function MatchupTable(props) {
             if ((c === -1) || (c === heroes.length)){
                //cell.innerHTML = heroes[b][1].name; 
                cell.classList.add('counter-table__row-head');
+               cell.classList.add('counter-table__row-head-special');
+               
+              //  // Add hero name to first cell
+              //   if (c === -1){
+              //       cell.innerHTML = heroes[b][1].name;
+              //   } else
+              //   // add hero name to last cell
+              //   if (c === heroes.length){
+              //       cell.innerHTML = heroes[b][1].name;
+              //   }
 
                if (c === heroes.length){
                    //cell.classList.add('counter-table__row-head2')
@@ -119,6 +129,7 @@ export default function MatchupTable(props) {
                 }
 
                 cell.classList.add('counter-table__value');
+                cell.classList.add('counter-table__col-value');
 
                 /*
                 // Add hover effect to each column
@@ -169,10 +180,38 @@ export default function MatchupTable(props) {
     tableBody.appendChild(lastRow);
   }
 
+  const generateYList = () => {
+    let yList = document.getElementById("counter-table__y-list");
+    //yList.innerHTML = '';
+    while (yList.firstChild) {
+      yList.removeChild(yList.firstChild);
+    }
+
+    // Add first cell
+    let emptyCell = document.createElement("span");
+    emptyCell.classList.add('counter-table__y-list-name-head');
+    yList.appendChild(emptyCell);
+    
+    for (let a = 0; a < heroes.length; a++){
+      let heroNameCell = document.createElement("span");
+        heroNameCell.innerHTML = heroes[a][1].name;
+        heroNameCell.classList.add('counter-table__value');
+        heroNameCell.classList.add('counter-table__y-list-name');
+        yList.appendChild(heroNameCell);
+    }
+
+    let emptyCell2 = document.createElement("span");
+    emptyCell2.classList.add('counter-table__y-list-name-head');
+    emptyCell2.style.border = 'none';
+    yList.appendChild(emptyCell2);
+  }
+
 
   useEffect(() => {
     if (heroData) {
+      generateYList();
       makeTable();
+      //console.log('MatchupTable heroes', heroes)
     }
   }, []);
 
@@ -186,48 +225,7 @@ export default function MatchupTable(props) {
         <span className="counter-table__table-y-title">Heroes {/*&#8592; Heroes &#8594;*/}</span>
         <div className="counter-table__table-main">
           <span className="counter-table__table-x-title">Counters {/*&#8592; Counters &#8594;*/}</span>  
-          <div id="counter-table__y-list">
-            <span className="counter-table__y-list-name-head"></span>
-            <span className="counter-table__y-list-name">Ana</span>
-            <span className="counter-table__y-list-name">Ashe</span>
-            <span className="counter-table__y-list-name">Baptiste</span>
-            <span className="counter-table__y-list-name">Bastion</span>
-            <span className="counter-table__y-list-name">Brigitte</span>
-            <span className="counter-table__y-list-name">Cassidy</span>
-            <span className="counter-table__y-list-name">D.Va</span>
-            <span className="counter-table__y-list-name">Doomfist</span>
-            <span className="counter-table__y-list-name">Echo</span>
-            <span className="counter-table__y-list-name">Genji</span>
-            <span className="counter-table__y-list-name">Hanzo</span>
-            <span className="counter-table__y-list-name">Illari</span>
-            <span className="counter-table__y-list-name">Junker Queen</span>
-            <span className="counter-table__y-list-name">Junkrat</span>
-            <span className="counter-table__y-list-name">Kiriko</span>
-            <span className="counter-table__y-list-name">Lifeweaver</span>
-            <span className="counter-table__y-list-name">Lucio</span>
-            <span className="counter-table__y-list-name">Mauga</span>
-            <span className="counter-table__y-list-name">Mei</span>
-            <span className="counter-table__y-list-name">Mercy</span>
-            <span className="counter-table__y-list-name">Moira</span>
-            <span className="counter-table__y-list-name">Orisa</span>
-            <span className="counter-table__y-list-name">Pharah</span>
-            <span className="counter-table__y-list-name">Ramattra</span>
-            <span className="counter-table__y-list-name">Reaper</span>
-            <span className="counter-table__y-list-name">Reinhardt</span>
-            <span className="counter-table__y-list-name">Roadhog</span>
-            <span className="counter-table__y-list-name">Sigma</span>
-            <span className="counter-table__y-list-name">Sojourn</span>
-            <span className="counter-table__y-list-name">Soldier: 76</span>
-            <span className="counter-table__y-list-name">Sombra</span>
-            <span className="counter-table__y-list-name">Symmetra</span>
-            <span className="counter-table__y-list-name">Torbjorn</span>
-            <span className="counter-table__y-list-name">Tracer</span>
-            <span className="counter-table__y-list-name">Widowmaker</span>
-            <span className="counter-table__y-list-name">Winston</span>
-            <span className="counter-table__y-list-name">Wrecking Ball</span>
-            <span className="counter-table__y-list-name">Zarya</span>
-            <span className="counter-table__y-list-name">Zenyatta</span>
-          </div>
+          <div id="counter-table__y-list"></div>
           <table id="counter-table__table" ></table>
         </div>
       </div>

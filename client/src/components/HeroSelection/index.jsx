@@ -32,7 +32,7 @@ export default function HeroSelection(props) {
       var updateEle = document.querySelectorAll(`.hero-profile__hero-thumbnail[title=${highlightedHero}]`)
       updateEle[0].classList.add('icon-highlight')
     }
-  });
+  }, []);
   
 
   return (
@@ -96,6 +96,7 @@ export default function HeroSelection(props) {
         <div className="hero-profile__hero-section">
           <div className="hero-profile__hero-row-title">Tank</div>
           {heroData.map((hero, index) => {
+            //console.log('tank hero ' + index, hero)
             if (hero.type === 'tank'){
               return(
                 <HeroIcon 

@@ -20,7 +20,7 @@ const Home = () => {
 
   const getHeroData = async () => {
     const data = await getAllHeroes();
-    console.log('getHeroData', data);
+    //console.log('getHeroData', data);
     if (data){
       setHeroData(prev => data.sort(
         function (a, b) {
@@ -36,7 +36,6 @@ const Home = () => {
   }
 
   useEffect(()=>{
-    //getAllHeroes();
     getHeroData();
         
     reqCount = reqCount + 1

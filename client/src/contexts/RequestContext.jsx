@@ -1,9 +1,10 @@
 import React, {useState} from "react"
+import ow2Data from "../js/ow2Data";
 
 const RequestContext = React.createContext()
 
 function RequestContextProvider(props){ 
-  const [heroData, setHeroData] = useState(null);
+  const [heroData, setHeroData] = useState(ow2Data || null);
   const [currentHero, setCurrentHero] = useState(null);
   const [currentRandomHero, setCurrentRandomHero] = useState(null);
   
@@ -37,6 +38,7 @@ function RequestContextProvider(props){
       //     return 0;   
       //   }
       // }))
+      
       return data;
     } catch (err) {
       console.log('RequestContext getAllHeroes', err);
