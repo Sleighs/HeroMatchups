@@ -76,8 +76,8 @@ const ow2Data = [
     type: "tank",
     counters: {
       Roadhog: "+",
-      Orisa: "-",
-      Sigma: "-",
+      //Orisa: "-*",
+      Sigma: "-*",
       Ana: "--",
     },
     archetype: ["Damage Heavy"],
@@ -168,6 +168,7 @@ const ow2Data = [
       Bastion: "+",
       Lucio: "+",
       Cassidy: "+",
+      Mauga: "-",
       Mei: "--",
       Mercy: "+",
       Ramattra: "+",
@@ -193,6 +194,7 @@ const ow2Data = [
     counters: {
       Ana: "+",
       Lucio: "-",
+      Mauga:  "+",
       Orisa: "-",
       Reinhardt: "-",
       Roadhog: "+",

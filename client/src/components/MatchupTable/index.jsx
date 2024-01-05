@@ -22,7 +22,7 @@ export default function MatchupTable(props) {
     let row1 = document.createElement("tr");
     let emptyCell = document.createElement("td");
     let emptyCell2 = document.createElement("td");
-    row1.appendChild(emptyCell);
+    //row1.appendChild(emptyCell);
     row1.classList.add('counter-table__table-head');
 
     // Add hero names to row 1
@@ -167,7 +167,7 @@ export default function MatchupTable(props) {
     // Add a row of names as last row
     var lastRow = document.createElement("tr");
     var emptyCell3 = document.createElement("td");
-    lastRow.appendChild(emptyCell3);
+    //lastRow.appendChild(emptyCell3);
     lastRow.classList.add('counter-table__table-foot');
 
     for (var e = 0; e < heroes.length; e++){

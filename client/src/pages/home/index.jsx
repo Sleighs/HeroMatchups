@@ -101,7 +101,7 @@ const Home = () => {
             </span>
           </p>
           <div>
-            <span>New hero updates coming soon featuring:</span>
+            <span>New hero updates coming soon, featuring:</span>
             <div id="home__upcoming-heroes-list">{stateManager.upcoming.map(
               (hero, index) =>  
                 <HeroIcon 
