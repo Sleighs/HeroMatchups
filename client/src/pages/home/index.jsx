@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState, lazy, Suspense } from "react";
 import "./style.css";
 import { Footer} from "../../containers";
-import { RandomHero, MatchupTable, HeroSelection } from "../../components";
+import { RandomHero, MatchupTable, HeroSelection, HeroIcon } from "../../components";
 import { RequestContext } from "../../contexts/RequestContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import DarkModeToggle from "react-dark-mode-toggle";
 import stateManager from "../../js/stateManager";
+import getHeroName from "../../js/getHeroName";
+import heroPics from '../../resources/overwatch-assets';
 
 //const HeroSelection = lazy(() => import('../../components/HeroSelection'));
 //const MatchupTable = lazy(() => import('../../components/MatchupTable'));
@@ -35,8 +37,23 @@ const Home = () => {
     }
   }
 
+  const getUpcomingHeroes = () => {
+    let upcomingHeroes = [...stateManager.upcoming];
+
+    let eleId = document.getElementById('home__upcoming-heroes-list');
+
+    for (let i = 0; i < upcomingHeroes.length; i++){
+      let hero = document.createElement('div');
+      hero.classList.add('home__upcoming-hero');
+      hero.innerHTML = upcomingHeroes[i]; 
+      eleId.appendChild(hero);
+    }
+  }
+
+
   useEffect(()=>{
     getHeroData();
+    getUpcomingHeroes();
         
     reqCount = reqCount + 1
     // eslint-disable-line react-hooks/exhaustive-deps
@@ -83,6 +100,22 @@ const Home = () => {
               Check out the repository at <a target="_blank" href="https://github.com/Sleighs/hero-matchups-api/" rel="noreferrer"> github.com/Sleighs/hero-matchups-api</a>   
             </span>
           </p>
+          <div>
+            <span>New hero updates coming soon featuring:</span>
+            <div id="home__upcoming-heroes-list">{stateManager.upcoming.map(
+              (hero, index) =>  
+                <HeroIcon 
+                  name={getHeroName(hero, true)} 
+                  src={heroPics[getHeroName(hero, false)]}
+                  handleClick={null}
+                  //handleClick={(e)=>{getHeroData(e, getHeroName(hero, false))}}
+                  index={index}
+                  heroTitle={getHeroName(hero, false)}
+                  key={index}
+                />
+              )}</div>
+            
+            </div>
         </div>
 
         <hr className="home-hr"/>
