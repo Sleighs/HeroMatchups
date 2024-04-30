@@ -8,12 +8,12 @@ html {
 */
 #home-page {
   /*background-image: var(--main-bg);*/
-  background-image: url("./resources/background21.png");
+  /* background-image: url("./resources/background21.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   opacity: 1;
-  width: 100%;
+  width: 100%; */
 }
 
 /* App */

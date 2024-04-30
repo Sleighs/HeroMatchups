@@ -57,6 +57,10 @@ const Home = () => {
         
     reqCount = reqCount + 1
     // eslint-disable-line react-hooks/exhaustive-deps
+
+    // Remove children from id=home__upcoming-heroes-list
+
+
   }, [reqCount])
 
   return (
@@ -100,29 +104,30 @@ const Home = () => {
               Check out the repository at <a target="_blank" href="https://github.com/Sleighs/hero-matchups-api/" rel="noreferrer"> github.com/Sleighs/hero-matchups-api</a>   
             </span>
           </p>
+
           <div>
             <span>New hero updates coming soon, featuring:</span>
-            <div id="home__upcoming-heroes-list">{stateManager.upcoming.map(
-              (hero, index) =>  
-                <HeroIcon 
-                  name={getHeroName(hero, true)} 
-                  src={heroPics[getHeroName(hero, false)]}
-                  handleClick={null}
-                  //handleClick={(e)=>{getHeroData(e, getHeroName(hero, false))}}
-                  index={index}
-                  heroTitle={getHeroName(hero, false)}
-                  key={index}
-                />
-              )}</div>
-            
+            <div id="home__upcoming-heroes-list">{
+            //() => {
+              stateManager.upcoming.map(
+                (hero, index) =>  
+                  <HeroIcon 
+                    name={getHeroName(hero, true)} 
+                    src={heroPics[getHeroName(hero, false)]}
+                    handleClick={null}
+                    //handleClick={(e)=>{getHeroData(e, getHeroName(hero, false))}}
+                    index={index}
+                    heroTitle={getHeroName(hero, false)}
+                    key={index}
+                  />
+                )
+              //}
+              }
             </div>
+          </div>
         </div>
 
         <hr className="home-hr"/>
-
-        {/* <Suspense fallback={<div></div>}>
-          <HeroSelection />
-        </Suspense> */}
         
         <HeroSelection />
 

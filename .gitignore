@@ -4,3 +4,4 @@ client/src/firebaseKey.js
 ./trash
 client/notes.md
 client/.env
+workflow.md

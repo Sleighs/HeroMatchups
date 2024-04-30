@@ -32,6 +32,7 @@ import sombraPic from './Icon-Sombra.png';
 import symmetraPic from './Icon-Symmetra.png';
 import torbjornPic from './Icon-Torbjorn.png';
 import tracerPic from './Icon-Tracer.png';
+import venturePic from './Icon-Venture.png';
 import widowmakerPic from './Icon-Widowmaker.png';
 import winstonPic from './Icon-Winston.png';
 import wreckingballPic from './Icon-WreckingBall.png';
@@ -74,6 +75,7 @@ const heroPics = {
     Symmetra: symmetraPic,
     Torbjorn: torbjornPic,
     Tracer: tracerPic,
+    Venture: venturePic,
     Widowmaker: widowmakerPic,
     Winston: winstonPic,
     WreckingBall: wreckingballPic,
