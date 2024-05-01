@@ -4,5 +4,9 @@
 
 /* Add hover to icons */
 .hero-profile__hero-thumbnail:hover {
-    cursor: pointer;
-    box-shadow: 0px 0px 2px 4px rgb(199, 197, 197, .8);}
+  box-shadow: 0px 0px 2px 5px rgb(199, 197, 197, .70);
+}
+.hero-profile__highlight:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 3px 4px rgb(199, 197, 197, .8);
+}

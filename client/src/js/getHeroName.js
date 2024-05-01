@@ -1,6 +1,7 @@
 function capitalizeFirstLetter([ first='', ...rest ]) {
 	return [ first.toUpperCase(), ...rest ].join('');
 }
+
 export default function getHeroName(name, spaces) {
     var newName = capitalizeFirstLetter(name);
 

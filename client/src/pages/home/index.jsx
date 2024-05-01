@@ -8,6 +8,7 @@ import DarkModeToggle from "react-dark-mode-toggle";
 import getHeroName from "../../js/getHeroName";
 import heroPics from '../../resources/overwatch-assets';
 import gameDetails from "../../js/gameDetails";
+import getHeroPic from "../../js/getHeroPic";
 
 //const HeroSelection = lazy(() => import('../../components/HeroSelection'));
 //const MatchupTable = lazy(() => import('../../components/MatchupTable'));
@@ -37,30 +38,10 @@ const Home = () => {
     }
   }
 
-  const getUpcomingHeroes = () => {
-    let upcomingHeroes = [...gameDetails.upcoming];
-
-    let eleId = document.getElementById('home__upcoming-heroes-list');
-
-    for (let i = 0; i < upcomingHeroes.length; i++){
-      let hero = document.createElement('div');
-      hero.classList.add('home__upcoming-hero');
-      hero.innerHTML = upcomingHeroes[i]; 
-      eleId.appendChild(hero);
-    }
-  }
-
-
   useEffect(()=>{
     getHeroData();
-    getUpcomingHeroes();
-        
     reqCount = reqCount + 1
     // eslint-disable-line react-hooks/exhaustive-deps
-
-    // Remove children from id=home__upcoming-heroes-list
-
-
   }, [reqCount])
 
   return (
@@ -103,24 +84,33 @@ const Home = () => {
 
           <div className="home-intro__text" style={{
             fontSize: '1.2rem',
-            marginTop: '2rem',
+            marginTop: '3rem',
           }}>
-            <span>New hero updates coming soon, featuring:</span>
+            <div style={{
+              marginBottom: '.7rem',
+            }}>New hero updates coming soon, featuring:</div>
             <div id="home__upcoming-heroes-list">{
-            //() => {
               gameDetails.upcoming.map(
                 (hero, index) =>  
-                  <HeroIcon 
-                    name={getHeroName(hero, true)} 
-                    src={heroPics[getHeroName(hero, false)]}
-                    handleClick={null}
-                    //handleClick={(e)=>{getHeroData(e, getHeroName(hero, false))}}
-                    index={index}
-                    heroTitle={getHeroName(hero, false)}
-                    key={index}
-                  />
+                  <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '.75rem',
+                  }} key={index}>
+                    <img 
+                      className='upcoming-hero-thumbnail__image'
+                      title={hero} 
+                      src={getHeroPic(hero)}
+                      alt={hero}
+                    />
+                    <span style={{
+                      fontSize: '1.05rem',
+                      //fontWeight: 'bold',
+                    
+                    }}>{hero}</span>
+                  </div>
                 )
-              //}
               }
             </div>
           </div>

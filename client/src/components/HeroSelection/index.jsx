@@ -106,6 +106,7 @@ export default function HeroSelection(props) {
                   index={index}
                   heroTitle={getHeroName(hero.name, false)}
                   key={index}
+                  highlight={true}
                 />)
             }
           })}
@@ -123,6 +124,7 @@ export default function HeroSelection(props) {
                   index={index}
                   heroTitle={getHeroName(hero.name, false)}
                   key={index}
+                  //hoverHighlight={true}
                 />)
             }
           })}
@@ -140,6 +142,7 @@ export default function HeroSelection(props) {
                   index={index}
                   heroTitle={getHeroName(hero.name, false)}
                   key={index}
+                  //hoverHighlight={true}
                 />)
             }
           })}
