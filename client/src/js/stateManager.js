@@ -1,8 +1,8 @@
 const stateManager = {
   game: 'Overwatch 2',
-  date: 'May 2024',
+  date: 'January 2024',
   version: 4,
-  season: 9,
+  season: 8,
   upcoming: ['Mauga', 'Venture', 'Ramattra']
 }
         

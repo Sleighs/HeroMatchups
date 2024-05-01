@@ -90,13 +90,9 @@ const Home = () => {
         <div className="home-intro__text-container">
           <p className="home-intro__text">
             <span>{
-              'The Hero Matchups API retrieves strategic matchup information for each hero in ' 
-              + stateManager.game 
-              + ' for the season '
-              + stateManager.season 
-              + ' ' 
-              + stateManager.date 
-              + ' patch. The available information is based on aggregated data from win rates, hero kits and ' 
+              'The Hero Matchups API retrieves strategic hero matchup information for ' 
+              + stateManager.game + ' (Season ' + stateManager.season +
+              '). The available information is based on aggregated data from win rates, hero kits and ' 
               + stateManager.game 
               + ' community feedback. '
             }</span>
@@ -105,7 +101,10 @@ const Home = () => {
             </span>
           </p>
 
-          <div>
+          <div className="home-intro__text" style={{
+            fontSize: '1.2rem',
+            marginTop: '2rem',
+          }}>
             <span>New hero updates coming soon, featuring:</span>
             <div id="home__upcoming-heroes-list">{
             //() => {
@@ -135,6 +134,10 @@ const Home = () => {
         
         <RandomHero />
         
+        <hr className="home-hr" style={{
+          marginBottom: '4rem',
+        }}/>
+
         {heroData ? <MatchupTable /> : <div style={{
           display: 'flex',
           justifyContent: 'center',
@@ -142,8 +145,23 @@ const Home = () => {
           height: '100vh',
           fontSize: '2rem',
           fontWeight: 'bold',
-        }}>Loading...</div>}
+        }}>Loading...</div>}   
       </div>
+
+{/*       
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        gap: '1rem',
+        marginTop: '1rem',
+        fontSize: '1.1rem',
+        opacity: '.5',
+      }}>
+        <span>{`Updated: ${stateManager.date}`}</span>   
+      </div> */}
+          
 
       <Footer />
     </div>
