@@ -1,3 +1,4 @@
+import './style.css';
 
 const HeroIcon = (props) => {
   const {
@@ -12,6 +13,7 @@ const HeroIcon = (props) => {
       src={src} 
       alt={name} 
       title={name}
+      //key={props?.index || null}
     />
   )
 }

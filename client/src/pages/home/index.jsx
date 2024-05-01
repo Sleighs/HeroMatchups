@@ -5,16 +5,16 @@ import { RandomHero, MatchupTable, HeroSelection, HeroIcon } from "../../compone
 import { RequestContext } from "../../contexts/RequestContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import DarkModeToggle from "react-dark-mode-toggle";
-import stateManager from "../../js/stateManager";
 import getHeroName from "../../js/getHeroName";
 import heroPics from '../../resources/overwatch-assets';
+import gameDetails from "../../js/gameDetails";
 
 //const HeroSelection = lazy(() => import('../../components/HeroSelection'));
 //const MatchupTable = lazy(() => import('../../components/MatchupTable'));
 
 const Home = () => {
-  const { getAllHeroes, heroData, setHeroData } = useContext(RequestContext)
-  const { theme, setTheme } = useContext(ThemeContext)
+  const { getAllHeroes, heroData, setHeroData } = useContext(RequestContext);
+  const { theme, setTheme } = useContext(ThemeContext);
   
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -38,7 +38,7 @@ const Home = () => {
   }
 
   const getUpcomingHeroes = () => {
-    let upcomingHeroes = [...stateManager.upcoming];
+    let upcomingHeroes = [...gameDetails.upcoming];
 
     let eleId = document.getElementById('home__upcoming-heroes-list');
 
@@ -91,9 +91,9 @@ const Home = () => {
           <p className="home-intro__text">
             <span>{
               'The Hero Matchups API retrieves strategic hero matchup information for ' 
-              + stateManager.game + ' (Season ' + stateManager.season +
+              + gameDetails.game + ' (Season ' + gameDetails.season +
               '). The available information is based on aggregated data from win rates, hero kits and ' 
-              + stateManager.game 
+              + gameDetails.game 
               + ' community feedback. '
             }</span>
             <span className="hero-profile__text2" >
@@ -108,7 +108,7 @@ const Home = () => {
             <span>New hero updates coming soon, featuring:</span>
             <div id="home__upcoming-heroes-list">{
             //() => {
-              stateManager.upcoming.map(
+              gameDetails.upcoming.map(
                 (hero, index) =>  
                   <HeroIcon 
                     name={getHeroName(hero, true)} 
@@ -159,7 +159,7 @@ const Home = () => {
         fontSize: '1.1rem',
         opacity: '.5',
       }}>
-        <span>{`Updated: ${stateManager.date}`}</span>   
+        <span>{`Updated: ${gameDetails.date}`}</span>   
       </div> */}
           
 

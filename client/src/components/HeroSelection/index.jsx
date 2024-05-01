@@ -68,15 +68,15 @@ export default function HeroSelection(props) {
         <h3 className="resources__route-style">/archetype/:archetypeName</h3>
         <ul className="resources__list">
           <li>
-            <span><strong>Description:</strong> The "/archetype" route lists all available hero archetypes. The "archetypeName" tag retrieves all heroes of the selected archetype.</span>
+            <span><strong>Description: </strong> The "/archetype" route lists all available hero archetypes. The "archetypeName" tag retrieves all heroes of the selected archetype.</span>
             <br/>
           </li>
 
           <li><span><strong>Options:</strong></span>
             <ul>
-              <li><strong>Tank:</strong> Anchor, Initiator, First Responder, Damage Heavy</li>
+              <li><strong>Tank: </strong> Anchor, Initiator, First Responder, Damage Heavy</li>
               <li><strong>Damage: </strong> Anchor, Flanker, Sniper, Scrapper, Specialist</li>
-              <li><strong>Suppport: </strong>Main Healer, Pocket Healer, Utility</li>
+              <li><strong>Suppport: </strong> Main Healer, Pocket Healer, Utility</li>
             </ul>
           </li>
           
@@ -122,6 +122,7 @@ export default function HeroSelection(props) {
                   handleClick={(e)=>{getHeroData(e, getHeroName(hero.name, false))}}
                   index={index}
                   heroTitle={getHeroName(hero.name, false)}
+                  key={index}
                 />)
             }
           })}
@@ -138,6 +139,7 @@ export default function HeroSelection(props) {
                   handleClick={(e)=>{getHeroData(e, getHeroName(hero.name, false))}}
                   index={index}
                   heroTitle={getHeroName(hero.name, false)}
+                  key={index}
                 />)
             }
           })}
@@ -159,7 +161,7 @@ export default function HeroSelection(props) {
 
       <div id="hero-profile__hero-select">
         <label 
-          for="hero-select" 
+          htmlFor="hero-select" 
           id="choose-hero-text" 
         >
           {'Choose a hero: '}

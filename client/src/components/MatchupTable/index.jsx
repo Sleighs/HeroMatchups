@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { RequestContext } from "../../contexts/RequestContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import './style.css';
@@ -6,6 +6,20 @@ import './style.css';
 export default function MatchupTable(props) {
   const { heroData } = useContext(RequestContext)
   const { theme } = useContext(ThemeContext)
+
+  const staticRowRef = useRef(null);
+  const tableBodyRef = useRef(null);
+
+  // check if table is visble on screen
+  const isElementInViewport = (el) => {
+    var rect = el.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
 
   const [heroes, setHeroes] = useState(Object.entries(heroData).sort(
     ((a, b) => (a[1].name > b[1].name) ? 1 : -1)
@@ -226,7 +240,9 @@ export default function MatchupTable(props) {
         <div className="counter-table__table-main">
           <span className="counter-table__table-x-title">Counters {/*&#8592; Counters &#8594;*/}</span>  
           <div id="counter-table__y-list"></div>
-          <table id="counter-table__table" ></table>
+          <table id="counter-table__table" 
+            ref={tableBodyRef}
+          ></table>
         </div>
       </div>
       

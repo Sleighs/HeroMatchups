@@ -1,0 +1,8 @@
+.hero-profile__hero-thumbnail {
+  box-shadow: 0px 0px 2px 1px rgb(199, 197, 197, .70);
+}
+
+/* Add hover to icons */
+.hero-profile__hero-thumbnail:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 2px 4px rgb(199, 197, 197, .8);}

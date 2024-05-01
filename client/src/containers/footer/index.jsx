@@ -1,6 +1,6 @@
 import React from "react";
 import './style.css';
-import stateManager from "../../js/stateManager";
+import gameDetails from "../../js/gameDetails";
 
 export default function Footer() {
     return (
@@ -28,7 +28,7 @@ export default function Footer() {
               fontSize: '1.1rem',
               opacity: '.5',
             }}>
-              {`Updated: ${stateManager.date}`} 
+              {`Updated: ${gameDetails.date}`} 
             </div>
 
           </div>

@@ -1,9 +1,9 @@
-const stateManager = {
+const gameDetails = {
   game: 'Overwatch 2',
-  date: 'January 2024',
+  date: 'April 2024',
   version: 4,
   season: 8,
   upcoming: ['Mauga', 'Venture', 'Ramattra']
 }
         
-export default stateManager;
+export default gameDetails;

@@ -8,7 +8,6 @@ function RequestContextProvider(props){
   const [currentHero, setCurrentHero] = useState(null);
   const [currentRandomHero, setCurrentRandomHero] = useState(null);
   
-  //const apiUrl = 'https://hero-matchups-api.herokuapp.com'
   const apiUrl = 'https://hero-matchups-api.netlify.app/.netlify/functions/api'
 
   async function getData() {
@@ -26,7 +25,8 @@ function RequestContextProvider(props){
     try {
       const res = await fetch(apiUrl + '/heroes');
       const data = await res.json();
-      console.log('RequestContext getAllHeroes', data);
+
+      console.log(`All heroes from ${apiUrl}/heroes`, data);
       
       // setHeroData(prev => data.sort(
       //   function (a, b) {
@@ -41,7 +41,7 @@ function RequestContextProvider(props){
       
       return data;
     } catch (err) {
-      console.log('RequestContext getAllHeroes', err);
+      //console.log('RequestContext getAllHeroes', err);
     }
   }
 
