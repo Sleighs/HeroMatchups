@@ -209,7 +209,7 @@ export default function HeroSelection(props) {
             <option value="Symmetra">Symmetra</option>
             <option value="Torbjorn">Torbjorn</option>
             <option value="Tracer">Tracer</option>
-            {/* <option value="Venture">Venture</option> */}
+            <option value="Venture">Venture</option>
             <option value="Widowmaker">Widowmaker</option>
             <option value="Winston">Winston</option>
             <option value="WreckingBall">Wrecking Ball</option>
