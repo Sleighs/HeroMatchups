@@ -138,21 +138,6 @@ const Home = () => {
         }}>Loading...</div>}   
       </div>
 
-{/*       
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-        gap: '1rem',
-        marginTop: '1rem',
-        fontSize: '1.1rem',
-        opacity: '.5',
-      }}>
-        <span>{`Updated: ${gameDetails.date}`}</span>   
-      </div> */}
-          
-
       <Footer />
     </div>
   );

@@ -186,7 +186,7 @@ export default function HeroSelection(props) {
             <option value="Echo">Echo</option>
             <option value="Genji">Genji</option>
             <option value="Hanzo">Hanzo</option>
-            <option value="Illari">Illari</option>
+            <option value="Ilari">Ilari</option>
             <option value="Junker Queen">Junker Queen</option>
             <option value="Junkrat">Junkrat</option>
             <option value="Kiriko">Kiriko</option>

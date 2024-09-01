@@ -1,8 +1,8 @@
 const gameDetails = {
   game: 'Overwatch 2',
-  date: 'April 2024',
+  date: 'September 2024',
   version: 4,
-  season: 8,
+  season: 12,
   upcoming: ['Mauga', 'Venture', 'Juno'],
 }
         
