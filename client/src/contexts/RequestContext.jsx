@@ -49,11 +49,11 @@ function RequestContextProvider(props){
     try {
       const res = await fetch(apiUrl + '/heroes/' + heroName);
       const data = await res.json();
-      console.log('RequestContext getSingleHero', data);
+      //console.log('RequestContext getSingleHero', data);
       setCurrentHero(data[0]);
       return data;
     } catch (err) {
-      console.log('RequestContext getSingleHero', err);
+      console.log('Hero request error', err);
     }
     
   }
