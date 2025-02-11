@@ -50,6 +50,7 @@ export default function HeroSelection(props) {
           <li><strong>Description:</strong> Retrieves information for all available heroes in JSON. The "heroName" tag retrieves details for only the specified hero.</li>
           <li className='api-url'><strong>URL:</strong> {apiUrl}/heroes</li>
           <li><strong>Method:</strong> GET</li>
+          <li><strong>Example:</strong> https://hero-matchups-api.netlify.app/.netlify/functions/api/heroes</li>
         </ul>
       </section>
       
@@ -60,6 +61,7 @@ export default function HeroSelection(props) {
           <li><span><strong>Options:</strong> tank, damage, support</span></li>
           <li className='api-url'><strong>URL:</strong> {apiUrl}/type/:type</li>
           <li><strong>Method:</strong> GET</li>
+          <li><strong>Example:</strong> https://hero-matchups-api.netlify.app/.netlify/functions/api/type/tank</li>
         </ul>
       </section>
 
@@ -84,6 +86,7 @@ export default function HeroSelection(props) {
             <strong>URL:</strong> {apiUrl}/archetype/:archetypeName
           </li>
           <li><strong>Method:</strong> GET</li>
+          <li><strong>Example:</strong> https://hero-matchups-api.netlify.app/.netlify/functions/api/archetype/anchor</li>
         </ul>
       </section>
       
@@ -186,9 +189,11 @@ export default function HeroSelection(props) {
             <option value="Echo">Echo</option>
             <option value="Genji">Genji</option>
             <option value="Hanzo">Hanzo</option>
+            <option value="Hazard">Hazard</option>
             <option value="Ilari">Ilari</option>
             <option value="Junker Queen">Junker Queen</option>
             <option value="Junkrat">Junkrat</option>
+            <option value="Juno">Juno</option>
             <option value="Kiriko">Kiriko</option>
             <option value="Lifeweaver">Lifeweaver</option>
             <option value="Lucio">Lucio</option>

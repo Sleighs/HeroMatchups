@@ -3,7 +3,7 @@ const gameDetails = {
   date: 'September 2024',
   version: 4,
   season: 12,
-  upcoming: ['Mauga', 'Venture', 'Juno'],
+  upcoming: ['Venture', 'Juno', 'Hazard'],
 }
         
 export default gameDetails;

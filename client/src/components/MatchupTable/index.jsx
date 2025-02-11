@@ -225,7 +225,7 @@ export default function MatchupTable(props) {
     if (heroData) {
       generateYList();
       makeTable();
-      //console.log('MatchupTable heroes', heroes)
+      console.log('MatchupTable heroes', heroes)
     }
   }, []);
 
