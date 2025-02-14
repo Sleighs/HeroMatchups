@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { HeroMatchup } from "..";
 import './style.css';
-
 import heroPics from '../../resources/overwatch-assets';
 import { RequestContext } from "../../contexts/RequestContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
