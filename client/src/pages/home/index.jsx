@@ -7,7 +7,7 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import DarkModeToggle from "react-dark-mode-toggle";
 import stateManager from "../../js/stateManager";
 import getHeroName from "../../js/getHeroName";
-import heroPics from '../../resources/overwatch-assets';
+import heroPics from '../../resources/hero-pics';
 
 //const HeroSelection = lazy(() => import('../../components/HeroSelection'));
 //const MatchupTable = lazy(() => import('../../components/MatchupTable'));
@@ -112,6 +112,7 @@ const Home = () => {
                   index={index}
                   heroTitle={getHeroName(hero, false)}
                   key={index}
+                  type="upcoming"
                 />
               )}</div>
             

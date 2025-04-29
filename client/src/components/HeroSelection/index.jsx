@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { HeroMatchup } from "..";
 import './style.css';
 
-import heroPics from '../../resources/overwatch-assets';
+import heroPics from '../../resources/hero-pics';
 import { RequestContext } from "../../contexts/RequestContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import getHeroName from "../../js/getHeroName";
@@ -122,6 +122,7 @@ export default function HeroSelection(props) {
                   handleClick={(e)=>{getHeroData(e, getHeroName(hero.name, false))}}
                   index={index}
                   heroTitle={getHeroName(hero.name, false)}
+                  key={index}
                 />)
             }
           })}
@@ -138,6 +139,7 @@ export default function HeroSelection(props) {
                   handleClick={(e)=>{getHeroData(e, getHeroName(hero.name, false))}}
                   index={index}
                   heroTitle={getHeroName(hero.name, false)}
+                  key={index}
                 />)
             }
           })}
@@ -159,7 +161,7 @@ export default function HeroSelection(props) {
 
       <div id="hero-profile__hero-select">
         <label 
-          for="hero-select" 
+          htmlFor="hero-select" 
           id="choose-hero-text" 
         >
           {'Choose a hero: '}
@@ -179,6 +181,7 @@ export default function HeroSelection(props) {
             <option value="Dva">D.Va</option>
             <option value="Doomfist">Doomfist</option>
             <option value="Echo">Echo</option>
+            <option value="Freja">Freja</option>
             <option value="Genji">Genji</option>
             <option value="Hanzo">Hanzo</option>
             <option value="Illari">Illari</option>

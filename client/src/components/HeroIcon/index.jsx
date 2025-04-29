@@ -3,7 +3,8 @@ const HeroIcon = (props) => {
   const {
     src, 
     name, 
-    handleClick
+    handleClick,
+    type
   } = props
   
   return(
@@ -12,6 +13,7 @@ const HeroIcon = (props) => {
       src={src} 
       alt={name} 
       title={name}
+      style={{cursor: type === "upcoming" ? "default" : "pointer"}}
     />
   )
 }

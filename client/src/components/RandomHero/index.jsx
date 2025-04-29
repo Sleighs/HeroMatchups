@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { HeroMatchup } from "..";
 import './style.css';
 import { RequestContext } from "../../contexts/RequestContext";
-import heroPics from "../../resources/overwatch-assets";
+import heroPics from "../../resources/hero-pics";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function RandomHero(props) {

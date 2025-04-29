@@ -6,6 +6,7 @@ import brigittePic from './Icon-Brigitte.png';
 import dvaPic from './Icon-Dva.png';
 import doomfistPic from './Icon-Doomfist.png';
 import echoPic from './Icon-Echo.png';
+import FrejaPic from './Icon-Freja.png';
 import genjiPic from './Icon-Genji.png';
 import hanzoPic from './Icon-Hanzo.png';
 import illariPic from './Icon-Illari.png';
@@ -47,6 +48,7 @@ const heroPics = {
     Dva: dvaPic,
     Doomfist: doomfistPic,
     Echo: echoPic,
+    Freja: FrejaPic,
     Genji: genjiPic,
     Hanzo: hanzoPic,
     Illari: illariPic,
