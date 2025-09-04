@@ -36,6 +36,7 @@ import tracerPic from './Icon-Tracer.png';
 import widowmakerPic from './Icon-Widowmaker.png';
 import winstonPic from './Icon-Winston.png';
 import wreckingballPic from './Icon-WreckingBall.png';
+import wuyangPic from './Icon-Wuyang.png';
 import zaryaPic from './Icon-Zarya.png';
 import zenyattaPic from './Icon-Zenyatta.png';
 
@@ -79,6 +80,7 @@ const heroPics = {
     Widowmaker: widowmakerPic,
     Winston: winstonPic,
     WreckingBall: wreckingballPic,
+    Wuyang: wuyangPic,
     Zarya: zaryaPic,
     Zenyatta: zenyattaPic
 }
