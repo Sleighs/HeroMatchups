@@ -3,6 +3,14 @@ import './style.css';
 
 export default function HeroMatchup({ heroName , matchups, id, type, archetypes }, props) {
   function heroMatchupTable() {
+    if (matchups.length === 0) {
+      console.log('No matchups available');
+    }
+
+    console.log(`${heroName}'s matchups:`);
+    console.dir(matchups);
+    
+    // Get the body element to append the table to
     var body = document.getElementById("hero-matchup__container" + id);
     body.innerHTML = '';
 

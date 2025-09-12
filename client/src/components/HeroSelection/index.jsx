@@ -152,7 +152,7 @@ export default function HeroSelection(props) {
         : 
           <HeroMatchup 
             heroName={currentHero.name} 
-            matchups={Object.entries(currentHero.counters)} 
+            matchups={ currentHero && currentHero.counters ? Object.entries(currentHero.counters) : []} 
             archetypes={currentHero.archetype}
             id={"-profile"} 
             type={"-profile"}
@@ -210,6 +210,7 @@ export default function HeroSelection(props) {
             <option value="Widowmaker">Widowmaker</option>
             <option value="Winston">Winston</option>
             <option value="WreckingBall">Wrecking Ball</option>
+            <option value="Wuyang">Wuyang</option>
             <option value="Zarya">Zarya</option>
             <option value="Zenyatta">Zenyatta</option>
         </select>
