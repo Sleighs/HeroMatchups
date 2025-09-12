@@ -19,7 +19,7 @@ export default [
         // Genji: "+",
         Hanzo: "++",
         Junkrat: "-",
-        Ilari: "+",
+        Illari: "+",
         Cassidy: "+",
         Mauga: "+",
         Mei: "-",
@@ -587,7 +587,7 @@ export default [
         Doomfist: "++",
         Genji: "+",
         Junkrat: "++",
-        Ilari: "-",
+        Illari: "-",
         Lucio: "++",
         Cassidy: "--",
         Mei: "+",
@@ -688,7 +688,7 @@ export default [
         Hanzo: "-",
         Hazard: "+",
         Junkrat: "-",
-        Ilari: "+",
+        Illari: "+",
         Kiriko: "-",
         Lucio: "+",
         Reaper: "-",
@@ -786,7 +786,7 @@ export default [
         Brigitte: "+",  
         Echo: "--", // new
         Genji: "+", // new
-        Ilari: "+", // new
+        Illari: "+", // new
         Tracer: "++", 
         Cassidy: "-", 
         Pharah: "--", 
@@ -849,7 +849,7 @@ export default [
         Freja: "+",
         Genji: "+",
         JunkerQueen: "-",
-        Ilari: "+",
+        Illari: "+",
         Kiriko: "-",
         Lucio: "+",
         Mauga: "+",
@@ -916,7 +916,7 @@ export default [
       shields: 0,
     },
     {
-      name: "Ilari",
+      name: "Illari",
       type: "support",
       counters: {
         Ana: "-",
