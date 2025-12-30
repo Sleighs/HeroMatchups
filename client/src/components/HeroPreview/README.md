@@ -22,6 +22,25 @@ A comprehensive React component for displaying Overwatch 2 hero information with
 
 ### Basic Implementation
 
+**Important**: The HeroPreview component requires the `RequestContextProvider` to be available in the parent component tree.
+
+```jsx
+import { HeroPreview } from '../../components';
+import { RequestContextProvider } from '../../contexts/RequestContext';
+
+function MyPage() {
+  return (
+    <RequestContextProvider>
+      <div>
+        <HeroPreview />
+      </div>
+    </RequestContextProvider>
+  );
+}
+```
+
+If your app already has `RequestContextProvider` at a higher level, you can use it directly:
+
 ```jsx
 import { HeroPreview } from '../../components';
 
@@ -63,10 +82,12 @@ HeroPreview/
 
 The component requires:
 - `Hero` model class from `../../models/Hero`
-- `heroData` from `../../js/season20-data`
+- `RequestContext` from `../../contexts/RequestContext` - **Required**: Provides `heroData`
 - Hero images from `../../resources/hero-pics`
 - Hero icons from `../../resources/overwatch-assets`
 - `getHeroName` utility function from `../../js/getHeroName`
+
+**Important**: The component must be wrapped in or have access to a `RequestContextProvider` in the parent component tree.
 
 ## Component Breakdown
 
@@ -203,6 +224,15 @@ Possible improvements:
 - Print-friendly view
 - Favorite heroes feature
 - Share hero profile link
+
+## Important Notes
+
+- **Context Dependency**: Component requires `RequestContextProvider` to be available in the parent component tree
+- **Data Source**: Hero data comes from the `RequestContext.heroData` (initialized with season20-data.js)
+- **API Integration**: The context can optionally fetch fresh data from the API using `getAllHeroes()`
+- **Images**: Images must be present in resources folders
+- **Loading State**: Component displays "Loading heroes..." if no data is available yet
+- **Empty State**: Component handles missing data gracefully
 
 ## License
 

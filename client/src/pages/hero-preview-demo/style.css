@@ -1,64 +1,66 @@
 .hero-preview-demo {
   min-height: 100vh;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-  padding: 40px 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .demo-header {
   max-width: 1400px;
-  margin: 0 auto 30px;
+  margin: 0 auto 20px;
   text-align: center;
   color: #fff;
 }
 
 .demo-title {
-  font-size: 3em;
-  margin: 0 0 15px 0;
+  font-size: 2.5em;
+  margin: 0 0 10px 0;
   background: linear-gradient(135deg, #ff9c00, #ffd700);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 0 30px rgba(255, 156, 0, 0.3);
   font-weight: 800;
   letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .demo-description {
-  font-size: 1.2em;
-  color: #ccc;
-  max-width: 800px;
+  font-size: 1em;
+  color: #aaa;
+  max-width: 700px;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .demo-footer {
   max-width: 1400px;
-  margin: 30px auto 0;
+  margin: 20px auto 0;
   text-align: center;
-  padding: 20px;
+  padding: 12px 20px;
   background: rgba(255, 156, 0, 0.1);
-  border-radius: 8px;
+  border-radius: 6px;
   border: 1px solid rgba(255, 156, 0, 0.3);
 }
 
 .demo-footer-text {
   margin: 0;
   color: #ff9c00;
-  font-size: 1em;
+  font-size: 0.9em;
   font-weight: 600;
 }
 
 @media (max-width: 768px) {
   .hero-preview-demo {
-    padding: 20px 10px;
+    padding: 15px;
   }
 
   .demo-title {
-    font-size: 2em;
+    font-size: 1.8em;
   }
 
   .demo-description {
-    font-size: 1em;
+    font-size: 0.9em;
   }
 }
 

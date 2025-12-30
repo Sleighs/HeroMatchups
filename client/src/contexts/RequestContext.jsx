@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import ow2Data from "../js/ow2-Season16-HeroData";
+import ow2Data from "../js/season20-data";
 
 const RequestContext = React.createContext()
 

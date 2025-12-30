@@ -2,7 +2,7 @@
  * Hero Model Class
  * Represents an Overwatch 2 hero with all their stats and information
  */
-class Hero {
+export default class Hero {
   constructor(data) {
     // Basic Information
     this.name = data.name;

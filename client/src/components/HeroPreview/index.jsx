@@ -1,26 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import './style.css';
 import heroPics from '../../resources/hero-pics';
 import heroIcons from '../../resources/overwatch-assets';
 import getHeroName from "../../js/getHeroName";
 import Hero from "../../models/Hero";
-import { heroData } from "../../js/season20-data";
+import { RequestContext } from "../../contexts/RequestContext";
 
 export default function HeroPreview() {
+  const { heroData } = useContext(RequestContext);
   const [selectedHero, setSelectedHero] = useState(null);
   const [heroes, setHeroes] = useState([]);
   const [filterRole, setFilterRole] = useState('all');
 
   useEffect(() => {
-    // Convert hero data to Hero class instances
-    const heroInstances = heroData.map(data => new Hero(data));
-    setHeroes(heroInstances);
-    
-    // Set initial hero to first one
-    if (heroInstances.length > 0) {
-      setSelectedHero(heroInstances[0]);
+    if (heroData && heroData.length > 0) {
+      // Convert hero data to Hero class instances
+      const heroInstances = heroData.map(data => new Hero(data));
+      setHeroes(heroInstances);
+      
+      // Set initial hero to first one
+      if (heroInstances.length > 0) {
+        setSelectedHero(heroInstances[0]);
+      }
     }
-  }, []);
+  }, [heroData]);
 
   const handleHeroSelect = (hero) => {
     setSelectedHero(hero);
@@ -30,35 +33,44 @@ export default function HeroPreview() {
     ? heroes 
     : heroes.filter(h => h.type === filterRole);
 
+  // Show loading state if no heroes are available yet
+  if (!heroes || heroes.length === 0) {
+    return (
+      <div className="hero-preview">
+        <div className="hero-preview__empty">
+          <p>Loading heroes...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="hero-preview">
       <div className="hero-preview__sidebar">
-        <h2 className="hero-preview__sidebar-title">Select a Hero</h2>
-        
         <div className="hero-preview__filter">
           <button 
             className={`filter-btn ${filterRole === 'all' ? 'active' : ''}`}
             onClick={() => setFilterRole('all')}
           >
-            All
+            ALL
           </button>
           <button 
             className={`filter-btn tank ${filterRole === 'tank' ? 'active' : ''}`}
             onClick={() => setFilterRole('tank')}
           >
-            Tank
+            TANK
           </button>
           <button 
             className={`filter-btn damage ${filterRole === 'damage' ? 'active' : ''}`}
             onClick={() => setFilterRole('damage')}
           >
-            Damage
+            DPS
           </button>
           <button 
             className={`filter-btn support ${filterRole === 'support' ? 'active' : ''}`}
             onClick={() => setFilterRole('support')}
           >
-            Support
+            SUPPORT
           </button>
         </div>
 
@@ -70,14 +82,13 @@ export default function HeroPreview() {
                 key={index}
                 className={`hero-preview__grid-item ${selectedHero?.name === hero.name ? 'selected' : ''}`}
                 onClick={() => handleHeroSelect(hero)}
-                title={hero.name}
+                title={getHeroName(hero.name, true)}
               >
                 <img 
                   src={heroIcons[heroKey]} 
                   alt={hero.name}
                   className={`hero-preview__grid-icon ${hero.type}`}
                 />
-                <span className="hero-preview__grid-name">{getHeroName(hero.name, true)}</span>
               </div>
             );
           })}
@@ -105,241 +116,126 @@ function HeroDetailView({ hero }) {
 
   return (
     <div className="hero-detail">
-      <div className="hero-detail__header">
+      {/* Top Section: Portrait + Basic Info */}
+      <div className="hero-detail__top">
         <div className="hero-detail__portrait">
           <img 
             src={heroPics[heroKey]} 
             alt={hero.name}
             className="hero-detail__portrait-img"
           />
-          <div className={`hero-detail__role-badge ${hero.type}`}>
-            {hero.role}
-          </div>
         </div>
 
-        <div className="hero-detail__header-info">
-          <h1 className="hero-detail__name">{getHeroName(hero.name, true)}</h1>
+        <div className="hero-detail__basic-info">
+          <div className="hero-detail__title-row">
+            <h1 className="hero-detail__name">{getHeroName(hero.name, true)}</h1>
+            <div className={`hero-detail__role-badge ${hero.type}`}>
+              {hero.role}
+            </div>
+          </div>
+          
           {hero.realName && (
-            <p className="hero-detail__real-name">{hero.realName}</p>
-          )}
-          {hero.aliases && hero.aliases.length > 0 && (
-            <p className="hero-detail__aliases">
-              <em>aka: {hero.aliases.join(', ')}</em>
-            </p>
+            <div className="hero-detail__real-name">{hero.realName}</div>
           )}
 
-          <div className="hero-detail__stats-grid">
-            <StatCard 
-              label="Total HP" 
-              value={healthBreakdown.total}
-              className="stat-hp"
-            />
-            <StatCard 
-              label="Health" 
-              value={healthBreakdown.health}
-              className="stat-health"
-            />
-            <StatCard 
-              label="Armor" 
-              value={healthBreakdown.armor}
-              className="stat-armor"
-            />
-            <StatCard 
-              label="Shields" 
-              value={healthBreakdown.shields}
-              className="stat-shields"
-            />
-          </div>
-
-          <div className="hero-detail__tags">
-            {hero.archetype.map((arch, idx) => (
-              <span key={idx} className="hero-detail__tag archetype">
-                {arch}
-              </span>
-            ))}
-          </div>
-
-          {(hero.difficulty !== null || hero.skill !== null) && (
-            <div className="hero-detail__difficulty">
-              {hero.difficulty !== null && (
-                <div className="difficulty-item">
-                  <span className="label">Difficulty:</span>
-                  <div className="rating">
-                    {[...Array(3)].map((_, i) => (
-                      <span 
-                        key={i} 
-                        className={`star ${i < hero.difficulty ? 'filled' : ''}`}
-                      >
-                        ★
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-              {hero.skill !== null && (
-                <div className="difficulty-item">
-                  <span className="label">Skill:</span>
-                  <div className="rating">
-                    {[...Array(3)].map((_, i) => (
-                      <span 
-                        key={i} 
-                        className={`star ${i < hero.skill ? 'filled' : ''}`}
-                      >
-                        ★
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
+          <div className="hero-detail__stats-row">
+            <div className="stat-item">
+              <span className="stat-label">HP</span>
+              <span className="stat-value">{healthBreakdown.total}</span>
             </div>
-          )}
+            <div className="stat-item">
+              <span className="stat-label">Health</span>
+              <span className="stat-value">{healthBreakdown.health}</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-label">Armor</span>
+              <span className="stat-value">{healthBreakdown.armor}</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-label">Shields</span>
+              <span className="stat-value">{healthBreakdown.shields}</span>
+            </div>
+          </div>
+
+          <div className="hero-detail__meta">
+            <div className="meta-item">
+              <span className="meta-label">Archetype:</span>
+              <span className="meta-value">{hero.archetype.join(' • ')}</span>
+            </div>
+            {hero.difficulty !== null && (
+              <div className="meta-item">
+                <span className="meta-label">Difficulty:</span>
+                <span className="meta-value">
+                  {'★'.repeat(hero.difficulty)}{'☆'.repeat(3 - hero.difficulty)}
+                </span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
-      <div className="hero-detail__content">
-        <div className="hero-detail__section">
-          <h3 className="section-title">Biography</h3>
-          <div className="bio-grid">
-            {hero.age && (
-              <BioItem label="Age" value={hero.age} />
-            )}
-            {hero.birth && (
-              <BioItem label="Birth" value={hero.birth} />
-            )}
-            {hero.nationality && (
-              <BioItem label="Nationality" value={hero.nationality} />
-            )}
-            {hero.status && (
-              <BioItem label="Status" value={hero.status} />
-            )}
-            {hero.occupation && hero.occupation.length > 0 && (
-              <BioItem 
-                label="Occupation" 
-                value={Array.isArray(hero.occupation) ? hero.occupation.join(', ') : hero.occupation} 
-              />
-            )}
-            {hero.base && hero.base.length > 0 && (
-              <BioItem 
-                label="Base" 
-                value={Array.isArray(hero.base) ? hero.base.join(', ') : hero.base} 
-              />
-            )}
-            {hero.affiliation && hero.affiliation.length > 0 && (
-              <BioItem 
-                label="Affiliation" 
-                value={Array.isArray(hero.affiliation) ? hero.affiliation.join(', ') : hero.affiliation} 
-              />
-            )}
-            {hero.relations && hero.relations.length > 0 && (
-              <BioItem 
-                label="Relations" 
-                value={Array.isArray(hero.relations) ? hero.relations.join(', ') : hero.relations} 
-              />
-            )}
-            {hero.voice && (
-              <BioItem 
-                label="Voice Actor" 
-                value={Array.isArray(hero.voice) ? hero.voice.join(', ') : hero.voice} 
-              />
-            )}
-          </div>
-        </div>
-
-        <div className="hero-detail__section">
-          <h3 className="section-title">Matchups</h3>
-          <div className="matchups-container">
-            {counteredHeroes.length > 0 && (
-              <div className="matchup-group">
-                <h4 className="matchup-title good">
-                  Counters ({counteredHeroes.length})
-                </h4>
-                <div className="matchup-list">
-                  {counteredHeroes.map((counterName, idx) => {
-                    const counterValue = hero.getCounterValue(counterName);
-                    return (
-                      <MatchupBadge 
-                        key={idx} 
-                        heroName={counterName} 
-                        value={counterValue}
-                        type="counter"
-                      />
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            {counterHeroes.length > 0 && (
-              <div className="matchup-group">
-                <h4 className="matchup-title bad">
-                  Countered By ({counterHeroes.length})
-                </h4>
-                <div className="matchup-list">
-                  {counterHeroes.map((counterName, idx) => {
-                    const counterValue = hero.getCounterValue(counterName);
-                    return (
-                      <MatchupBadge 
-                        key={idx} 
-                        heroName={counterName} 
-                        value={counterValue}
-                        type="countered"
-                      />
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-
-        {hero.quotes && hero.quotes.length > 0 && (
-          <div className="hero-detail__section">
-            <h3 className="section-title">Quotes</h3>
-            <div className="quotes-container">
-              {hero.quotes.map((quote, idx) => (
-                <blockquote key={idx} className="hero-quote">
-                  "{quote}"
-                </blockquote>
-              ))}
+      {/* Bottom Section: Two Columns */}
+      <div className="hero-detail__bottom">
+        <div className="hero-detail__column">
+          <div className="info-section">
+            <h3 className="section-title">INFO</h3>
+            <div className="info-list">
+              {hero.age && <InfoRow label="Age" value={hero.age} />}
+              {hero.nationality && <InfoRow label="Nationality" value={hero.nationality} />}
+              {hero.occupation && <InfoRow label="Occupation" value={Array.isArray(hero.occupation) ? hero.occupation[0] : hero.occupation} />}
+              {hero.base && <InfoRow label="Base" value={Array.isArray(hero.base) ? hero.base[0] : hero.base} />}
             </div>
           </div>
-        )}
+
+          {hero.quotes && hero.quotes.length > 0 && (
+            <div className="info-section quote-section">
+              <h3 className="section-title">QUOTE</h3>
+              <div className="hero-quote">"{hero.quotes[0]}"</div>
+            </div>
+          )}
+        </div>
+
+        <div className="hero-detail__column">
+          <div className="info-section">
+            <h3 className="section-title">COUNTERS</h3>
+            <div className="matchup-icons">
+              {counteredHeroes.slice(0, 8).map((counterName, idx) => {
+                const counterKey = getHeroName(counterName, false);
+                const counterValue = hero.getCounterValue(counterName);
+                return (
+                  <div key={idx} className={`matchup-icon good ${counterValue === '++' ? 'strong' : ''}`} title={counterName}>
+                    <img src={heroIcons[counterKey]} alt={counterName} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="info-section">
+            <h3 className="section-title">COUNTERED BY</h3>
+            <div className="matchup-icons">
+              {counterHeroes.slice(0, 8).map((counterName, idx) => {
+                const counterKey = getHeroName(counterName, false);
+                const counterValue = hero.getCounterValue(counterName);
+                return (
+                  <div key={idx} className={`matchup-icon bad ${counterValue === '--' ? 'strong' : ''}`} title={counterName}>
+                    <img src={heroIcons[counterKey]} alt={counterName} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-function StatCard({ label, value, className }) {
+function InfoRow({ label, value }) {
   return (
-    <div className={`stat-card ${className}`}>
-      <div className="stat-card__label">{label}</div>
-      <div className="stat-card__value">{value}</div>
-    </div>
-  );
-}
-
-function BioItem({ label, value }) {
-  return (
-    <div className="bio-item">
-      <span className="bio-label">{label}:</span>
-      <span className="bio-value">{value}</span>
-    </div>
-  );
-}
-
-function MatchupBadge({ heroName, value, type }) {
-  const heroKey = getHeroName(heroName, false);
-  const strength = value === '++' || value === '--' ? 'strong' : 'normal';
-  
-  return (
-    <div className={`matchup-badge ${type} ${strength}`}>
-      <img 
-        src={heroIcons[heroKey]} 
-        alt={heroName}
-        className="matchup-badge__icon"
-      />
-      <span className="matchup-badge__name">{getHeroName(heroName, true)}</span>
-      <span className="matchup-badge__value">{value}</span>
+    <div className="info-row">
+      <span className="info-label">{label}</span>
+      <span className="info-value">{value}</span>
     </div>
   );
 }

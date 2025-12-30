@@ -83,6 +83,24 @@ A comprehensive React component system for displaying Overwatch 2 hero informati
 ## How to Use
 
 ### Basic Usage
+
+**Important**: The component requires `RequestContextProvider` to be available.
+
+```jsx
+import { HeroPreview } from './components';
+import { RequestContextProvider } from './contexts/RequestContext';
+
+function App() {
+  return (
+    <RequestContextProvider>
+      <HeroPreview />
+    </RequestContextProvider>
+  );
+}
+```
+
+Or if already wrapped at app level:
+
 ```jsx
 import { HeroPreview } from './components';
 
@@ -141,11 +159,12 @@ HeroPreview (Main Container)
 
 ## Data Flow
 
-1. Component loads hero data from `season20-data.js`
-2. Converts raw data to `Hero` class instances
-3. User selects a hero from sidebar
-4. Detail view updates with selected hero
-5. Hero model methods calculate stats and relationships
+1. Component receives hero data from `RequestContext.heroData`
+2. RequestContext is initialized with data from `season20-data.js`
+3. Component converts raw data to `Hero` class instances
+4. User selects a hero from sidebar
+5. Detail view updates with selected hero
+6. Hero model methods calculate stats and relationships
 
 ## Key Technologies
 
@@ -216,30 +235,39 @@ Possible additions:
 
 ## Integration Steps
 
-1. Import the component:
+1. Ensure your app has `RequestContextProvider` wrapped around your components:
+   ```jsx
+   import { RequestContextProvider } from './contexts/RequestContext';
+   
+   <RequestContextProvider>
+     <App />
+   </RequestContextProvider>
+   ```
+
+2. Import the component:
    ```jsx
    import { HeroPreview } from './components';
    ```
 
-2. Use in your JSX:
+3. Use in your JSX:
    ```jsx
    <HeroPreview />
    ```
 
-3. Ensure dependencies are available:
+4. Ensure dependencies are available:
    - Hero model
-   - Hero data
+   - RequestContext (provides hero data)
    - Hero images
    - Hero icons
    - getHeroName utility
 
 ## Notes
 
-- Component is fully self-contained
-- No external API calls required
-- All data is from local season20-data.js
+- Component requires `RequestContextProvider` in parent component tree
+- Hero data comes from `RequestContext.heroData` (initialized with season20-data.js)
+- The context can optionally fetch fresh data from the API
 - Images must be present in resources folders
-- Component handles missing data gracefully
+- Component handles missing data gracefully with loading state
 
 ## Success Criteria ✓
 

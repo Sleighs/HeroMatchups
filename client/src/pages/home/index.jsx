@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState, lazy, Suspense } from "react";
 import "./style.css";
 import { Footer} from "../../containers";
-import { RandomHero, MatchupTable, HeroSelection, HeroIcon } from "../../components";
+import { RandomHero, MatchupTable, HeroSelection, HeroIcon, HeroPreview } from "../../components";
 import { RequestContext } from "../../contexts/RequestContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import DarkModeToggle from "react-dark-mode-toggle";
@@ -118,6 +118,8 @@ const Home = () => {
             
             </div>
         </div>
+
+        <HeroPreview />
 
         <hr className="home-hr"/>
 

@@ -54,7 +54,7 @@ Armor:
 */
 
 
-const heroData = [
+export const heroData = [
     {
       name: "D.Va",
       realName: "Hana Song (송하나)",
@@ -1733,4 +1733,4 @@ const heroData = [
     }
   ];
   
-  exports.heroData = heroData;
+  export default heroData;
