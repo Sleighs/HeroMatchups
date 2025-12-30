@@ -3,7 +3,7 @@ const stateManager = {
   date: 'September 2025',
   version: 5,
   season: 18,
-  upcoming: ['Wuyang']
+  upcoming: ['Wuyang', 'Vendetta']
 }
         
 export default stateManager;

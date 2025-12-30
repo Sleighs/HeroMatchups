@@ -9,9 +9,11 @@ import echoPic from './Icon-Echo.png';
 import FrejaPic from './Icon-Freja.png';
 import genjiPic from './Icon-Genji.png';
 import hanzoPic from './Icon-Hanzo.png';
+import hazardPic from './Icon-Hazard.png';
 import illariPic from './Icon-Illari.png';
 import junkratPic from './Icon-Junkrat.png';
 import junkerqueenPic from './Icon-JunkerQueen.png';
+import junoPic from './Icon-Juno.png';
 import kirikoPic from './Icon-Kiriko.png';
 import lifeweaverPic from './Icon-Lifeweaver.png';
 import lucioPic from './Icon-Lucio.png';
@@ -33,6 +35,8 @@ import sombraPic from './Icon-Sombra.png';
 import symmetraPic from './Icon-Symmetra.png';
 import torbjornPic from './Icon-Torbjorn.png';
 import tracerPic from './Icon-Tracer.png';
+import vendettaPic from './Icon-Vendetta.png';
+import venturePic from './Icon-Venture.png';
 import widowmakerPic from './Icon-Widowmaker.png';
 import winstonPic from './Icon-Winston.png';
 import wreckingballPic from './Icon-WreckingBall.png';
@@ -52,9 +56,11 @@ const heroPics = {
     Freja: FrejaPic,
     Genji: genjiPic,
     Hanzo: hanzoPic,
+    Hazard: hazardPic,
     Illari: illariPic,
     Junkrat: junkratPic,
     JunkerQueen: junkerqueenPic,
+    Juno: junoPic,
     Kiriko: kirikoPic,
     Lifeweaver: lifeweaverPic,
     Lucio: lucioPic,
@@ -77,6 +83,8 @@ const heroPics = {
     Symmetra: symmetraPic,
     Torbjorn: torbjornPic,
     Tracer: tracerPic,
+    Vendetta: vendettaPic,
+    Venture: venturePic,
     Widowmaker: widowmakerPic,
     Winston: winstonPic,
     WreckingBall: wreckingballPic,
