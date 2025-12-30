@@ -4,7 +4,6 @@ import { Footer} from "../../containers";
 import { RandomHero, MatchupTable, HeroSelection, HeroIcon, HeroPreview } from "../../components";
 import { RequestContext } from "../../contexts/RequestContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import DarkModeToggle from "react-dark-mode-toggle";
 import stateManager from "../../js/stateManager";
 import getHeroName from "../../js/getHeroName";
 import heroPics from '../../resources/hero-pics';

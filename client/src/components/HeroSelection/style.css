@@ -7,13 +7,14 @@
 .hero-profile__title {
   font-size: 24pt;
   opacity: 1;
-  text-shadow: 1px 1px 1px rgb(199, 197, 197, .7);
+  text-shadow: 0 0 10px rgba(255, 156, 0, 0.3);
   font-family: 'Khula', sans-serif;
   text-transform: uppercase;
   height: fit-content;
   margin-bottom: 5px;
   width: fit-content;
   margin: auto;
+  color: #ff9c00;
 }
 
 #hero-profile__hero-select {
@@ -35,11 +36,19 @@
     width: 60px;
     height: 60px;
     border-radius: 5px;
-    box-shadow: 0px 0px 2px 1px rgb(199, 197, 197, .75);
+    box-shadow: 0px 0px 2px 1px rgba(255, 156, 0, 0.3);
     margin: 4px;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+.hero-profile__hero-thumbnail:hover {
+    border-color: #ff9c00;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 156, 0, 0.5);
 }
 .icon-highlight {
-  box-shadow: 0px 0px 3px 3px rgb(230, 150, 2);
+  box-shadow: 0px 0px 8px 3px rgba(255, 156, 0, 0.6);
+  border-color: #ff9c00;
 }
 .hero-profile__text {
   font-size: 13pt;
@@ -50,10 +59,16 @@
   margin: -5px 2px 20px 2px;
 }
 .hero-profile__text2 a {
-  color: rgb(230, 150, 2);
+  color: #ff9c00;
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 .hero-profile__text2 a:visited {
-  color: rgb(230, 150, 2);
+  color: #ff9c00;
+}
+.hero-profile__text2 a:hover {
+  color: #ffb733;
+  text-shadow: 0 0 8px rgba(255, 156, 0, 0.4);
 }
 .hero-profile__text3 {
   font-size: 13pt;
@@ -68,6 +83,7 @@
   font-size: 1.3em;
   margin: 3px 3px;
   font-family: 'Khula', sans-serif;
+  color: #ddd;
 }
 
 #hero-profile__pics-container {

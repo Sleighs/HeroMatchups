@@ -1,10 +1,55 @@
 .footer {
     text-align: center;
     width: 100%;
-    height: 11vh;
-    margin-top: 22px;
+    padding: 40px 20px;
+    margin-top: 60px;
     bottom: 0;
-    color: rgb(240, 231, 233, .4);
+    color: rgba(255, 255, 255, 0.4);
     user-select: none;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: rgba(0, 0, 0, 0.4);
+    border-top: 2px solid transparent;
+    border-image: linear-gradient(90deg, 
+        transparent, 
+        rgba(1, 182, 228, 0.5) 30%, 
+        rgba(226, 13, 59, 0.5) 70%, 
+        transparent) 1;
+    box-shadow: 0 -1px 20px rgba(1, 182, 228, 0.1);
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-quote {
+    font-size: 1.1em;
+    color: rgb(1, 182, 228);
+    font-style: italic;
+    margin: 0 0 15px 0;
+    text-shadow: 0 0 10px rgba(1, 182, 228, 0.4);
+}
+
+.footer-copyright {
+    font-size: 0.9em;
+    color: #aaa;
+    margin: 10px 0;
+    letter-spacing: 0.5px;
+}
+
+.footer-credits {
+    font-size: 0.85em;
+    color: #888;
+    margin: 5px 0 0 0;
+}
+
+.footer-credits a {
+    color: rgb(1, 182, 228);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.footer-credits a:hover {
+    color: rgba(189, 247, 255, 0.9);
+    text-shadow: 0 0 10px rgba(1, 182, 228, 0.5);
 }

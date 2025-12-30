@@ -1,0 +1,223 @@
+.counter-table {
+    margin: 15px auto;
+    border-radius: 3px;
+    user-select: none;
+    width: 100%;
+}
+#matchup-table__title {
+    display: block;
+    padding: 2px 15px;
+    text-transform: uppercase;
+    font-size: 24pt;
+    opacity: 1;
+    font-family: 'Khula', sans-serif;
+    height: fit-content;
+    margin: 15px 0 5px 0;
+    text-align: center;
+    color: #ff9c00;
+    text-shadow: 0 0 10px rgba(255, 156, 0, 0.3);
+}
+#counter-table__table {
+    display: block;
+    font-size: 9pt;
+    overflow: scroll;
+}
+#counter-table__table::-webkit-scrollbar {
+    /*display: none;*/
+}
+
+
+.counter-table__table-head td,
+.counter-table__table-foot td {
+  text-align: center;
+  width: fit-content;
+  
+  min-width: 50px;
+  max-width: 50px;
+  /* border: solid 1px white; */
+  overflow: hidden;
+}
+.counter-table__table-container {
+  display: flex;
+  width: 100%;
+}
+.counter-table__table-main {
+  display: grid;
+  grid-template-columns: 2;
+  grid-template-rows: 1;
+}
+.counter-table__row {
+  width: fit-content;
+
+}
+#counter-table__y-list {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  text-align: right;
+  padding: 0px;
+}
+#counter-table__table {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  font-size: .8em;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  border-spacing: 0px;
+}
+.counter-table__value {
+  /* height: 20px;
+  max-height: 23px; */
+  min-width: 50px;
+  max-width: 65px;
+  max-height: 28px;
+  height: 100%;
+  margin: auto;
+
+  text-align: center;
+  font-size: 14pt;
+  font-weight: bold;
+  border: solid 1pt rgba(255, 156, 0, 0.2);
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.2);
+}
+.counter-table__col-value {
+  
+}
+.counter-table__row-head-special {
+  border-bottom: solid 1pt rgba(128, 128, 128, 0.427);
+  font-size: 1.15em;
+}
+.counter-table__y-list-name-head {
+  height: 46px;
+  border-bottom: solid .5pt rgba(128, 128, 128, 0.427);
+}
+.counter-table__y-list-name {
+  /* height: 100%;*/
+  max-height: 28px; 
+  width: 70px;
+  
+  /* padding: 1px 0px 0 0; */
+  box-sizing: border-box;
+  margin: auto; 
+  display: flex;
+  justify-content: center;
+
+  overflow: hidden;
+  border: none; 
+  border-bottom: solid 1pt rgba(255, 156, 0, 0.2);
+
+  font-weight: normal;
+  font-size: 12pt;
+  padding: 0;
+  margin: 3px auto;
+  color: #ddd;
+}
+.counter-table__table-y-title {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: block;
+  text-align: center;
+  height: fit-content;
+  width: 35px;
+  margin: auto;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 1.4em;
+  color: #ff9c00;
+}
+.counter-table__table-x-title {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: block;
+  text-align: center;
+  width: fit-content;
+  height: 25px;
+  margin: auto;
+  margin-left: 37%;
+  margin-bottom: 2%;
+  font-size: 1.4em;
+  color: #ff9c00;
+}
+.cell-highlight {
+  background-color: rgba(255, 156, 0, 0.3);
+  border-color: #ff9c00;
+  box-shadow: 0 0 8px rgba(255, 156, 0, 0.4);
+}
+
+.counter-table__row-head {
+  max-width: 70px;
+  min-width: 0px;
+  text-align: right;
+  overflow: hidden;
+
+}
+.counter-table__row-head2 {
+    max-width: 70px;
+    min-width: 70px;
+    text-align: left;
+    overflow: hidden;
+}
+.create-table__column-head {
+    min-width: 40px;
+    max-width: 55px;
+    text-align: center;
+    overflow: auto;
+}
+/* hide scrollbar for create-table__column-head */
+.create-table__column-head::-webkit-scrollbar {
+    display: none;
+}
+
+
+.counter-table__td-doubleplus {
+    background-color: rgb(1, 182, 228, .8);
+}
+.counter-table__td-plus {
+    background-color: rgba(183, 240, 248, .85);
+}
+.counter-table__td-doubleminus {
+    background-color: rgb(226, 13, 59, .8);
+}
+.counter-table__td-minus {
+    background-color: rgb(255, 180, 193, .85);
+}
+
+.counter-table__legend {
+    width: fit-content;
+    margin: 5px auto;
+    font-size: 1em;
+}
+
+.counter-table__legend-td {
+    min-width: 50px;
+    text-align: center;
+    margin: 0 10px;
+    display: inline-block;
+    color: #ddd;
+}
+
+.counter-table__legend-val {
+    width: 40px;
+    text-align: center;
+    font-size: .9em;
+    border: solid .5pt rgba(255, 156, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 600px) {
+    .counter-table__table-x-title {
+        margin: auto;
+        margin-left: 20%;
+        margin-bottom: 2%;
+    }
+    .counter-table__legend {
+        width: 70%;
+        margin: 5px auto;
+        font-size: 1em;
+        text-align: center;
+    }
+}

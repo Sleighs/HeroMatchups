@@ -162,14 +162,15 @@ function HeroDetailView({ hero }) {
               <span className="meta-label">Archetype:</span>
               <span className="meta-value">{hero.archetype.join(' • ')}</span>
             </div>
-            {hero.difficulty !== null && (
+            {/* {hero.difficulty !== null && (
               <div className="meta-item">
                 <span className="meta-label">Difficulty:</span>
                 <span className="meta-value">
                   {'★'.repeat(hero.difficulty)}{'☆'.repeat(3 - hero.difficulty)}
                 </span>
               </div>
-            )}
+            )} */}
+            { /* TODO: Add hero status */}
           </div>
         </div>
       </div>
@@ -193,6 +194,7 @@ function HeroDetailView({ hero }) {
               <div className="hero-quote">"{hero.quotes[0]}"</div>
             </div>
           )}
+       
         </div>
 
         <div className="hero-detail__column">
@@ -205,6 +207,7 @@ function HeroDetailView({ hero }) {
                 return (
                   <div key={idx} className={`matchup-icon good ${counterValue === '++' ? 'strong' : ''}`} title={counterName}>
                     <img src={heroIcons[counterKey]} alt={counterName} />
+                    <span className="matchup-icon-name">{getHeroName(counterName, true)}</span>
                   </div>
                 );
               })}
@@ -220,6 +223,7 @@ function HeroDetailView({ hero }) {
                 return (
                   <div key={idx} className={`matchup-icon bad ${counterValue === '--' ? 'strong' : ''}`} title={counterName}>
                     <img src={heroIcons[counterKey]} alt={counterName} />
+                    <span className="matchup-icon-name">{getHeroName(counterName, true)}</span>
                   </div>
                 );
               })}

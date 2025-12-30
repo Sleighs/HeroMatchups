@@ -2,8 +2,9 @@
   display: flex;
   justify-content: space-between;
   padding: 3px 24px;
-  background-color: white;
-  box-shadow: 0px 1px 1px lightgrey;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 1px 1px rgba(255, 156, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 156, 0, 0.2);
 }
 
 .navbar__container {
@@ -19,13 +20,18 @@
 
 .homepage__navTitle {
   text-decoration: none;
-  color: rgb(61, 7, 7);
-  text-shadow: 1px 1px 1px rgb(124, 0, 0);
+  color: #ff9c00;
+  text-shadow: 0 0 8px rgba(255, 156, 0, 0.4);
   line-height: 2;
   font-size: 20px;
+  transition: all 0.2s ease;
 }
 .homepage__navTitle::after {
-  color: rgb(61, 7, 7);
+  color: #ff9c00;
+}
+.homepage__navTitle:hover {
+  color: #ffb733;
+  text-shadow: 0 0 12px rgba(255, 156, 0, 0.6);
 }
 
 .navbar__loginContainer {
@@ -35,13 +41,14 @@
 .navbar__login,
 .navbar__register {
   text-decoration: none;
-  color:black;
+  color: #ddd;
   font-size: .8em;
+  transition: all 0.2s ease;
 }
 
 .navbar__login:hover,
 .navbar__register:hover {
-  color: darkred;
+  color: #ff9c00;
 }
 
 .navbar__navRight {
@@ -53,11 +60,12 @@
 
 .navbar__icon {
   margin: auto 6px;
-  color: black;
+  color: #ddd;
+  transition: all 0.2s ease;
 }
 .navbar__icon::before {
-  color: black;
+  color: #ddd;
 }
-.navbar__icon :hover {
-  color: darkred;
+.navbar__icon:hover {
+  color: #ff9c00;
 }

@@ -13,6 +13,7 @@
 }
 .hero-matchup td {
     font-size: 12pt;
+    color: #ddd;
 }
 .hero-matchup__td-doubleplus {
     background-color: rgb(1, 182, 228, .5);
@@ -32,6 +33,8 @@
     margin: 20px 2px 15px 2px;
     font-size: 20pt;
     font-family: 'Khula';
+    color: #ff9c00;
+    text-shadow: 0 0 8px rgba(255, 156, 0, 0.3);
 }
 
 .counter-hero__td-random {
@@ -42,7 +45,8 @@
 .counter-type__td-random {
     font-size: 12pt;
     text-align: center;
-    border: solid .5pt rgb(228, 228, 228, .333);
+    border: solid .5pt rgba(255, 156, 0, 0.2);
+    background: rgba(0, 0, 0, 0.2);
 }
 .counter-hero__td-profile {
     min-width: 30px;
@@ -55,7 +59,8 @@
     max-width: 60px;
     font-size: 12pt;
     text-align: center;
-    border: solid .5pt rgb(228, 228, 228, .3);
+    border: solid .5pt rgba(255, 156, 0, 0.2);
+    background: rgba(0, 0, 0, 0.2);
 }
 .hero-matchup__archetype-container {
     margin: 1% .5%;
