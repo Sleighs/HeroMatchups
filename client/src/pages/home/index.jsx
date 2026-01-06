@@ -1,15 +1,12 @@
 import React, { useContext, useEffect, useState, lazy, Suspense } from "react";
 import "./style.css";
 import { Footer} from "../../containers";
-import { RandomHero, MatchupTable, HeroSelection, HeroIcon, HeroPreview } from "../../components";
+import { RandomHero, MatchupTable, HeroSelection, HeroIcon, HeroPreview, RandomHeroPreview, ApiDocs } from "../../components";
 import { RequestContext } from "../../contexts/RequestContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import stateManager from "../../js/stateManager";
 import getHeroName from "../../js/getHeroName";
 import heroPics from '../../resources/hero-pics';
-
-//const HeroSelection = lazy(() => import('../../components/HeroSelection'));
-//const MatchupTable = lazy(() => import('../../components/MatchupTable'));
 
 const Home = () => {
   const { getAllHeroes, heroData, setHeroData } = useContext(RequestContext)
@@ -60,22 +57,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      <div className='home__body'>
-        {/* <DarkModeToggle
-          className="themeToggleBtn"
-          onChange={() => {
-            if (theme === 'dark-theme'){
-              setTheme('light-theme')
-              setIsDarkMode(false)
-            } else {
-              setTheme('dark-theme')
-              setIsDarkMode(true)
-            }
-          }}
-          checked={isDarkMode}
-          size={40}          
-        /> */}
-        
+      <div className='home__body'>        
         <div className='page-header__container'>
           <h2 className={`page-header__title ${theme}__title`}>
               Hero Matchups API
@@ -121,16 +103,10 @@ const Home = () => {
         <HeroPreview />
 
         <hr className="home-hr"/>
-
-        {/* <Suspense fallback={<div></div>}>
-          <HeroSelection />
-        </Suspense> */}
         
-        <HeroSelection />
+        <ApiDocs />
 
         <hr className="home-hr"/>
-        
-        <RandomHero />
         
         {heroData ? <MatchupTable /> : <div style={{
           display: 'flex',

@@ -2,8 +2,8 @@
 .hero-preview {
   display: flex;
   gap: 15px;
-  height: 700px;
-  max-height: 85vh;
+  height: 725px;
+  max-height: 90vh;
   padding: 0;
   /* background: 
     linear-gradient(90deg, rgba(255, 156, 0, 0.03) 0%, transparent 50%, rgba(255, 156, 0, 0.03) 100%),
@@ -17,6 +17,14 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   position: relative;
 }
+
+/* @media (max-width: 800px) {
+  .hero-preview {
+    flex-direction: column;
+    height: auto;
+    max-height: none;
+  }
+} */
 
 /* Sidebar - Icon Grid Only */
 .hero-preview__sidebar {
@@ -32,6 +40,22 @@
     inset 2px 0 10px rgba(255, 156, 0, 0.1),
     0 0 20px rgba(0, 0, 0, 0.5);
 }
+
+@media (max-width: 768px) {
+  .hero-preview__sidebar {
+    width: 100%;
+    border-left: none;
+    border-bottom: 2px solid rgba(255, 156, 0, 0.4);
+  }
+}
+@media (max-width: 992px) {
+  .hero-preview__sidebar {
+    width: 100%;
+    border-left: none;
+    border-bottom: 2px solid rgba(255, 156, 0, 0.4);
+  }
+}
+
 
 /* Filter Buttons - Compact */
 .hero-preview__filter {
@@ -68,10 +92,10 @@
   box-shadow: 0 0 8px rgba(255, 156, 0, 0.3);
 }
 
-.filter-btn.tank.active {
-  border-color: #f99e1a;
-  background: rgba(249, 158, 26, 0.2);
-  color: #f99e1a;
+.filter-btn.support.active {
+  border-color: rgba(1, 182, 228, 0.9);
+  background: rgba(1, 182, 228, 0.2);
+  color: rgba(1, 182, 228, 0.9);
 }
 
 .filter-btn.damage.active {
@@ -80,10 +104,10 @@
   color: #e02e28;
 }
 
-.filter-btn.support.active {
-  border-color: #fbbe3e;
-  background: rgba(251, 190, 62, 0.2);
-  color: #fbbe3e;
+.filter-btn.tank.active {
+  border-color: #b81fe7;
+  background: rgba(184, 31, 231, 0.2);
+  color: #b81fe7;
 }
 
 /* Hero Grid - Icon Only */
@@ -94,7 +118,55 @@
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: 4px;
+  flex: 1;
+  min-height: 0;
 }
+
+@media (max-width: 1200px) {
+  .hero-preview__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* @media (max-width: 800px) {
+  .hero-preview__grid {
+    grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+    flex: none;
+    min-height: auto;
+    overflow: visible;
+    gap: 6px;
+  }
+} */
+
+@media (max-width: 768px) {
+  .hero-preview__grid {
+    grid-template-columns: repeat(5, 1fr);
+    flex: none;
+    min-height: auto;
+    overflow: visible;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-preview__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.hero-preview__sidebar-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.hero-preview__sidebar-actions .filter-btn {
+  padding: 6px 8px;
+  font-size: 0.75em;
+}
+
 
 .hero-preview__grid::-webkit-scrollbar {
   width: 4px;
@@ -148,8 +220,10 @@
   flex: 1;
   background: rgba(0, 0, 0, 0.4);
   border-radius: 6px;
-  overflow: hidden;
+  overflow: auto;
   border: 1px solid rgba(255, 156, 0, 0.2);
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-preview__empty {
@@ -161,13 +235,19 @@
   color: #888;
 }
 
+
+
+
+
+
 /* Hero Detail View - Single Screen, No Scroll */
 .hero-detail {
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   padding: 20px;
   gap: 15px;
+  flex: 1;
 }
 
 /* Top Section - Portrait + Basic Info */
@@ -207,6 +287,14 @@
   gap: 12px;
 }
 
+.hero-detail__actions {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+
 .hero-detail__name {
   margin: 0;
   font-size: 2em;
@@ -227,8 +315,8 @@
 }
 
 .hero-detail__role-badge.tank {
-  background: #f99e1a;
-  color: #000;
+  background: #4c0761;
+  color: #ffffff;
 }
 
 .hero-detail__role-badge.damage {
@@ -237,8 +325,8 @@
 }
 
 .hero-detail__role-badge.support {
-  background: #fbbe3e;
-  color: #000;
+  background: #0176b4;
+  color: #ffffff;
 }
 
 .hero-detail__real-name {
@@ -308,7 +396,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
-  overflow: hidden;
+  overflow: auto;
   max-width: 100%;
 }
 
@@ -390,6 +478,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   max-width: 100%;
+  justify-items: center;
 }
 
 .matchup-icon {
@@ -410,8 +499,9 @@
 }
 
 .matchup-icon img {
-  width: 100%;
-  aspect-ratio: 1;
+  width: 40px;
+  height: 40px;
+  max-width: none;
   object-fit: cover;
   display: block;
   border-radius: 2px;
@@ -468,14 +558,39 @@
   font-weight: 700;
 }
 
+/* Many Counters - Compact Grid */
+.matchup-icons--many {
+  grid-template-columns: repeat(6, 1fr) !important;
+  gap: 8px;
+  max-width: 100%;
+}
+
+.matchup-icons--many .matchup-icon {
+  padding: 2px;
+  max-width: none;
+}
+
+.matchup-icons--many .matchup-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.matchup-icons--many .matchup-icon-name {
+  font-size: 0.55em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* Responsive Design */
 
-/* Extra Large Desktops - Constrain size, 6 columns */
+/* Extra Large Desktops - Constrain size, 5 columns */
 @media (min-width: 1600px) {
   .matchup-icons {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     max-width: 700px;
+    margin: 0 auto;
   }
   
   .matchup-icon {
@@ -487,7 +602,7 @@
   }
   
   .hero-preview {
-    height: 750px;
+    height: 820px;
   }
   
   .hero-detail__bottom {
@@ -495,12 +610,54 @@
   }
 }
 
+/* Desktop breakpoint: ensure matchup icon images are consistent sizes */
+@media (min-width: 993px) {
+  .matchup-icon img {
+    width: 48px;
+    height: 48px;
+  }
+  .matchup-icon {
+    max-width: 96px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .matchup-icon img {
+    width: 48px;
+    height: 48px;
+  }
+  .matchup-icon {
+    max-width: 104px;
+  }
+}
+
+@media (min-width: 1400px) and (max-width: 1599px) {
+  .matchup-icon img {
+    width: 52px;
+    height: 52px;
+  }
+  .matchup-icon {
+    max-width: 112px;
+  }
+}
+
+/* @media (min-width: 1600px) {
+  .matchup-icon img {
+    width: 88px;
+    height: 88px;
+  }
+  .matchup-icon {
+    max-width: 120px;
+  } 
+} */
+
 /* Large Desktops - 5 columns */
 @media (min-width: 1400px) and (max-width: 1599px) {
   .matchup-icons {
     grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     max-width: 650px;
+    margin: 0 auto;
   }
   
   .matchup-icon {
@@ -519,8 +676,10 @@
 /* Medium-Large Desktops - 5 columns */
 @media (min-width: 1200px) and (max-width: 1399px) {
   .matchup-icons {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
   }
   
   .matchup-icon-name {
@@ -533,12 +692,14 @@
   .matchup-icons {
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+    max-width: 520px;
+    margin: 0 auto;
   }
 }
 
 @media (max-width: 1200px) {
   .hero-preview {
-    height: 650px;
+    min-height: 700px;
   }
 
   .hero-detail__name {
@@ -558,11 +719,6 @@
     max-height: none;
   }
 
-  .hero-preview__sidebar {
-    width: 100%;
-    height: 200px;
-  }
-
   .hero-preview__grid {
     grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
   }
@@ -579,6 +735,10 @@
 @media (max-width: 768px) {
   .hero-preview {
     padding: 10px;
+  }
+
+  .hero-preview__sidebar {
+    height: fit-content;
   }
 
   .hero-detail__top {

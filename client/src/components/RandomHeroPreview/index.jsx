@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import './style.css';
+import '../HeroPreview/style.css';
 import heroPics from '../../resources/hero-pics';
 import heroIcons from '../../resources/overwatch-assets';
 import getHeroName from "../../js/getHeroName";
@@ -13,44 +13,26 @@ const normalizeHeroName = (name) => {
     "Soldier76": "Soldier: 76",
     "JunkerQueen": "Junker Queen",
     "WreckingBall": "Wrecking Ball",
-    //"Torbjorn": "Torbjörn",
     "McCree": "Cassidy"
   };
   return nameMap[name] || name;
 };
 
-
-export default function HeroPreview() {
+export default function RandomHeroPreview() {
   const { heroData } = useContext(RequestContext);
   const [selectedHero, setSelectedHero] = useState(null);
   const [heroes, setHeroes] = useState([]);
   const [filterRole, setFilterRole] = useState('all');
-  const [getRandomHeroTimer, setGetRandomHeroTimer] = useState(true); // get random hero every fifteen seconds until user clicks a hero.
 
   useEffect(() => {
     if (heroData && heroData.length > 0) {
-      // Convert hero data to Hero class instances
       const heroInstances = heroData.map(data => new Hero(data));
-
       setHeroes(heroInstances);
-      // Set initial hero
+      
       if (heroInstances.length > 0 && selectedHero === null) {
         let randomHero = heroInstances[Math.floor(Math.random() * heroInstances.length)];
-        //console.log('Initial Random Hero:', randomHero);
         setSelectedHero(randomHero);
-      } else {
-        // setSelectedHero(prev => {
-        //   // Try to load from local storage
-        //   const storedHero = localStorage.getItem('HeroMatchups_SelectedHero');
-        //   if (storedHero) {
-        //     const parsedHero = JSON.parse(storedHero);
-        //     const matchedHero = heroInstances.find(h => h.name === parsedHero.name);
-        //     return matchedHero || prev;
-        //   } 
-        //   return prev;
-        // })
       }
-    
     }
   }, [heroData]);
 
@@ -58,10 +40,7 @@ export default function HeroPreview() {
     if (!hero) return;
     const heroName = normalizeHeroName(typeof hero === 'string' ? hero : hero?.name);
     let newHero = (hero instanceof Hero) ? hero : heroes.find(h => h.name === heroName);
-    // save hero to local storage for 30 days
-    //localStorage.setItem('HeroMatchups_SelectedHero', JSON.stringify(newHero));
     setSelectedHero(h => newHero);
-    //console.log('Selected Hero - handleHeroSelect', newHero);
   };
 
   const getRandomHeroByType = (type) => {
@@ -83,7 +62,6 @@ export default function HeroPreview() {
     ? heroes 
     : heroes.filter(h => h.type === filterRole);
 
-  // Show loading state if no heroes are available yet
   if (!heroes || heroes.length === 0) {
     return (
       <div className="hero-preview">
@@ -124,21 +102,6 @@ export default function HeroPreview() {
           </button>
         </div>
 
-        <div className="hero-preview__select-wrapper">
-          <label htmlFor="hero-selection-preview" className="hero-preview__select-label">Choose a hero: </label>
-          <select
-            id="hero-selection-preview"
-            className="hero-preview__select"
-            value={selectedHero?.name || ''}
-            onChange={(e) => handleHeroSelect(e.target.value)}
-          >
-            <option value="">Choose a hero</option>
-            {[...heroes].sort((a, b) => (a.name || '').localeCompare(b.name || '')).map((h, i) => (
-              <option key={i} value={h.name}>{getHeroName(h.name, true)}</option>
-            ))}
-          </select>
-        </div>
-
         <div className="hero-preview__grid">
           {filteredHeroes.map((hero, index) => {
             const heroKey = getHeroName(hero.name, false);
@@ -158,22 +121,45 @@ export default function HeroPreview() {
             );
           })}
         </div>
-        <div className="hero-preview__sidebar-actions">
-          <button className="filter-btn tank" onClick={() => getRandomHeroByType('tank')}>Random Tank</button>
-          <button className="filter-btn damage" onClick={() => getRandomHeroByType('damage')}>Random DPS</button>
-          <button className="filter-btn support" onClick={() => getRandomHeroByType('support')}>Random Support</button>
-          <button className="filter-btn" onClick={() => getRandomHero()} style={{ borderColor: '#ff9c00', color: '#ff9c00' }}>Random All</button>
-        </div>
       </div>
 
       <div className="hero-preview__main">
         {selectedHero ? (
-          <HeroDetailView
-            hero={selectedHero}
-            handleHeroSelect={handleHeroSelect}
-            getRandomHero={getRandomHero}
-            getRandomHeroByType={getRandomHeroByType}
-          />
+          <>
+            <div style={{ padding: '12px', borderBottom: '1px solid rgba(255, 156, 0, 0.2)' }}>
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <button 
+                  className="filter-btn tank"
+                  onClick={() => getRandomHeroByType('tank')}
+                  style={{ flex: 1 }}
+                >
+                  Random Tank
+                </button>
+                <button 
+                  className="filter-btn damage"
+                  onClick={() => getRandomHeroByType('damage')}
+                  style={{ flex: 1 }}
+                >
+                  Random DPS
+                </button>
+                <button 
+                  className="filter-btn support"
+                  onClick={() => getRandomHeroByType('support')}
+                  style={{ flex: 1 }}
+                >
+                  Random Support
+                </button>
+                <button 
+                  className="filter-btn"
+                  onClick={() => getRandomHero()}
+                  style={{ flex: 1, borderColor: '#ff9c00', color: '#ff9c00' }}
+                >
+                  Random All
+                </button>
+              </div>
+            </div>
+            <HeroDetailView hero={selectedHero} handleHeroSelect={handleHeroSelect} />
+          </>
         ) : (
           <div className="hero-preview__empty">
             <p>Select a hero to view details</p>
@@ -184,7 +170,7 @@ export default function HeroPreview() {
   );
 }
 
-function HeroDetailView({ hero, handleHeroSelect, getRandomHero, getRandomHeroByType }) {
+function HeroDetailView({ hero, handleHeroSelect }) {
   const heroKey = getHeroName(hero.name, false);
   const healthBreakdown = hero.getHealthBreakdown('roleQueue');
   const counteredHeroes = hero.getCounteredHeroes();
@@ -192,7 +178,6 @@ function HeroDetailView({ hero, handleHeroSelect, getRandomHero, getRandomHeroBy
 
   return (
     <div className="hero-detail">
-      {/* Top Section: Portrait + Basic Info */}
       <div className="hero-detail__top">
         <div className="hero-detail__portrait">
           <img 
@@ -238,20 +223,10 @@ function HeroDetailView({ hero, handleHeroSelect, getRandomHero, getRandomHeroBy
               <span className="meta-label">Archetype:</span>
               <span className="meta-value">{hero.archetype.join(' • ')}</span>
             </div>
-            {/* {hero.difficulty !== null && (
-              <div className="meta-item">
-                <span className="meta-label">Difficulty:</span>
-                <span className="meta-value">
-                  {'★'.repeat(hero.difficulty)}{'☆'.repeat(3 - hero.difficulty)}
-                </span>
-              </div>
-            )} */}
-            { /* TODO: Add hero status */}
           </div>
         </div>
       </div>
 
-      {/* Bottom Section: Two Columns */}
       <div className="hero-detail__bottom">
         <div className="hero-detail__column">
           <div className="info-section">
@@ -270,7 +245,6 @@ function HeroDetailView({ hero, handleHeroSelect, getRandomHero, getRandomHeroBy
               <div className="hero-quote">"{hero.quotes[0]}"</div>
             </div>
           )}
-       
         </div>
 
         <div className="hero-detail__column">
@@ -282,10 +256,7 @@ function HeroDetailView({ hero, handleHeroSelect, getRandomHero, getRandomHeroBy
                 const counterValue = hero.getCounterValue(counterName);
                 return (
                   <div key={idx} className={`matchup-icon good ${counterValue === '++' ? 'strong' : ''}`} title={counterName}
-                    onClick={() =>{
-                      //console.log('clicked on ', counterName);
-                      handleHeroSelect(counterName)
-                    }}
+                    onClick={() => handleHeroSelect(counterName)}
                   >
                     <img src={heroIcons[counterKey]} alt={counterName} />
                     <span className="matchup-icon-name">{getHeroName(counterName, true)}</span>
@@ -303,10 +274,7 @@ function HeroDetailView({ hero, handleHeroSelect, getRandomHero, getRandomHeroBy
                 const counterValue = hero.getCounterValue(counterName);
                 return (
                   <div key={idx} className={`matchup-icon bad ${counterValue === '--' ? 'strong' : ''}`} title={counterName}
-                     onClick={() =>{
-                      //console.log('clicked on ', counterName);
-                      handleHeroSelect(counterName)
-                    }}
+                     onClick={() => handleHeroSelect(counterName)}
                   >
                     <img src={heroIcons[counterKey]} alt={counterName} />
                     <span className="matchup-icon-name">{getHeroName(counterName, true)}</span>
@@ -329,4 +297,3 @@ function InfoRow({ label, value }) {
     </div>
   );
 }
-

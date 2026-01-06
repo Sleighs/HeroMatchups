@@ -4,7 +4,6 @@ import './style.css';
 
 import heroPics from '../../resources/hero-pics';
 import { RequestContext } from "../../contexts/RequestContext";
-import { ThemeContext } from "../../contexts/ThemeContext";
 import getHeroName from "../../js/getHeroName";
 
 export default function HeroSelection(props) {
@@ -15,7 +14,6 @@ export default function HeroSelection(props) {
     heroData
   } = useContext(RequestContext)
 
-  const { theme } = useContext(ThemeContext)
 
   const [highlightedHero, setHighlightedHero] = useState(null);
 
@@ -36,61 +34,11 @@ export default function HeroSelection(props) {
   
 
   return (
-    <div className="hero-profile">      
-      <h2 className={`section-heading ${theme}__title`}>Resources</h2>
-      
-      <p style={{textAlign: '', fontSize: '1.2em' }}>
-        <strong>Base URL: </strong>{apiUrl}
-      </p>
-      
-      <section className="resources__section">
-        <h3 className="resources__route-style">/heroes</h3>
-        <h3 className="resources__route-style">/heroes/:heroName</h3>
-        <ul className="resources__list">
-          <li><strong>Description:</strong> Retrieves information for all available heroes in JSON. The "heroName" tag retrieves details for only the specified hero.</li>
-          <li className='api-url'><strong>URL:</strong> {apiUrl}/heroes</li>
-          <li><strong>Method:</strong> GET</li>
-        </ul>
-      </section>
-      
-      <section className="resources__section">
-        <h3 className="resources__route-style">/type/:type</h3>
-        <ul className="resources__list">
-          <li><strong>Description:</strong> Retrieves information for all heroes of the selected type.</li>
-          <li><span><strong>Options:</strong> tank, damage, support</span></li>
-          <li className='api-url'><strong>URL:</strong> {apiUrl}/type/:type</li>
-          <li><strong>Method:</strong> GET</li>
-        </ul>
-      </section>
-
-      <section className="resources__section">
-        <h3 className="resources__route-style">/archetype</h3>
-        <h3 className="resources__route-style">/archetype/:archetypeName</h3>
-        <ul className="resources__list">
-          <li>
-            <span><strong>Description:</strong> The "/archetype" route lists all available hero archetypes. The "archetypeName" tag retrieves all heroes of the selected archetype.</span>
-            <br/>
-          </li>
-
-          <li><span><strong>Options:</strong></span>
-            <ul>
-              <li><strong>Tank:</strong> Anchor, Initiator, First Responder, Damage Heavy</li>
-              <li><strong>Damage: </strong> Anchor, Flanker, Sniper, Scrapper, Specialist</li>
-              <li><strong>Suppport: </strong>Main Healer, Pocket Healer, Utility</li>
-            </ul>
-          </li>
-          
-          <li className='api-url'>
-            <strong>URL:</strong> {apiUrl}/archetype/:archetypeName
-          </li>
-          <li><strong>Method:</strong> GET</li>
-        </ul>
-      </section>
-      
+    <div className="hero-profile"> 
       <p className="hero-profile__text3" >
         Click hero icons to view matchups
-      </p>
-      
+      </p>     
+
       {heroData &&
       <div id="hero-profile__pics-container">
         <div className="hero-profile__hero-section">

@@ -416,3 +416,28 @@
         max-width: 300px;
     }
 }
+
+/* Responsive: allow wider content area on large screens so components don't overflow */
+@media (min-width: 1200px) {
+    .home__body {
+        max-width: 1200px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .home__body {
+        max-width: 1400px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .home__body {
+        max-width: 1600px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .home__body {
+        max-width: 1800px;
+    }
+}

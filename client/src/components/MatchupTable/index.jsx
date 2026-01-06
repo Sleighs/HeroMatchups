@@ -119,12 +119,15 @@ export default function MatchupTable(props) {
           {/* Column Headers (Top) */}
           <div className="counter-table__header-row">
             <div className="counter-table__corner-cell">
-              <span className="counter-table__axis-label counter-table__axis-label--vertical">
+              {/* <span className="counter-table__axis-label counter-table__axis-label--vertical">
                 Hero
-              </span>
-              <span className="counter-table__axis-label counter-table__axis-label--horizontal">
+              </span> */}
+              {/* <span className="counter-table__axis-label counter-table__axis-label--horizontal">
                 vs Counter
-              </span>
+              </span> */}
+              <span className="counter-table__axis-label counter-table__axis-label--horizontal">
+                Heroes 
+              </span> 
             </div>
             {filteredHeroes.map(([key, hero], index) => (
               <div 
@@ -189,12 +192,15 @@ export default function MatchupTable(props) {
           {/* Footer Row (Bottom) - Hero Names */}
           <div className="counter-table__footer-row">
             <div className="counter-table__corner-cell counter-table__corner-cell--bottom">
-              <span className="counter-table__axis-label counter-table__axis-label--vertical">
+              {/* <span className="counter-table__axis-label counter-table__axis-label--vertical">
                 Hero
-              </span>
-              <span className="counter-table__axis-label counter-table__axis-label--horizontal">
+              </span> */}
+              {/* <span className="counter-table__axis-label counter-table__axis-label--horizontal">
                 vs Counter
-              </span>
+              </span> */}
+              <span className="counter-table__axis-label counter-table__axis-label--horizontal">
+                Heroes
+              </span> 
             </div>
             {filteredHeroes.map(([key, hero], index) => (
               <div 
