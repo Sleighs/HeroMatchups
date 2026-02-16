@@ -10,6 +10,12 @@ export default function getHeroName(name, spaces) {
         } else {
             newName = "Dva"
         }
+    } else if (name === "Jetpack Cat" || name === "Jetpack cat" || name === "Jetpack Cat" || name === "Jetpack cat"){
+        if (spaces){
+            newName = "Jetpack Cat"
+        } else {
+            newName = "JetpackCat"
+        }
     } else if (name === "JunkerQueen" || name === "Junkerqueen" || name === "Junker queen" || name === "Junker Queen"){
         if (spaces){
             newName = "Junker Queen"

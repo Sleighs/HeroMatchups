@@ -1,16 +1,20 @@
 import anaPic from './Icon-Ana.png';
+import anranPic from './Icon-Anran.png';
 import ashePic from './Icon-Ashe.png';
 import baptistePic from './Icon-Baptiste.png';
 import bastionPic from './Icon-Bastion.png';
 import brigittePic from './Icon-Brigitte.png';
 import dvaPic from './Icon-Dva.png';
+import dominaPic from './Icon-Domina.png';
 import doomfistPic from './Icon-Doomfist.png';
 import echoPic from './Icon-Echo.png';
+import emrePic from './Icon-Emre.png';
 import FrejaPic from './Icon-Freja.png';
 import genjiPic from './Icon-Genji.png';
 import hanzoPic from './Icon-Hanzo.png';
 import hazardPic from './Icon-Hazard.png';
 import illariPic from './Icon-Illari.png';
+import jetpackcatPic from './Icon-JetpackCat.png';
 import junkratPic from './Icon-Junkrat.png';
 import junkerqueenPic from './Icon-JunkerQueen.png';
 import junoPic from './Icon-Juno.png';
@@ -21,6 +25,7 @@ import maugaPic from './Icon-Mauga.png';
 import mccreePic from './Icon-McCree.png';
 import meiPic from './Icon-Mei.png';
 import mercyPic from './Icon-Mercy.png';
+import mizukiPic from './Icon-Mizuki.png';
 import moiraPic from './Icon-Moira.png';
 import orisaPic from './Icon-Orisa.png';
 import pharahPic from './Icon-Pharah.png';
@@ -46,18 +51,22 @@ import zenyattaPic from './Icon-Zenyatta.png';
 
 const heroPics = {
     Ana: anaPic,
+    Anran: anranPic,
     Ashe: ashePic,
     Baptiste: baptistePic,
     Bastion: bastionPic,
     Brigitte: brigittePic,
     Dva: dvaPic,
+    Domina: dominaPic,
     Doomfist: doomfistPic,
     Echo: echoPic,
+    Emre: emrePic,
     Freja: FrejaPic,
     Genji: genjiPic,
     Hanzo: hanzoPic,
     Hazard: hazardPic,
     Illari: illariPic,
+    JetpackCat: jetpackcatPic,
     Junkrat: junkratPic,
     JunkerQueen: junkerqueenPic,
     Juno: junoPic,
@@ -69,6 +78,7 @@ const heroPics = {
     Cassidy: mccreePic,
     Mei: meiPic,
     Mercy: mercyPic,
+    Mizuki: mizukiPic,
     Moira: moiraPic,
     Orisa: orisaPic,
     Pharah: pharahPic,

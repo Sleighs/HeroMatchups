@@ -122,17 +122,21 @@ export default function HeroSelection(props) {
           }}
         >
             <option value="Ana">Ana</option>
+            <option value="Anran">Anran</option>
             <option value="Ashe">Ashe</option>
             <option value="Baptiste">Baptiste</option>
             <option value="Bastion">Bastion</option>
             <option value="Brigitte">Brigitte</option>
             <option value="Dva">D.Va</option>
+            <option value="Domina">Domina</option>
             <option value="Doomfist">Doomfist</option>
             <option value="Echo">Echo</option>
+            <option value="Emre">Emre</option>
             <option value="Freja">Freja</option>
             <option value="Genji">Genji</option>
             <option value="Hanzo">Hanzo</option>
             <option value="Illari">Illari</option>
+            <option value="JetpackCat">Jetpack Cat</option>
             <option value="Junker Queen">Junker Queen</option>
             <option value="Junkrat">Junkrat</option>
             <option value="Kiriko">Kiriko</option>
@@ -142,6 +146,7 @@ export default function HeroSelection(props) {
             <option value="Cassidy">{"Cassidy (McCree)"}</option>
             <option value="Mei">Mei</option>
             <option value="Mercy">Mercy</option>
+            <option value="Mizuki">Mizuki</option>
             <option value="Moira">Moira</option>
             <option value="Orisa">Orisa</option>
             <option value="Pharah">Pharah</option>

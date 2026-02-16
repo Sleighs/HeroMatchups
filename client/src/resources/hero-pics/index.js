@@ -1,16 +1,22 @@
+// New heroes for season 1 ow2026: Anran, Domina, Jetpack Cat, Emre, Mizuki
+
 import anaPic from './ana-pic.png';
+import anranPic from './anran-pic.png';
 import ashePic from './ashe-pic.png';
 import baptistePic from './baptiste-pic.png';
 import bastionPic from './bastion-pic.png';
 import brigittePic from './brigitte-pic.png';
 import dvaPic from './dva-pic.png';
+import dominaPic from './domina-pic.png';
 import doomfistPic from './doomfist-pic.png';
 import echoPic from './echo-pic.png';
+import emrePic from './emre-pic.png';
 import frejaPic from './freja-pic.png';
 import genjiPic from './genji-pic.png';
 import hanzoPic from './hanzo-pic.png';
 import hazardPic from './hazard-pic.png';
-import illariPic from './illari-pic.png';
+import illariPic from './illari-pic.png';   
+import jetpackcatPic from './jetpackcat-pic.png';
 import junkratPic from './junkrat-pic.png';
 import junkerqueenPic from './junkerqueen-pic.png';
 import JunoPic from './juno-pic.png';
@@ -21,6 +27,7 @@ import maugaPic from './mauga-pic.png';
 import cassidyPic from './cassidy-pic.png';
 import meiPic from './mei-pic.png';
 import mercyPic from './mercy-pic.png';
+import mizukiPic from './mizuki-pic.png';
 import moiraPic from './moira-pic.png';
 import orisaPic from './orisa-pic.png';
 import pharahPic from './pharah-pic.png';
@@ -46,18 +53,22 @@ import zenyattaPic from './zenyatta-pic.png';
 
 const heroPics = {
     Ana: anaPic,
+    Anran: anranPic,
     Ashe: ashePic,
     Baptiste: baptistePic,
     Bastion: bastionPic,
     Brigitte: brigittePic,
     Dva: dvaPic,
+    Domina: dominaPic,
     Doomfist: doomfistPic,
     Echo: echoPic,
+    Emre: emrePic,
     Freja: frejaPic,
     Genji: genjiPic,
     Hanzo: hanzoPic,
     Hazard: hazardPic,
     Illari: illariPic,
+    JetpackCat: jetpackcatPic,
     Junkrat: junkratPic,
     JunkerQueen: junkerqueenPic,
     Juno: JunoPic,
@@ -68,6 +79,7 @@ const heroPics = {
     Cassidy: cassidyPic,
     Mei: meiPic,
     Mercy: mercyPic,
+    Mizuki: mizukiPic,
     Moira: moiraPic,
     Orisa: orisaPic,
     Pharah: pharahPic,

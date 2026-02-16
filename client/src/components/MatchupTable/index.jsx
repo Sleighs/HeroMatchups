@@ -129,7 +129,7 @@ export default function MatchupTable(props) {
                 Heroes 
               </span> 
             </div>
-            {filteredHeroes.map(([key, hero], index) => (
+            {sortedHeroes.map(([key, hero], index) => (
               <div 
                 key={`header-${key}`}
                 className={`counter-table__header-cell ${
@@ -163,7 +163,7 @@ export default function MatchupTable(props) {
               </div>
 
               {/* Matchup Cells */}
-              {filteredHeroes.map(([colKey, colHero], colIndex) => {
+              {sortedHeroes.map(([colKey, colHero], colIndex) => {
                 const value = getMatchupValue(rowHero, colHero);
                 const matchupClass = getMatchupClass(value);
                 const symbol = getMatchupSymbol(value);
@@ -202,7 +202,7 @@ export default function MatchupTable(props) {
                 Heroes
               </span> 
             </div>
-            {filteredHeroes.map(([key, hero], index) => (
+            {sortedHeroes.map(([key, hero], index) => (
               <div 
                 key={`footer-${key}`}
                 className={`counter-table__footer-cell ${
@@ -250,7 +250,7 @@ export default function MatchupTable(props) {
       </div>
 
       <div className="counter-table__info">
-        Showing {filteredHeroes.length} heroes × {filteredHeroes.length} matchups = {filteredHeroes.length * filteredHeroes.length} cells
+        Showing {filteredHeroes.length} heroes × {sortedHeroes.length} matchups = {filteredHeroes.length * sortedHeroes.length} cells
       </div>
     </div>
   );
