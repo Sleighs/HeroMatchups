@@ -153,6 +153,7 @@ export default function HeroSelection(props) {
             <option value="Reaper">Reaper</option>
             <option value="Reinhardt">Reinhardt</option>
             <option value="Roadhog">Roadhog</option>
+            <option value="Sierra">Sierra</option>
             <option value="Sigma">Sigma</option>
             <option value="Sojourn">Sojourn</option>
             <option value="Soldier76">Soldier: 76</option>

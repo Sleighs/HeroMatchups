@@ -33,6 +33,7 @@ import ramattraPic from './Icon-Ramattra.png';
 import reaperPic from './Icon-Reaper.png';
 import reinhardtPic from './Icon-Reinhardt.png';
 import roadhogPic from './Icon-Roadhog.png';
+import sierraPic from './Icon-Sierra.png';
 import sigmaPic from './Icon-Sigma.png';
 import sojournPic from './Icon-Sojourn.png';
 import soldier76Pic from './Icon-Soldier76.png';
@@ -86,6 +87,7 @@ const heroPics = {
     Reaper: reaperPic,
     Reinhardt: reinhardtPic,
     Roadhog: roadhogPic,
+    Sierra: sierraPic,
     Sigma: sigmaPic,
     Sojourn: sojournPic,
     Soldier76: soldier76Pic,
