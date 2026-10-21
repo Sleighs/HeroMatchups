@@ -121,54 +121,14 @@ export default function HeroSelection(props) {
             getHeroData(event, event.target.value);
           }}
         >
-            <option value="Ana">Ana</option>
-            <option value="Anran">Anran</option>
-            <option value="Ashe">Ashe</option>
-            <option value="Baptiste">Baptiste</option>
-            <option value="Bastion">Bastion</option>
-            <option value="Brigitte">Brigitte</option>
-            <option value="Dva">D.Va</option>
-            <option value="Domina">Domina</option>
-            <option value="Doomfist">Doomfist</option>
-            <option value="Echo">Echo</option>
-            <option value="Emre">Emre</option>
-            <option value="Freja">Freja</option>
-            <option value="Genji">Genji</option>
-            <option value="Hanzo">Hanzo</option>
-            <option value="Illari">Illari</option>
-            <option value="JetpackCat">Jetpack Cat</option>
-            <option value="Junker Queen">Junker Queen</option>
-            <option value="Junkrat">Junkrat</option>
-            <option value="Kiriko">Kiriko</option>
-            <option value="Lifeweaver">Lifeweaver</option>
-            <option value="Lucio">Lucio</option>
-            <option value="Mauga">Mauga</option>
-            <option value="Cassidy">{"Cassidy (McCree)"}</option>
-            <option value="Mei">Mei</option>
-            <option value="Mercy">Mercy</option>
-            <option value="Mizuki">Mizuki</option>
-            <option value="Moira">Moira</option>
-            <option value="Orisa">Orisa</option>
-            <option value="Pharah">Pharah</option>
-            <option value="Reaper">Reaper</option>
-            <option value="Reinhardt">Reinhardt</option>
-            <option value="Roadhog">Roadhog</option>
-            <option value="Sierra">Sierra</option>
-            <option value="Sigma">Sigma</option>
-            <option value="Sojourn">Sojourn</option>
-            <option value="Soldier76">Soldier: 76</option>
-            <option value="Sombra">Sombra</option>
-            <option value="Symmetra">Symmetra</option>
-            <option value="Torbjorn">Torbjorn</option>
-            <option value="Tracer">Tracer</option>
-            <option value="Vendetta">Vendetta</option>
-            <option value="Venture">Venture</option>
-            <option value="Widowmaker">Widowmaker</option>
-            <option value="Winston">Winston</option>
-            <option value="WreckingBall">Wrecking Ball</option>
-            <option value="Wuyang">Wuyang</option>
-            <option value="Zarya">Zarya</option>
-            <option value="Zenyatta">Zenyatta</option>
+          {heroData && heroData.map((hero) => (
+            <option
+              key={hero.name}
+              value={getHeroName(hero.name, false)}
+            >
+              {getHeroName(hero.name, true)}
+            </option>
+          ))}
         </select>
       </div>
     </div>

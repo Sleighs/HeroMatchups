@@ -5,6 +5,7 @@ import baptistePic from './Icon-Baptiste.png';
 import bastionPic from './Icon-Bastion.png';
 import brigittePic from './Icon-Brigitte.png';
 import dvaPic from './Icon-Dva.png';
+import doctrinePic from './Icon-Doctrine.png';
 import dominaPic from './Icon-Domina.png';
 import doomfistPic from './Icon-Doomfist.png';
 import echoPic from './Icon-Echo.png';
@@ -58,6 +59,7 @@ const heroPics = {
     Bastion: bastionPic,
     Brigitte: brigittePic,
     Dva: dvaPic,
+    Doctrine: doctrinePic,
     Domina: dominaPic,
     Doomfist: doomfistPic,
     Echo: echoPic,
